@@ -5,16 +5,66 @@ server:
 spring:
   application:
     name: alinesno-infra-base-gateway-boot
+  main:
+    allow-bean-definition-overriding: true
+    allow-circular-references: true
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://localhost:3306/dev_alinesno_infra_base_gateway_v100?serverTimezone=GMT%2B8&zeroDateTimeBehavior=CONVERT_TO_NULL
     username: root
     password: adminer
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
   data:
     redis:
       host: 127.0.0.1
       port: 6379
       password: aip@local
+  mail:
+    username: xxxxxx@qq.com
+    password: xxxxxx
+    host: smtp.exmail.qq.com
+    port: 25
+    default-encoding: utf-8
+    properties:
+      mail:
+        smtp:
+          timeout: 100000
+          auth: true
+          ssl:
+            enable: true
+          starttls:
+            enable: true
+            required: true
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+            fallback: false
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
   devtools:
     restart:
       enabled: true
+
+# 配置授权访问服务的IP
+system:
+  auth:
+    ip: 127.0.*,0.*

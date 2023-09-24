@@ -1,0 +1,88 @@
+server:
+  port: 8771
+  address: 0.0.0.0
+
+spring:
+  application:
+    name: alinesno-cloud-data-security-gateway-application
+  main:
+    allow-bean-definition-overriding: true
+    allow-circular-references: true
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password: aip@local
+      database: 0
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: none
+      dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+      naming:
+        # 采用@Column注解字段命名，否则会用砣峰命名规则生产数据库字段名
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/dev_alinesno_infra_base_gateway_v100?serverTimezone=GMT%2B8&zeroDateTimeBehavior=CONVERT_TO_NULL
+    username: root
+    password: adminer
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+    gateway:
+      discovery:
+        locator:
+          # 启用本地化网关
+          enabled: true
+          # 将服务名转换为小写
+          lower-case-service-id: true
+      # 网关跨域配置
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOriginsPatterns: "*"
+            addAllowedHeader: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
+
+# 熔断器配置，参见官方：https://github.com/Netflix/Hystrix/wiki/Configuration
+hystrix:
+  command:
+    default:
+      circuitBreaker:
+        enabled: true
+        sleepWindowInMilliseconds: 300000
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+    myHystrix:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000

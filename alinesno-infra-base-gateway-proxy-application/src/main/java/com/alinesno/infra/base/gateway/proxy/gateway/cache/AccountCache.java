@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 用于进行用户权限划分的， key 是用户 token，用户初次添加路由或ip时创建，value 是route或ip
- * @author  suze
+ * @author  luoxiaodong
  * @data 2023/04/25 14:14
  */
 public class AccountCache {

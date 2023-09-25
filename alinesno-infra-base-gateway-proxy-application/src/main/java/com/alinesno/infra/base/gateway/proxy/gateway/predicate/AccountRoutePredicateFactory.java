@@ -19,7 +19,7 @@ import java.util.function.Predicate;
 import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.GATEWAY_PREDICATE_ROUTE_ATTR;
 
 /**
- * @author  suze
+ * @author  luoxiaodong
  * @data 2023/04/25 10:33
  */
 @Slf4j

@@ -1,16 +1,19 @@
 package com.alinesno.infra.base.gateway;
 
-import org.mybatis.spring.annotation.MapperScan;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
- * 集成一个Java开发示例工具
- * @author luoxiaodong
- * @version 1.0.0
+ * 启动类
+ * @author  luoxiaodong
+ * @version v1.0.0
  */
-@MapperScan("com.alinesno.infra.base.gateway.mapper")
+@EnableAsync
+@EnableScheduling
+@Slf4j
 @SpringBootApplication
 public class BaseGatewayApplication {
 

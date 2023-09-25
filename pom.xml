@@ -22,6 +22,7 @@
 
     <modules>
         <!-- 应用服务 -->
+        <module>alinesno-infra-base-gateway-core</module>  <!-- 工程核心包 -->
         <module>alinesno-infra-base-gateway-facade</module>  <!-- 接口和引用 -->
         <module>alinesno-infra-base-gateway-domain</module>  <!-- 领域服务 -->
         <module>alinesno-infra-base-gateway-adapter</module> <!-- 适配层 -->

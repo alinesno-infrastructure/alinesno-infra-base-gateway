@@ -15,10 +15,10 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 自定义token安全验证过滤器工厂
- * @Author jianglong
- * @Date 2020/05/27
- * @Version V1.0
+ * @description 自定义token安全验证过滤器工厂
+ * @author  jianglong
+ * @date 2020/05/27
+ * @version 1.0.0
  */
 @Slf4j
 @Component

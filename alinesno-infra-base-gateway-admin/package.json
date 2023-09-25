@@ -1,7 +1,7 @@
 {
   "name": "alinesno-infra-smart-brain-admin",
   "version": "1.0.0",
-  "description": "网关配置服务",
+  "description": "基设计平台服务",
   "author": "LuoXiaoDong",
   "license": "Apache-2.0",
   "scripts": {
@@ -21,6 +21,9 @@
     "fuse.js": "6.6.2",
     "js-cookie": "3.0.1",
     "jsencrypt": "3.3.1",
+    "mavon-editor": "^2.9.0",
+    "monaco-editor-vue": "^1.0.10",
+    "monaco-editor-webpack-plugin": "^4.0.0",
     "nprogress": "0.2.0",
     "pinia": "2.0.22",
     "vue": "3.2.45",

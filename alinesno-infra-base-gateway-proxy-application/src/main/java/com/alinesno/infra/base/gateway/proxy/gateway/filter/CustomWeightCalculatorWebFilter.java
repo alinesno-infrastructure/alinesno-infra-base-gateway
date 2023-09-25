@@ -50,16 +50,14 @@ import com.alinesno.infra.base.gateway.proxy.gateway.event.WeightRemoveApplicati
 import reactor.core.publisher.Mono;
 
 /**
- * @Description 此过滤器是直接复制gateway中的WeightCalculatorWebFilter过滤器源代码的基础上，增加了WeightRemoveApplicationEvent监听事件，
+ * @description 此过滤器是直接复制gateway中的WeightCalculatorWebFilter过滤器源代码的基础上，增加了WeightRemoveApplicationEvent监听事件，
  *                对负载权重group数据进行清理。以解决原gateway中对同一个负载下多个网关路由，其中一个移除后，分组中的网关路由权重并未清除，
  *                导制随机数计算分配时，还会匹配到该下线网关路由中，最终出现404问题
- * @Author JL
- * @Date 2021/10/12
- * @Version V1.0
- */
-/**
- * @author Spencer Gibb
- * @author Alexey Nakidkin
+ * @author  JL
+ * @author  Spencer Gibb
+ * @author  Alexey Nakidkin
+ * @date 2021/10/12
+ * @version 1.0.0
  */
 public class CustomWeightCalculatorWebFilter implements WebFilter, Ordered, SmartApplicationListener {
 

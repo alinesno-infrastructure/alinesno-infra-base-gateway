@@ -22,10 +22,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @Description 自定义网关路由转发异常处理器
- * @Author JL
- * @Date 2021/11/05
- * @Version V1.0
+ * @description 自定义网关路由转发异常处理器
+ * @author  JL
+ * @date 2021/11/05
+ * @version 1.0.0
  */
 @Slf4j
 @Order(-1)

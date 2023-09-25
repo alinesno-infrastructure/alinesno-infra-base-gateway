@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author suze
+ * @author  suze
  * @data 2023/04/04 11:42
  */
 @CrossOrigin( allowCredentials = "false")

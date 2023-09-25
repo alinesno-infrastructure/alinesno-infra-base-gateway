@@ -401,8 +401,8 @@
 </template>
 
 <script>
-	// import gatewayJson from '../api/json/gateway.json'
-	import {addRoute,updateRoute} from '../api/gateway_api.js'
+	// import gatewayJson from '@/api/json/gateway.json'
+	import {addRoute,updateRoute} from '@/api/gateway_api.js'
 
 	export default {
 		data() {
@@ -526,7 +526,7 @@
 				}
 			},
 			goBack() {
-				this.$router.push({path:'/gatewayList',query:{}});
+				this.$router.push({path:'/gateway/gatewayList',query:{}});
 			},
 			handleHystrixChecked(type){//熔断器，二选一
 				this.hystrix.defaultChecked = (this.hystrix.defaultChecked && type === 'default')?true:false;

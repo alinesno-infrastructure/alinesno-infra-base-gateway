@@ -6,10 +6,10 @@ import java.util.Map;
 import lombok.Data;
 
 /**
- * @Description 路由断言模型
- * @Author jianglong
- * @Date 2020/05/11
- * @Version V1.0
+ * @description 路由断言模型
+ * @author  jianglong
+ * @date 2020/05/11
+ * @version 1.0.0
  */
 @Data
 public class GatewayPredicateDefinition {

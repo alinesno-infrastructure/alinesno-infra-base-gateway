@@ -91,8 +91,8 @@
 </template>
 
 <script>
-	import routeRequestCountComponent from '../components/RouteRequestCount.vue'
-	import {countRoutePageList, countRequestTotal} from '../api/count_api.js'
+	import routeRequestCountComponent from '@/components/RouteRequestCount.vue'
+	import {countRoutePageList, countRequestTotal} from '@/api/count_api.js'
 
 	export default {
 		data() {

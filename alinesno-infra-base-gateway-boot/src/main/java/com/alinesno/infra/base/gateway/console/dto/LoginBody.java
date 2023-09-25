@@ -3,7 +3,7 @@ package com.alinesno.infra.base.gateway.console.dto;
 /**
  * 用户登录对象
  * 
- * @author ruoyi
+ * @author  ruoyi
  */
 public class LoginBody
 {

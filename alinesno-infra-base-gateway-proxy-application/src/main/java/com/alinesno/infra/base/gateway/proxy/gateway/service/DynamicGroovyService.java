@@ -8,7 +8,7 @@ import com.alinesno.infra.base.gateway.formwork.util.Constants;
 import com.alinesno.infra.base.gateway.formwork.util.HttpEnum;
 import com.alinesno.infra.base.gateway.formwork.util.Md5Utils;
 import com.alinesno.infra.base.gateway.formwork.util.NetworkIpUtils;
-import com.alinesno.infra.base.gateway.proxy.gateway.cache.RotueGroovyCache;
+import com.alinesno.infra.base.gateway.proxy.gateway.cache.RouteGroovyCache;
 import com.alinesno.infra.base.gateway.proxy.gateway.component.GroovyCache;
 import com.alinesno.infra.base.gateway.proxy.gateway.vo.GroovyHandleData;
 import jakarta.annotation.Resource;
@@ -29,10 +29,10 @@ import java.util.Map;
 import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.GATEWAY_ROUTE_ATTR;
 
 /**
- * @Description 执行网关路由下groovyScript规则引擎动态脚本
- * @Author JL
- * @Date 2022/2/21
- * @Version V1.0
+ * @description 执行网关路由下groovyScript规则引擎动态脚本
+ * @author  JL
+ * @date 2022/2/21
+ * @version 1.0.0
  */
 @Slf4j
 @Service
@@ -55,7 +55,7 @@ public class DynamicGroovyService {
      */
     public GroovyHandleData handle(ServerWebExchange exchange, GroovyHandleData handleData, HttpEnum httpEnum) throws Exception {
         Route route = exchange.getRequiredAttribute(GATEWAY_ROUTE_ATTR);
-        List<Long> groovyScriptIds = RotueGroovyCache.get(route.getId());
+        List<Long> groovyScriptIds = RouteGroovyCache.get(route.getId());
         if (CollectionUtils.isEmpty(groovyScriptIds)){
             log.debug("未找到网关ID【{}】规则引擎动态脚本【groovy】配置！", route.getId());
             return handleData;
@@ -158,7 +158,7 @@ public class DynamicGroovyService {
         if (CollectionUtils.isEmpty(idList)){
             return ;
         }
-        List<Long> cacheIdList = RotueGroovyCache.get(routeId);
+        List<Long> cacheIdList = RouteGroovyCache.get(routeId);
         if (CollectionUtils.isEmpty(cacheIdList)) {
             return ;
         }
@@ -180,8 +180,8 @@ public class DynamicGroovyService {
         }
 
         //重建网关缓存的规则引擎动态脚本关系
-        RotueGroovyCache.remove(routeId);
-        RotueGroovyCache.put(routeId, newIdList);
+        RouteGroovyCache.remove(routeId);
+        RouteGroovyCache.put(routeId, newIdList);
     }
 
     /**
@@ -199,7 +199,7 @@ public class DynamicGroovyService {
 
         //移除网关与规则引擎动态脚本关系
         if (routeId != null){
-            RotueGroovyCache.removeValue(routeId, groovyScriptId);
+            RouteGroovyCache.removeValue(routeId, groovyScriptId);
             log.info("已删除网关路由【{}】groovyScript规则引擎动态脚本【{}】！", routeId, groovyScriptId);
         }
     }
@@ -278,7 +278,7 @@ public class DynamicGroovyService {
         //将实例化对象注入到spring的上下文中
         applicationContextProvider.getApplicationContext().getAutowireCapableBeanFactory().autowireBean(groovyService);
         //本地内存缓存网关与脚本关系，用于过滤器加载指定路径网关规则引擎脚本进行验证
-        RotueGroovyCache.put(script.getRouteId(), script.getId());
+        RouteGroovyCache.put(script.getRouteId(), script.getId());
         //实化列对象缓存在本地内存中以提升加载性能
         GroovyCache.putGroovyServiceData(script.getId(), script.getRouteId(), script.getName(), script.getExtendInfo(), script.getEvent(), groovyService, md5);
     }

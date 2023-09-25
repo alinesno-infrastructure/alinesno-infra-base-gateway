@@ -30,10 +30,10 @@ import java.util.List;
 import java.util.function.Function;
 
 /**
- * @Description 配置路由规则
- * @Author jianglong
- * @Date 2020/04/27
- * @Version V1.0
+ * @description 配置路由规则
+ * @author  jianglong
+ * @date 2020/04/27
+ * @version 1.0.0
  */
 @Slf4j
 @Configuration

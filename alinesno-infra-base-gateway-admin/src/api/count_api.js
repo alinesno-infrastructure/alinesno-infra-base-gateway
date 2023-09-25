@@ -1,5 +1,5 @@
 //count_api.js
-import request from 'alinesno-ui/src/utils/request'
+import request from '@/utils/request'
 
 /**
  * 统计网关路由请求量

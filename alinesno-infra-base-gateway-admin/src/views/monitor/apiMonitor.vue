@@ -77,7 +77,7 @@
 </template>
 
 <script>
-	import {monitorList, closeMonitor} from '../api/monitor_api.js'
+	import {monitorList, closeMonitor} from '@/api/monitor_api.js'
 
 	export default {
 		data() {
@@ -216,7 +216,7 @@
 	overflow: hidden;
 }
 
-.breathe-keyframes-run:hover {
+/* .breathe-keyframes-run:hover {
 	-webkit-animation-timing-function: ease-in-out;
 	-webkit-animation-name: breathe-run;
 	-webkit-animation-duration: 500ms;
@@ -230,7 +230,7 @@
 	-webkit-animation-duration: 700ms;
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-direction: alternate;
-}
+} */
 
 .item-name-style{
 	white-space:nowrap;

@@ -8,10 +8,10 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 /**
- * @Description 监听DataIpApplicationEvent事件，并触发IP鉴权数据重新加载（已过时）
- * @Author JL
- * @Date 2020/05/28
- * @Version V1.0
+ * @description 监听DataIpApplicationEvent事件，并触发IP鉴权数据重新加载（已过时）
+ * @author  JL
+ * @date 2020/05/28
+ * @version 1.0.0
  */
 @Slf4j
 @Component

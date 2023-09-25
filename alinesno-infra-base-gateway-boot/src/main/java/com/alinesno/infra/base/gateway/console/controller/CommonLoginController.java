@@ -2,13 +2,17 @@ package com.alinesno.infra.base.gateway.console.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alinesno.infra.base.gateway.console.dto.LoginBody;
+import com.alinesno.infra.base.gateway.console.menus.MenuItem;
+import com.alinesno.infra.base.gateway.console.menus.Meta;
 import com.alinesno.infra.common.facade.response.AjaxResult;
+import com.google.gson.Gson;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -128,332 +132,26 @@ public class CommonLoginController {
     @GetMapping("getRouters")
     public AjaxResult getRouters()
     {
+        MenuItem menuItem1 = new MenuItem("noRedirect", "/dashboard", "Layout", false, true, "Dashboard", new Meta(false, "tool", null, "概览"));
+        MenuItem childMenuItem = new MenuItem("index", "index", false, "Index", new Meta(false, "build", null, "仪盘表"));
+        menuItem1.setChildren(List.of(childMenuItem));
 
-        String menusJson = "[\n" +
-                "        {\n" +
-                "            \"name\": \"Dashboard\",\n" +
-                "            \"path\": \"/dashboard\",\n" +
-                "            \"hidden\": false,\n" +
-                "            \"redirect\": \"noRedirect\",\n" +
-                "            \"component\": \"Layout\",\n" +
-                "            \"alwaysShow\": true,\n" +
-                "            \"meta\": {\n" +
-                "                \"title\": \"概览\",\n" +
-                "                \"icon\": \"tool\",\n" +
-                "                \"noCache\": false,\n" +
-                "                \"link\": null\n" +
-                "            },\n" +
-                "            \"children\": [\n" +
-                "                {\n" +
-                "                    \"name\": \"Index\",\n" +
-                "                    \"path\": \"index\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"仪盘表\",\n" +
-                "                        \"icon\": \"build\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "            ]\n" +
-                "        },\n" +
-                "        {\n" +
-                "            \"name\": \"System\",\n" +
-                "            \"path\": \"/system\",\n" +
-                "            \"hidden\": false,\n" +
-                "            \"redirect\": \"noRedirect\",\n" +
-                "            \"component\": \"Layout\",\n" +
-                "            \"alwaysShow\": true,\n" +
-                "            \"meta\": {\n" +
-                "                \"title\": \"系统管理\",\n" +
-                "                \"icon\": \"system\",\n" +
-                "                \"noCache\": false,\n" +
-                "                \"link\": null\n" +
-                "            },\n" +
-                "            \"children\": [\n" +
-                "                {\n" +
-                "                    \"name\": \"User\",\n" +
-                "                    \"path\": \"user\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"system/user/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"用户管理\",\n" +
-                "                        \"icon\": \"user\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Role\",\n" +
-                "                    \"path\": \"role\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"system/role/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"角色管理\",\n" +
-                "                        \"icon\": \"peoples\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Menu\",\n" +
-                "                    \"path\": \"menu\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"system/menu/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"菜单管理\",\n" +
-                "                        \"icon\": \"tree-table\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Dept\",\n" +
-                "                    \"path\": \"dept\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"system/dept/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"部门管理\",\n" +
-                "                        \"icon\": \"tree\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Post\",\n" +
-                "                    \"path\": \"post\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"system/post/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"岗位管理\",\n" +
-                "                        \"icon\": \"post\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Dict\",\n" +
-                "                    \"path\": \"dict\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"system/dict/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"字典管理\",\n" +
-                "                        \"icon\": \"dict\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Config\",\n" +
-                "                    \"path\": \"config\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"system/config/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"参数设置\",\n" +
-                "                        \"icon\": \"edit\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Notice\",\n" +
-                "                    \"path\": \"notice\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"system/notice/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"通知公告\",\n" +
-                "                        \"icon\": \"message\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Log\",\n" +
-                "                    \"path\": \"log\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"redirect\": \"noRedirect\",\n" +
-                "                    \"component\": \"ParentView\",\n" +
-                "                    \"alwaysShow\": true,\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"日志管理\",\n" +
-                "                        \"icon\": \"log\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    },\n" +
-                "                    \"children\": [\n" +
-                "                        {\n" +
-                "                            \"name\": \"Operlog\",\n" +
-                "                            \"path\": \"operlog\",\n" +
-                "                            \"hidden\": false,\n" +
-                "                            \"component\": \"monitor/operlog/index\",\n" +
-                "                            \"meta\": {\n" +
-                "                                \"title\": \"操作日志\",\n" +
-                "                                \"icon\": \"form\",\n" +
-                "                                \"noCache\": false,\n" +
-                "                                \"link\": null\n" +
-                "                            }\n" +
-                "                        },\n" +
-                "                        {\n" +
-                "                            \"name\": \"Logininfor\",\n" +
-                "                            \"path\": \"logininfor\",\n" +
-                "                            \"hidden\": false,\n" +
-                "                            \"component\": \"monitor/logininfor/index\",\n" +
-                "                            \"meta\": {\n" +
-                "                                \"title\": \"登录日志\",\n" +
-                "                                \"icon\": \"logininfor\",\n" +
-                "                                \"noCache\": false,\n" +
-                "                                \"link\": null\n" +
-                "                            }\n" +
-                "                        }\n" +
-                "                    ]\n" +
-                "                }\n" +
-                "            ]\n" +
-                "        },\n" +
-                "        {\n" +
-                "            \"name\": \"Monitor\",\n" +
-                "            \"path\": \"/monitor\",\n" +
-                "            \"hidden\": false,\n" +
-                "            \"redirect\": \"noRedirect\",\n" +
-                "            \"component\": \"Layout\",\n" +
-                "            \"alwaysShow\": true,\n" +
-                "            \"meta\": {\n" +
-                "                \"title\": \"系统监控\",\n" +
-                "                \"icon\": \"monitor\",\n" +
-                "                \"noCache\": false,\n" +
-                "                \"link\": null\n" +
-                "            },\n" +
-                "            \"children\": [\n" +
-                "                {\n" +
-                "                    \"name\": \"Online\",\n" +
-                "                    \"path\": \"online\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"monitor/online/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"在线用户\",\n" +
-                "                        \"icon\": \"online\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Job\",\n" +
-                "                    \"path\": \"job\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"monitor/job/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"定时任务\",\n" +
-                "                        \"icon\": \"job\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Druid\",\n" +
-                "                    \"path\": \"druid\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"monitor/druid/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"数据监控\",\n" +
-                "                        \"icon\": \"druid\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Server\",\n" +
-                "                    \"path\": \"server\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"monitor/server/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"服务监控\",\n" +
-                "                        \"icon\": \"server\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Cache\",\n" +
-                "                    \"path\": \"cache\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"monitor/cache/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"缓存监控\",\n" +
-                "                        \"icon\": \"redis\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"CacheList\",\n" +
-                "                    \"path\": \"cacheList\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"monitor/cache/list\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"缓存列表\",\n" +
-                "                        \"icon\": \"redis-list\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                }\n" +
-                "            ]\n" +
-                "        },\n" +
-                "        {\n" +
-                "            \"name\": \"Tool\",\n" +
-                "            \"path\": \"/tool\",\n" +
-                "            \"hidden\": false,\n" +
-                "            \"redirect\": \"noRedirect\",\n" +
-                "            \"component\": \"Layout\",\n" +
-                "            \"alwaysShow\": true,\n" +
-                "            \"meta\": {\n" +
-                "                \"title\": \"系统工具\",\n" +
-                "                \"icon\": \"tool\",\n" +
-                "                \"noCache\": false,\n" +
-                "                \"link\": null\n" +
-                "            },\n" +
-                "            \"children\": [\n" +
-                "                {\n" +
-                "                    \"name\": \"Build\",\n" +
-                "                    \"path\": \"build\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"tool/build/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"表单构建\",\n" +
-                "                        \"icon\": \"build\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Gen\",\n" +
-                "                    \"path\": \"gen\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"tool/gen/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"代码生成\",\n" +
-                "                        \"icon\": \"code\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                },\n" +
-                "                {\n" +
-                "                    \"name\": \"Swagger\",\n" +
-                "                    \"path\": \"swagger\",\n" +
-                "                    \"hidden\": false,\n" +
-                "                    \"component\": \"tool/swagger/index\",\n" +
-                "                    \"meta\": {\n" +
-                "                        \"title\": \"系统接口\",\n" +
-                "                        \"icon\": \"swagger\",\n" +
-                "                        \"noCache\": false,\n" +
-                "                        \"link\": null\n" +
-                "                    }\n" +
-                "                }\n" +
-                "            ]\n" +
-                "        },\n" +
-                "    ]" ;
+        MenuItem menuItem2 = new MenuItem("noRedirect", "/gateway", "Layout", false, true, "System", new Meta(false, "system", null, "网关功能"));
+        MenuItem menuItem3 = new MenuItem("loadBalanced", "gateway/loadBalanced", false, "LoadBalanced", new Meta(false, "user", null, "负载管理"));
+        MenuItem menuItem4 = new MenuItem("gatewayList", "gateway/gatewayList", false, "GatewayList", new Meta(false, "peoples", null, "服务管理"));
+        MenuItem menuItem5 = new MenuItem("clientList", "gateway/clientList", false, "ClientList", new Meta(false, "tree-table", null, "客户端"));
+        MenuItem menuItem6 = new MenuItem("ipList", "gateway/ipList", false, "IpList", new Meta(false, "tree", null, "IP名单"));
+        menuItem2.setChildren(List.of(menuItem3, menuItem5, menuItem6, menuItem4));
 
-        JSONArray menusArr = JSONArray.parseArray(menusJson) ;
+        MenuItem menuItem7 = new MenuItem("noRedirect", "/monitor", "Layout", false, true, "Monitor", new Meta(false, "monitor", null, "系统监控"));
+        MenuItem menuItem8 = new MenuItem("apiCount", "monitor/apiCount", false, "ApiCount", new Meta(false, "online", null, "接口统计"));
+        MenuItem menuItem9 = new MenuItem("apiMonitor", "monitor/apiMonitor", false, "ApiMonitor", new Meta(false, "job", null, "接口监控"));
+        MenuItem menuItem10 = new MenuItem("apiDoc", "monitor/apiDoc", false, "ApiDoc", new Meta(false, "druid", null, "接口文档"));
+        menuItem7.setChildren(List.of(menuItem8, menuItem9, menuItem10));
 
-        return AjaxResult.success(menusArr) ;
+        // Create the final list of menu items
+        List<MenuItem> menuItems = List.of(menuItem1, menuItem2, menuItem7);
+
+        return AjaxResult.success(menuItems) ;
     }
 }

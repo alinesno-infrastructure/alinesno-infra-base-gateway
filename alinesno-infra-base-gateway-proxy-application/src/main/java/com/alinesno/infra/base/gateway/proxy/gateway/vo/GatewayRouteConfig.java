@@ -8,10 +8,10 @@ import com.netflix.hystrix.HystrixObservableCommand;
 import lombok.Data;
 
 /**
- * @Description 网关路由配置属性
- * @Author JL
- * @Date 2020/05/25
- * @Version V1.0
+ * @description 网关路由配置属性
+ * @author  JL
+ * @date 2020/05/25
+ * @version 1.0.0
  */
 @Data
 public class GatewayRouteConfig implements java.io.Serializable {

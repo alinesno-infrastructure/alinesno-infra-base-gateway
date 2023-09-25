@@ -11,11 +11,6 @@ let successMsg = "操作成功"
 let contentType = "application/json;charset=UTF-8"
 let systemVersion = "snapshot-nacos.v.3.2"
 
-// 如果是生产环境管理
-if(process.APP_ENV === 'production'){
-	gatewayRoutesURL = process.APP_GATEWAY_BASE_API ; 
-}
-
 // 分组类型，暂不放到数据字典，直接由前端添加
 const groups = [
 		{ value: 'public_api', label: '公共API' },

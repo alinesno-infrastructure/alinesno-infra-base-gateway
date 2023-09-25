@@ -5,13 +5,16 @@ import org.springframework.util.Assert;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @Description 缓存IP信息
- * @Author jianglong
- * @Date 2020/05/28
- * @Version V1.0
+ * @description 缓存IP信息
+ *
+ * @author  jianglong
+ * @author  luoxiaodong
+ *
+ * @date 2020/05/28
+ * @version v1.0.0
  */
 public class IpListCache {
-    private static ConcurrentHashMap<String,Object> cacheMap = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<String,Object> cacheMap = new ConcurrentHashMap<>();
 
     public static void put(final String key,final Object value){
         Assert.notNull(key, "hash map key cannot is null");
@@ -24,9 +27,7 @@ public class IpListCache {
     }
 
     public static synchronized void remove(final String key){
-        if (cacheMap.containsKey(key)){
-            cacheMap.remove(key);
-        }
+        cacheMap.remove(key);
     }
 
     public static synchronized void clear(){

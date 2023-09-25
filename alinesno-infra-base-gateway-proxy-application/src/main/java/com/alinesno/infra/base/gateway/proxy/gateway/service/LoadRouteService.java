@@ -29,10 +29,10 @@ import java.net.URI;
 import java.util.*;
 
 /**
- * @Description 将数据转换为Gateway网关需要数据格式，并返回服务路由对象
- * @Author jianglong
- * @Date 2020/05/25
- * @Version V1.0
+ * @description 将数据转换为Gateway网关需要数据格式，并返回服务路由对象
+ * @author  jianglong
+ * @date 2020/05/25
+ * @version 1.0.0
  */
 @Service
 public class LoadRouteService {

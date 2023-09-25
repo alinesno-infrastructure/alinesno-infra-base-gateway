@@ -19,10 +19,10 @@ import java.util.List;
 import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.GATEWAY_ROUTE_ATTR;
 
 /**
- * @Description 配置鉴权工厂类，从而实现自定义全局的鉴权管理
- * @Author jianglong
- * @Date 2020/05/07
- * @Version V1.0
+ * @description 配置鉴权工厂类，从而实现自定义全局的鉴权管理
+ * @author  jianglong
+ * @date 2020/05/07
+ * @version 1.0.0
  */
 @Slf4j
 @Component

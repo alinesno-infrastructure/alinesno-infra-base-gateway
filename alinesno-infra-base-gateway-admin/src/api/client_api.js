@@ -1,5 +1,5 @@
 //client_api.js
-import request from 'alinesno-ui/src/utils/request'
+import request from '@/utils/request'
 
 /**
  * 添加客户端

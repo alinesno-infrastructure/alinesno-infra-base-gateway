@@ -16,10 +16,10 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 /**
- * @Description 动态添加路由
- * @Author JL
- * @Date 2020/05/11
- * @Version V1.0
+ * @description 动态添加路由
+ * @author  JL
+ * @date 2020/05/11
+ * @version 1.0.0
  */
 @Slf4j
 @Service

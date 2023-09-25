@@ -10,10 +10,10 @@ import org.springframework.util.Assert;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 对请求中带的指定参数进行验证
- * @Author jianglong
- * @Date 2020/05/25
- * @Version V1.0
+ * @description 对请求中带的指定参数进行验证
+ * @author  jianglong
+ * @date 2020/05/25
+ * @version 1.0.0
  */
 @Slf4j
 public class ParameterFilter extends FilterHandler {

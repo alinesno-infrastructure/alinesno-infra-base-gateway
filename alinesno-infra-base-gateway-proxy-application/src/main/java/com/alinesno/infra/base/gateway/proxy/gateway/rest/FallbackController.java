@@ -9,10 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @Description 触发熔断机制响应控制器
- * @Author jianglong
- * @Date 2020/05/26
- * @Version V1.0
+ * @description 触发熔断机制响应控制器
+ * @author  jianglong
+ * @date 2020/05/26
+ * @version 1.0.0
  */
 @Slf4j
 @RestController

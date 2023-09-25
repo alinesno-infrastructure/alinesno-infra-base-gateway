@@ -1,6 +1,5 @@
 //monitor_api.js
-import request from 'alinesno-ui/src/utils/request'
-
+import request from '@/utils/request'
 
 /**
  * 查询监控列表

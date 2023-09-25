@@ -136,8 +136,8 @@
 </template>
 
 <script>
-	import routeInfoComponent from '../components/RouteInfo.vue'
-	import {routePageList,startRoute,stopRoute,deleteRoute,getToken} from '../api/gateway_api.js'
+	import routeInfoComponent from '@/components/RouteInfo.vue'
+	import {routePageList,startRoute,stopRoute,deleteRoute,getToken} from '@/api/gateway_api.js'
 
 	export default {
 		data() {

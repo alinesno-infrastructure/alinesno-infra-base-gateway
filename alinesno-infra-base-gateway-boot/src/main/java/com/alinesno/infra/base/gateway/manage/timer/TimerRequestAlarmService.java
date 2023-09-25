@@ -16,7 +16,7 @@ import java.util.Map;
 
 /**
  * @description 获取所有网关路由服务被客户端访问的最后时间记录，判断30s内是否有客户端请求
- * @author JL
+ * @author  JL
  * @date 2021/04/15
  * @version v1.0.0
  */
@@ -37,7 +37,7 @@ public class TimerRequestAlarmService {
     public void syncRequestTimeCache(){
         log.info("执行定时任务：网关路由监控告警记录同步到redis缓存...");
         Map<String, String> dataMap = redisTemplate.opsForHash().entries(RouteConstants.SYNC_REQUEST_TIME_KEY);
-        if (dataMap == null || dataMap.size() <= 0){
+        if (dataMap.size() <= 0){
             return ;
         }
         //读取所有监控配置，判断哪些已经超过30s，没有客户端请求，将其放入到监控队列

@@ -96,8 +96,8 @@
 </template>
 
 <script>
-	import {clientPageList, deleteClient, startClient, stopClient} from '../api/client_api.js'
-	import clientInfoComponent from '../components/ClientInfo.vue'
+	import {clientPageList, deleteClient, startClient, stopClient} from '@/api/client_api.js'
+	import clientInfoComponent from '@/components/ClientInfo.vue'
 	
 	export default {
 		data() {

@@ -17,16 +17,16 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
-import java.net.ConnectException;
-import java.net.SocketTimeoutException;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 /**
  * @description 执行监控网关路由服务
- * @author JL
- * @date 2021/04/15
+ *
+ * @author  JL
+ * @author  luoxiaodong
+ *
  * @version v1.0.0
  */
 @Slf4j
@@ -148,22 +148,20 @@ public class MonitorTaskService {
                     }
                     isTimeout = false;
                     log.debug("request：" + newUri + ", result: " + result);
-                }catch(SocketTimeoutException | ConnectException ste){
-                    msg = ste.getMessage();
-                }catch(IOException ioe){
+                } catch(IOException ioe){
                     msg = ioe.getMessage();
-                }catch(Exception e){
+                } catch(Exception e){
                     log.error("执行监控任务服务异常，监控id :{}，监控名称 :{},请求地址：{},请求模式：{}, 错误消息：{}",
                             routeId, route.getName(), newUri, route.getMethod(), e.getMessage());
                     log.error("", e);
-                    timoutMonitor(routeId);
+                    timeoutMonitor(routeId);
                     return;
                 }
                 //设置告警状态
                 if (isTimeout){
                     log.error("执行监控任务访问异常，监控id :{}，监控名称 :{},请求地址：{},请求模式：{}, 超时时长：5000, 错误消息：{}",
                             routeId, route.getName(), newUri, route.getMethod(), msg);
-                    timoutMonitor(routeId);
+                    timeoutMonitor(routeId);
                 }
             });
         }
@@ -173,7 +171,7 @@ public class MonitorTaskService {
      * 将当前网关路由服务的监控状态置为告警
      * @param routeId
      */
-    public void timoutMonitor(String routeId){
+    public void timeoutMonitor(String routeId){
         Monitor monitor = monitorService.findById(routeId);
         //告警状态2
         monitor.setStatus(Constants.ALARM);

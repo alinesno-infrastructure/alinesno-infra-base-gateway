@@ -21,7 +21,7 @@ import reactor.core.publisher.Mono;
 
 /**
  * @description 限制IP访问，只能内网或指定IP访问
- * @author jianglong
+ * @author  jianglong
  * @date 2020/06/01
  * @version v1.0.0
  */
@@ -60,7 +60,7 @@ public class AuthIpWebFilter implements WebFilter {
             return false;
         }
         List<String> ipList = new ArrayList<>();
-        if (authIps.indexOf(Constants.SEPARATOR_SIGN) != -1){
+        if (authIps.contains(Constants.SEPARATOR_SIGN)){
             String [] ips = authIps.split(Constants.SEPARATOR_SIGN);
             ipList = Arrays.asList(ips);
         }

@@ -33,7 +33,7 @@
 </template>
 
 <script>
-	import {regClientList,stopRegClient,startRegClient} from '../api/regserver_api.js'
+	import {regClientList,stopRegClient,startRegClient} from '@/api/regserver_api.js'
 	
 export default {
 	data() {

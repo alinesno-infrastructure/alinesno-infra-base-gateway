@@ -12,15 +12,13 @@ import org.springframework.util.Assert;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 验证请求是否在可访问时间段内
- * @Author jianglong
- * @Date 2020/05/25
- * @Version V1.0
+ * @description 验证请求是否在可访问时间段内
+ * @author  jianglong
+ * @date 2020/05/25
+ * @version 1.0.0
  */
 @Slf4j
 public class TimeFilter extends FilterHandler {
-
-    private final String PATTERNS = "YYYY-MM-DD HH:mm:ss";
 
     public TimeFilter(FilterHandler handler){
         this.handler = handler;
@@ -54,6 +52,7 @@ public class TimeFilter extends FilterHandler {
     private long getDateTime(String date, String time){
         if (time.contains(":") && time.lastIndexOf(":") == 5){
             try {
+                String PATTERNS = "YYYY-MM-DD HH:mm:ss";
                 return DateUtils.parseDate(date + " " + time, PATTERNS).getTime();
             }catch(ParseException pe){
                 throw new IllegalStateException("自定义time时间转换错误：" +date + " " + time + ", " + pe.getMessage());

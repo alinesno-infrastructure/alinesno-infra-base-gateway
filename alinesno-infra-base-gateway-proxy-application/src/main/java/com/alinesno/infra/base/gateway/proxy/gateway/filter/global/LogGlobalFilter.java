@@ -26,10 +26,10 @@ import java.util.Optional;
 import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.GATEWAY_ROUTE_ATTR;
 
 /**
- * @Description 日志全局过滤器
- * @Author jianglong
- * @Date 2020/06/01
- * @Version V1.0
+ * @description 日志全局过滤器
+ * @author  jianglong
+ * @date 2020/06/01
+ * @version 1.0.0
  */
 @Slf4j
 @Component

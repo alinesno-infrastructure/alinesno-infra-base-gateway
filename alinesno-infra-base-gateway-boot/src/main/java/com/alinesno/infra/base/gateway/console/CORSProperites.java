@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * 跨域配置
  *
- * @author luoxiaodong
+ * @author  luoxiaodong
  * @version 1.0.0
  */
 @Component

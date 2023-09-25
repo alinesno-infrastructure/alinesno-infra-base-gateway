@@ -5,10 +5,13 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.springframework.util.Assert;
 
 /**
- * @Description 缓存请求服务路由信息
- * @Author jianglong
- * @Date 2020/05/26
- * @Version V1.0
+ * @description 缓存请求服务路由信息
+ *
+ * @author  jianglong
+ * @author  luoxiaodong
+ *
+ * @date 2020/05/28
+ * @version 1.0.0
  */
 public class RouteCache {
 
@@ -25,9 +28,7 @@ public class RouteCache {
     }
 
     public static synchronized void remove(final String key){
-        if (cacheMap.containsKey(key)){
-            cacheMap.remove(key);
-        }
+        cacheMap.remove(key);
     }
 
     public static synchronized void clear(){

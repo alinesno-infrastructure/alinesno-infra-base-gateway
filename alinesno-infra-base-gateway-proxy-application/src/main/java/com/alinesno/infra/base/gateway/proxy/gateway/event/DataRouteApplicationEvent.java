@@ -3,10 +3,10 @@ package com.alinesno.infra.base.gateway.proxy.gateway.event;
 import org.springframework.context.ApplicationEvent;
 
 /**
- * @Description 创建自定义网关路由事件（已过时，启用nacos配置监听事件，参见：NacosConfigRefreshEventListener）
- * @Author JL
- * @Date 2020/05/27
- * @Version V1.0
+ * @description 创建自定义网关路由事件（已过时，启用nacos配置监听事件，参见：NacosConfigRefreshEventListener）
+ * @author  JL
+ * @date 2020/05/27
+ * @version 1.0.0
  */
 @Deprecated
 public class DataRouteApplicationEvent extends ApplicationEvent {

@@ -171,7 +171,7 @@
 </template>
 
 <script>
-	import {addRegClient,regClientPageList,startRegClient,stopRegClient,deleteRegClient,startAllRegClient,stopAllRegClient,notRegClientPageList,createRegClientToken,removeRegClientToken} from '../api/regserver_api.js'
+	import {addRegClient,regClientPageList,startRegClient,stopRegClient,deleteRegClient,startAllRegClient,stopAllRegClient,notRegClientPageList,createRegClientToken,removeRegClientToken} from '@/api/regserver_api.js'
 	
 	export default {
 		data() {

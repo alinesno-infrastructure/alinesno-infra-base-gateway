@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 /**
- * @Description 发布事件，触发监听事件的方法
- * @Author JL
- * @Date 2020/06/02
- * @Version V1.0
+ * @description 发布事件，触发监听事件的方法
+ * @author  JL
+ * @date 2020/06/02
+ * @version 1.0.0
  */
 @Lazy
 @Slf4j

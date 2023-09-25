@@ -23,7 +23,7 @@ import java.util.List;
 
 /**
  * @description Ip管理控制器
- * @author JL
+ * @author  JL
  * @date 2020/05/28
  * @version v1.0.0
  */
@@ -148,7 +148,6 @@ public class SecureIpRest extends BaseRest<SecureIp> {
     /**
      * 对IP数据进行变更后，设置redis中缓存的版本号
      */
-    @Deprecated
     private void setIpCacheVersion(){
         redisTemplate.opsForHash().put(RouteConstants.SYNC_VERSION_KEY, RouteConstants.IP, String.valueOf(System.currentTimeMillis()));
     }

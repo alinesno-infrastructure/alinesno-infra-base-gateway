@@ -10,10 +10,10 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.Arrays;
 
 /**
- * @Description 验证当前请求是否有带指定heander头部信息
- * @Author jianglong
- * @Date 2020/05/25
- * @Version V1.0
+ * @description 验证当前请求是否有带指定heander头部信息
+ * @author  jianglong
+ * @date 2020/05/25
+ * @version 1.0.0
  */
 @Slf4j
 public class HeaderFilter extends FilterHandler {

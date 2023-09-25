@@ -14,10 +14,10 @@ import org.springframework.util.CollectionUtils;
 import java.util.List;
 
 /**
- * @Description 初始化加载groovyScript规则引擎动态脚本
- * @Author JL
- * @Date 2022/2/22
- * @Version V1.0
+ * @description 初始化加载groovyScript规则引擎动态脚本
+ * @author  JL
+ * @date 2022/2/22
+ * @version 1.0.0
  */
 @Slf4j
 @Service

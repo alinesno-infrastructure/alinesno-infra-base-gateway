@@ -19,10 +19,10 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 
 /**
- * @Description 自定义网关限流过滤器工厂类，用于个性化自定义限流输出包装使用，默认使用：RequestRateLimiterGatewayFilterFactory
- * @Author JL
- * @Date 2020/11/19
- * @Version V1.0
+ * @description 自定义网关限流过滤器工厂类，用于个性化自定义限流输出包装使用，默认使用：RequestRateLimiterGatewayFilterFactory
+ * @author  JL
+ * @date 2020/11/19
+ * @version 1.0.0
  */
 @Slf4j
 @Component

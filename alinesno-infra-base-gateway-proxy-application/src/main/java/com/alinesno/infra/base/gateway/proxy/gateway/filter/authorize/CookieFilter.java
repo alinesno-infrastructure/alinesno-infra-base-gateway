@@ -8,10 +8,10 @@ import org.springframework.util.Assert;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description 验证当前请求是否有带指定cookie
- * @Author jianglong
- * @Date 2020/05/25
- * @Version V1.0
+ * @description 验证当前请求是否有带指定cookie
+ * @author  jianglong
+ * @date 2020/05/25
+ * @version 1.0.0
  */
 @Slf4j
 public class CookieFilter extends FilterHandler {

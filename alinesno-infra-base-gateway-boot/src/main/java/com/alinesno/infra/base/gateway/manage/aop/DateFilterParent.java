@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * 自定义数据权限拦截
  * 
- * @author LuoAnDong
+ * @author  LuoAnDong
  * @since 2020年3月22日 下午5:56:47
  */
 public interface DateFilterParent {

@@ -43,7 +43,17 @@ import TreeSelect from '@/components/TreeSelect'
 // 字典标签组件
 import DictTag from '@/components/DictTag'
 
+// 引用全局变量文件
+import GLOBAL_VAR from '@/api/global_variable.js'
+import GLOBAL_FUN from '@/api/global_function.js'
+// import echarts from 'echarts'
+import mavonEditor from 'mavon-editor'
+
 const app = createApp(App)
+
+app.config.globalProperties.GLOBAL_VAR = GLOBAL_VAR
+app.config.globalProperties.GLOBAL_FUN = GLOBAL_FUN
+// app.config.globalProperties.$echarts = echarts
 
 // 全局方法挂载
 app.config.globalProperties.useDict = useDict
@@ -55,6 +65,7 @@ app.config.globalProperties.addDateRange = addDateRange
 app.config.globalProperties.selectDictLabel = selectDictLabel
 app.config.globalProperties.selectDictLabels = selectDictLabels
 
+
 // 全局组件挂载
 app.component('DictTag', DictTag)
 app.component('Pagination', Pagination)
@@ -65,6 +76,7 @@ app.component('ImagePreview', ImagePreview)
 app.component('RightToolbar', RightToolbar)
 app.component('Editor', Editor)
 
+app.use(mavonEditor)
 app.use(router)
 app.use(store)
 app.use(plugins)

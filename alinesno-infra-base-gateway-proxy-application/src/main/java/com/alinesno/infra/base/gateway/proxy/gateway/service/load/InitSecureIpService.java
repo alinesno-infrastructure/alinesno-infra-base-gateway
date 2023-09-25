@@ -16,10 +16,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 /**
- * @Description  初始化网关路IP名单配置
- * @Author JL
- * @Date 2021/09/22
- * @Version V1.0
+ * @description  初始化网关路IP名单配置
+ * @author  JL
+ * @date 2021/09/22
+ * @version 1.0.0
  */
 @Slf4j
 @Service

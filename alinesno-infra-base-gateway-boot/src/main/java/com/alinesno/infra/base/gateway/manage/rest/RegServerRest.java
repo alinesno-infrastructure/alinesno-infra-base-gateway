@@ -20,7 +20,7 @@ import java.util.Date;
 
 /**
  * @description 客户端注册服务控制器类
- * @author JL
+ * @author  JL
  * @date 2020/05/16
  * @version v1.0.0
  */

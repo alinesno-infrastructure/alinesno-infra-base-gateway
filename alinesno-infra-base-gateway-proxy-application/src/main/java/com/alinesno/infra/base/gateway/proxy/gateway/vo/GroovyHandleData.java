@@ -5,10 +5,10 @@ import java.util.Map;
 import lombok.Data;
 
 /**
- * @Description
- * @Author JL
- * @Date 2022/3/11
- * @Version V1.0
+ * @description
+ * @author  JL
+ * @date 2022/3/11
+ * @version 1.0.0
  */
 @Data
 public class GroovyHandleData {

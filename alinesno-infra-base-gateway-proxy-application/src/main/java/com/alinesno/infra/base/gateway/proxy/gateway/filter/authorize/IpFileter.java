@@ -9,10 +9,10 @@ import org.springframework.http.server.reactive.ServerHttpRequest;
 import java.util.Arrays;
 
 /**
- * @Description 验证当前IP是否可访问（只限定指定IP访问）
- * @Author jianglong
- * @Date 2020/05/25
- * @Version V1.0
+ * @description 验证当前IP是否可访问（只限定指定IP访问）
+ * @author  jianglong
+ * @date 2020/05/25
+ * @version 1.0.0
  */
 @Slf4j
 public class IpFileter extends FilterHandler {

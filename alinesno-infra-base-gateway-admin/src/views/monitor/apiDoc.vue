@@ -68,8 +68,8 @@
 
 <script>
 	
-import {apiDocList,saveApiDoc,findByApiDoc} from '../api/apidoc_api.js'
-import routeInfoComponent from '../components/RouteInfo.vue'
+import {apiDocList,saveApiDoc,findByApiDoc} from '@/api/apidoc_api.js'
+import routeInfoComponent from '@/components/RouteInfo.vue'
 	
 export default {
 	data() {

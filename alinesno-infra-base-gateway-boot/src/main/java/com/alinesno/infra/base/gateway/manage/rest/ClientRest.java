@@ -20,7 +20,7 @@ import java.util.Date;
 
 /**
  * @description 客户端管理控制器类
- * @author jianglong
+ * @author  jianglong
  * @date 2020/05/16
  * @version v1.0.0
  */

@@ -6,11 +6,13 @@ import com.alinesno.infra.base.gateway.formwork.service.MonitorService;
 import com.alinesno.infra.base.gateway.formwork.service.RouteService;
 import com.alinesno.infra.base.gateway.formwork.util.Constants;
 import jakarta.annotation.Resource;
+import jakarta.mail.internet.MimeMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -20,7 +22,7 @@ import java.util.List;
 
 /**
  * @description 定时扫描监控配置表，获取发送告警的网关服务，并发送邮件通知
- * @author JL
+ * @author  JL
  * @date 2021/04/16
  * @version v1.0.0
  */
@@ -40,7 +42,7 @@ public class TimerSendAlarmService {
     /**
      * 每分钟执行一次,获取告警网关路由，发送告警邮件
      */
-    @Scheduled(cron = "1 * * * * ?")
+    @Scheduled(cron = "5 * * * * ?")
     public void syncRequestTimeCache(){
         log.info("执行定时任务：发送网关路由告警邮件通知...");
         //读取所有监控配置，判断哪些已经超过30s，没有客户端请求，将其放入到监控队列
@@ -89,22 +91,22 @@ public class TimerSendAlarmService {
      * @param to
      */
     public boolean mailSend(String subject, String text, String from, String [] to) {
-//        //创建一个复杂的消息邮件
-//        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
-//        try {
-//            //用MimeMessageHelper来包装MimeMessage
-//            MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
-//            mimeMessageHelper.setSubject(subject);
-//            mimeMessageHelper.setText(text, true);
-//            mimeMessageHelper.setFrom(from);
-//            mimeMessageHelper.setTo(to);
-//            //mimeMessageHelper.addAttachment("topic.jpg",new File("D:\\topic.jpg"));
-//            javaMailSender.send(mimeMessage);
-//        } catch(Exception me){
-//            log.error("error", me);
-//            log.error("发送网关告警信息：{},到邮箱：{}失败",text, StringUtils.join(to,","));
-//            return false;
-//        }
+        //创建一个复杂的消息邮件
+        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+        try {
+            //用MimeMessageHelper来包装MimeMessage
+            MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
+            mimeMessageHelper.setSubject(subject);
+            mimeMessageHelper.setText(text, true);
+            mimeMessageHelper.setFrom(from);
+            mimeMessageHelper.setTo(to);
+            //mimeMessageHelper.addAttachment("topic.jpg",new File("D:\\topic.jpg"));
+            javaMailSender.send(mimeMessage);
+        } catch(Exception me){
+            log.error("error", me);
+            log.error("发送网关告警信息：{},到邮箱：{}失败",text, StringUtils.join(to,","));
+            return false;
+        }
         log.info("成功发送网关告警信息：{},到邮箱：{}",text,StringUtils.join(to,","));
         return true;
     }
@@ -140,24 +142,14 @@ public class TimerSendAlarmService {
      */
     private long getMaxAlarmTime(String frequency){
         long maxAlarmTime = 0L;
-        switch (frequency){
-            case "30m":
-                maxAlarmTime = 30 * 60 * 1000;
-                break;
-            case "1h":
-                maxAlarmTime = 60 * 60 * 1000;
-                break;
-            case "5h":
-                maxAlarmTime = 5 * 60 * 60 * 1000;
-                break;
-            case "12h":
-                maxAlarmTime = 12 * 60 * 60 * 1000;
-                break;
-            case "24h":
-                maxAlarmTime = 24 * 60 * 60 * 1000;
-                break;
-            default:
-                break;
+        switch (frequency) {
+            case "30m" -> maxAlarmTime = 30 * 60 * 1000;
+            case "1h" -> maxAlarmTime = 60 * 60 * 1000;
+            case "5h" -> maxAlarmTime = 5 * 60 * 60 * 1000;
+            case "12h" -> maxAlarmTime = 12 * 60 * 60 * 1000;
+            case "24h" -> maxAlarmTime = 24 * 60 * 60 * 1000;
+            default -> {
+            }
         }
         return maxAlarmTime;
     }

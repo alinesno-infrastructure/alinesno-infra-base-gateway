@@ -24,7 +24,7 @@ export default {
   },
   data() {
 
-    let saasTitle = '网关配置服务'
+    let saasTitle = '基设计平台服务'
     let enableLogo = true;
     let saasUrl = '/index' ; 
     let saasLogoUrl = 'http://portal.infra.linesno.com/logo.png' ; 

@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * 集成一个Java开发示例工具
- * @author luoxiaodong
+ * @author  luoxiaodong
  * @version 1.0.0
  */
 @EnableJpaRepositories

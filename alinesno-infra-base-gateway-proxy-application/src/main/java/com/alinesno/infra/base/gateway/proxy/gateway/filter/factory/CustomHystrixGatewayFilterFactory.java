@@ -38,10 +38,10 @@ import static com.netflix.hystrix.exception.HystrixRuntimeException.FailureType.
 import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.*;
 
 /**
- * @Description 自定义熔断器网关过滤工厂类，用于替换HystrixGatewayFilterFactory类中，解决无法动态拓展config.setter属性值的问题
- * @Author jianglong
- * @Date 2020/05/27
- * @Version V1.0
+ * @description 自定义熔断器网关过滤工厂类，用于替换HystrixGatewayFilterFactory类中，解决无法动态拓展config.setter属性值的问题
+ * @author  jianglong
+ * @date 2020/05/27
+ * @version 1.0.0
  */
 @Slf4j
 @Component

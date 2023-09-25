@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.alinesno.infra.base.gateway.formwork.util.ApiResult;
 import com.alinesno.infra.base.gateway.formwork.util.Constants;
 import com.alinesno.infra.base.gateway.formwork.util.NetworkIpUtils;
-import com.alinesno.infra.base.gateway.proxy.gateway.cache.RotueGroovyCache;
+import com.alinesno.infra.base.gateway.proxy.gateway.cache.RouteGroovyCache;
 import com.alinesno.infra.base.gateway.proxy.gateway.service.DynamicGroovyService;
 import com.alinesno.infra.base.gateway.proxy.gateway.vo.GroovyHandleData;
 import jakarta.annotation.Resource;
@@ -35,10 +35,10 @@ import java.util.Map;
 import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.GATEWAY_ROUTE_ATTR;
 
 /**
- * @Description 自定义组件全局过滤器，对所有响应触发GroovyScript规则引擎动态脚本较验
- * @Author JL
- * @Date 2022/3/16
- * @Version V1.0
+ * @description 自定义组件全局过滤器，对所有响应触发GroovyScript规则引擎动态脚本较验
+ * @author  JL
+ * @date 2022/3/16
+ * @version 1.0.0
  */
 @Slf4j
 @Component
@@ -50,7 +50,7 @@ public class ResponseComponentGlobalFilter implements GlobalFilter, Ordered {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         Route route = exchange.getRequiredAttribute(GATEWAY_ROUTE_ATTR);
         //判断Groovy缓存中的指定路由ID是否存在
-        if (!RotueGroovyCache.containsKey(route.getId())){
+        if (!RouteGroovyCache.containsKey(route.getId())){
             return chain.filter(exchange);
         }
         return chain.filter(exchange.mutate()

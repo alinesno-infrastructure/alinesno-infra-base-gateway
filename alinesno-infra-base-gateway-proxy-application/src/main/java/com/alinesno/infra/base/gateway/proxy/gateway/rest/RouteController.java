@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 
 /**
- * @Description 动态添加路由
- * @Author jianglong
- * @Date 2020/05/11
- * @Version V1.0
+ * @description 动态添加路由
+ * @author  jianglong
+ * @date 2020/05/11
+ * @version 1.0.0
  */
 @RestController
 @RequestMapping("/gateway/route")

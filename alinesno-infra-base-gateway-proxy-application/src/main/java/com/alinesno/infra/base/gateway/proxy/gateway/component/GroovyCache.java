@@ -7,10 +7,10 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @Description 本地缓存GroovyScript规则引擎动态脚本实例化对象
- * @Author JL
- * @Date 2022/2/11
- * @Version V1.0
+ * @description 本地缓存GroovyScript规则引擎动态脚本实例化对象
+ * @author  JL
+ * @date 2022/2/11
+ * @version 1.0.0
  */
 public class GroovyCache {
 

@@ -23,10 +23,10 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * @Description 实现自定义nacos配置动态更新监听事件（模仿RefreshEventListener类写法，当nacos配置发生变更，会主动推送到注册配置应用，并通过RefreshEvent事件触发相关监听器事件）
- * @Author JL
- * @Date 2021/09/16
- * @Version V1.0
+ * @description 实现自定义nacos配置动态更新监听事件（模仿RefreshEventListener类写法，当nacos配置发生变更，会主动推送到注册配置应用，并通过RefreshEvent事件触发相关监听器事件）
+ * @author  JL
+ * @date 2021/09/16
+ * @version 1.0.0
  */
 @Component
 public class NacosConfigRefreshEventListener implements SmartApplicationListener {

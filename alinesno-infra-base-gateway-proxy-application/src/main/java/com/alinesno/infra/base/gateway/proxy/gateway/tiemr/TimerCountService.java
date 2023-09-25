@@ -25,10 +25,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
- * @Description 定时执行路由访问量统计业务类
- * @Author jianglong
- * @Date 2020/07/07
- * @Version V1.0
+ * @description 定时执行路由访问量统计业务类
+ * @author  jianglong
+ * @date 2020/07/07
+ * @version 1.0.0
  */
 @Slf4j
 @Service

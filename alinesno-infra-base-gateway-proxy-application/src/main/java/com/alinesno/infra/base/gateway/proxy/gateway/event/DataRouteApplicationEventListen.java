@@ -29,10 +29,10 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
- * @Description 注册网关路由事件，动态加载数据库网关路由信息，监听路由配置事件，重新动态加载网关路由数据(已过时)
- * @Author JL
- * @Date 2020/05/27
- * @Version V1.0
+ * @description 注册网关路由事件，动态加载数据库网关路由信息，监听路由配置事件，重新动态加载网关路由数据(已过时)
+ * @author  JL
+ * @date 2020/05/27
+ * @version 1.0.0
  */
 @Slf4j
 @Component

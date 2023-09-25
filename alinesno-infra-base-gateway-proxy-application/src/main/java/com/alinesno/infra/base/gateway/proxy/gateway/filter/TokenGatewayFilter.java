@@ -23,10 +23,10 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @Description 验证用户是否携带token(token的有效性与正确性,如果服务端验证token,请不要开启此token验证过滤器，避免解析方式不一致被拦截)
- * @Author JL
- * @Date 2020/05/19
- * @Version V1.0
+ * @description 验证用户是否携带token(token的有效性与正确性,如果服务端验证token,请不要开启此token验证过滤器，避免解析方式不一致被拦截)
+ * @author  JL
+ * @date 2020/05/19
+ * @version 1.0.0
  */
 @Slf4j
 public class TokenGatewayFilter implements GatewayFilter, Ordered {

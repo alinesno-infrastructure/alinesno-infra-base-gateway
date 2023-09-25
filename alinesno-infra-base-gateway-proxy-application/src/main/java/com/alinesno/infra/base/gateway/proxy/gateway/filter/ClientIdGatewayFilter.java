@@ -19,10 +19,10 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @Description 客户端ID过滤
- * @Author JL
- * @Date 2020/05/19
- * @Version V1.0
+ * @description 客户端ID过滤
+ * @author  JL
+ * @date 2020/05/19
+ * @version 1.0.0
  */
 @Slf4j
 public class ClientIdGatewayFilter implements GatewayFilter, Ordered {

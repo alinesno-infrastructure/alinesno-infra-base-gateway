@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import {addClient,updateClient} from '../api/client_api.js'
+import {addClient,updateClient} from '@/api/client_api.js'
 
 export default {
 	data() {
@@ -104,7 +104,7 @@ export default {
 			}
 		},
 		goBack() {
-			this.$router.push({ path: '/clientList', query: {} });
+			this.$router.push({ path: '/gateway/clientList', query: {} });
 		},
 		submit() {
 			let _this = this;

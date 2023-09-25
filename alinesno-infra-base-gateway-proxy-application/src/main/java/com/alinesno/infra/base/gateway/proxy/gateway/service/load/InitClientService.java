@@ -14,10 +14,10 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * @Description  初始化网关路由客户端配置
- * @Author JL
- * @Date 2021/09/22
- * @Version V1.0
+ * @description  初始化网关路由客户端配置
+ * @author  JL
+ * @date 2021/09/22
+ * @version 1.0.0
  */
 @Slf4j
 @Service

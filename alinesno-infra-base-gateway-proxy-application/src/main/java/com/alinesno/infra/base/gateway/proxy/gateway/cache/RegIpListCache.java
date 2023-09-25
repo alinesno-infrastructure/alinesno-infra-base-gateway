@@ -2,16 +2,20 @@ package com.alinesno.infra.base.gateway.proxy.gateway.cache;
 
 import java.util.concurrent.ConcurrentHashMap;
 
+import lombok.Getter;
 import org.springframework.util.Assert;
 
 /**
- * @Description 缓存客户端注册IP信息
- * @Author jianglong
- * @Date 2020/05/28
- * @Version V1.0
+ * @description 缓存客户端注册IP信息
+ *
+ * @author  jianglong
+ * @author  luoxiaodong
+ *
+ * @date 2020/05/28
+ * @version v1.0.0
  */
-@Deprecated
 public class RegIpListCache {
+    @Getter
     private static ConcurrentHashMap<String,Object> cacheMap = new ConcurrentHashMap<>();
 
     public static void put(final String key,final Object value){
@@ -25,16 +29,11 @@ public class RegIpListCache {
     }
 
     public static synchronized void remove(final String key){
-        if (cacheMap.containsKey(key)){
-            cacheMap.remove(key);
-        }
+        cacheMap.remove(key);
     }
 
     public static synchronized void clear(){
         cacheMap.clear();
     }
 
-    public static ConcurrentHashMap<String,Object> getCacheMap(){
-        return cacheMap;
-    }
 }

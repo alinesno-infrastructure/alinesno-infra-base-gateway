@@ -111,7 +111,7 @@
 <script>
 	
 	import groovyScriptTableComponent from '../components/GroovyScriptTable.vue'
-	import {deleteGroovyScript,stopGroovyScript,startGroovyScript,upGroovyScript,downGroovyScript,groovyScriptList,groovyScriptCode} from '../api/groovyscript_api'
+	import {deleteGroovyScript,stopGroovyScript,startGroovyScript,upGroovyScript,downGroovyScript,groovyScriptList,groovyScriptCode} from '@/api/groovyscript_api'
 
 	export default {
 		data() {

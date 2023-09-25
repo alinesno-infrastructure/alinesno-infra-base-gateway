@@ -2,16 +2,19 @@ package com.alinesno.infra.base.gateway.proxy.gateway.cache;
 
 import java.util.concurrent.ConcurrentHashMap;
 
+import lombok.Getter;
 import org.springframework.util.Assert;
 
 /**
- * @Description 缓存接口请求统计缓存
- * @Author jianglong
- * @Date 2020/07/07
- * @Version V1.0
+ * @description 缓存接口请求统计缓存
+ * @author  jianglong
+ * @author  luoxiaodong
+ * @date 2020/07/07
+ * @version 1.0.0
  */
 public class CountCache {
 
+    @Getter
     private static ConcurrentHashMap<String,Integer> cacheMap = new ConcurrentHashMap<>();
 
     public static void put(final String key,final Integer value){
@@ -25,16 +28,11 @@ public class CountCache {
     }
 
     public static synchronized void remove(final String key){
-        if (cacheMap.containsKey(key)){
-            cacheMap.remove(key);
-        }
+        cacheMap.remove(key);
     }
 
     public static synchronized void clear(){
         cacheMap.clear();
     }
 
-    public static ConcurrentHashMap<String,Integer> getCacheMap(){
-        return cacheMap;
-    }
 }

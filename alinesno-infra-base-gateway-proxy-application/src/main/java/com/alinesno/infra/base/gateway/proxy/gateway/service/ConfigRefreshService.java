@@ -33,10 +33,10 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 /**
- * @Description 为NacosConfigRefreshEventListener监听事件服务提供网关路由更新与删除方法
- * @Author JL
- * @Date 2021/09/17
- * @Version V1.0
+ * @description 为NacosConfigRefreshEventListener监听事件服务提供网关路由更新与删除方法
+ * @author  JL
+ * @date 2021/09/17
+ * @version 1.0.0
  */
 @Slf4j
 @Service

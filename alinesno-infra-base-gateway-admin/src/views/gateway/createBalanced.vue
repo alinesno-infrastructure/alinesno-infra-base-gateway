@@ -121,7 +121,7 @@
 
 <script>
 
-	import {addBalanced, updateBalanced, loadServerRegList, loadServerNotRegList} from '../api/balanced_api.js'
+	import {addBalanced, updateBalanced, loadServerRegList, loadServerNotRegList} from '@/api/balanced_api.js'
 
 	export default {
 		data() {
@@ -190,7 +190,7 @@
 				this.serverRegList();
 			},
 			goBack() {
-				this.$router.push({ path: '/loadBalanced', query: {} });
+				this.$router.push({ path: '/gateway/loadBalanced', query: {} });
 			},
 			handleRouteSizeChange(val) {
 				this.currentPage = val;

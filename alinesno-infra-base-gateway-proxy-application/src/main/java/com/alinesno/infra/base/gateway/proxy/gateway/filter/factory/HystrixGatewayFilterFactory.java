@@ -35,7 +35,7 @@ import static com.netflix.hystrix.exception.HystrixRuntimeException.FailureType.
 import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.*;
 
 /**
- * @author suze
+ * @author  suze
  * @data 2023/04/11 14:54
  */
 @Slf4j

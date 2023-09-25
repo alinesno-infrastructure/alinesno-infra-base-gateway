@@ -13,10 +13,10 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @Description 将网关路由请求的最新时间记录到redis缓存
- * @Author JL
- * @Date 2021/04/15
- * @Version V1.0
+ * @description 将网关路由请求的最新时间记录到redis缓存
+ * @author  JL
+ * @date 2021/04/15
+ * @version 1.0.0
  */
 @Slf4j
 @Service

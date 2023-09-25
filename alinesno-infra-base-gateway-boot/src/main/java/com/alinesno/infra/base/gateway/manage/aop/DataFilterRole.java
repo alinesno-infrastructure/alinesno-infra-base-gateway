@@ -3,7 +3,7 @@ package com.alinesno.infra.base.gateway.manage.aop;
 /**
  * 数据权限过滤角色
  * 
- * @author WeiXiaoJin
+ * @author  WeiXiaoJin
  * @since 2019年9月15日 下午5:02:33
  */
 public enum DataFilterRole {

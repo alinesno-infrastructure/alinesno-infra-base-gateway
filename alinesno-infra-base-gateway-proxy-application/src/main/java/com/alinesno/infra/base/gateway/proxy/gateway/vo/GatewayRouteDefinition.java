@@ -6,10 +6,10 @@ import java.util.List;
 import lombok.Data;
 
 /**
- * @Description 创建路由模型
- * @Author jianglong
- * @Date 2020/05/11
- * @Version V1.0
+ * @description 创建路由模型
+ * @author  jianglong
+ * @date 2020/05/11
+ * @version 1.0.0
  */
 @Data
 public class GatewayRouteDefinition {

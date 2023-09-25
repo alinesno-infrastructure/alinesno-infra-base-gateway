@@ -9,10 +9,10 @@ import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.stereotype.Component;
 
 /**
- * @Description 对指定WeightCalculatorWebFilter过滤器进行潜换，使用CustomWeightCalculatorWebFilter潜换方案
- * @Author JL
- * @Date 2021/10/12
- * @Version V1.0
+ * @description 对指定WeightCalculatorWebFilter过滤器进行潜换，使用CustomWeightCalculatorWebFilter潜换方案
+ * @author  JL
+ * @date 2021/10/12
+ * @version 1.0.0
  */
 @Component
 public class CustomBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegistryPostProcessor {

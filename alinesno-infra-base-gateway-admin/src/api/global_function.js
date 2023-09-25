@@ -1,7 +1,10 @@
 // jianglong
 //global_function.js
 // 专门放置 全局函数
-import {Loading,Message} from 'element-ui'
+// import {Loading,Message} from 'element-ui'
+
+import { ref } from 'vue'
+import { ElLoading , ElMessage  } from 'element-plus'
 
 //let 声明变量
 const err_msg = "操作失败"
@@ -12,7 +15,7 @@ let loading;
  * 加载中的样式
  */
 function startLoading() {
-	loading = Loading.request({
+	loading = ElLoading.service({
 		lock: true,
 		text: '加载中....',
 		background: 'rgba(0, 0, 0, 0.7)'
@@ -33,7 +36,7 @@ function endLoading() {
  */
 function successMsg(msg, duration) {
 	msg = (msg) ? msg : success_msg
-	Message({
+	ElMessage ({
 		message: msg,
 		showClose: true,
 		type: 'success',

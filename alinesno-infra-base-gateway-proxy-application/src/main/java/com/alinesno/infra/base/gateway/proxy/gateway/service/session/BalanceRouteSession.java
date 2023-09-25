@@ -8,12 +8,12 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @author suze
- * @data 2023/04/20 16:16
+ * @author luoxiaodong
+ * @version 1.0.0
  */
 @Component
 public class BalanceRouteSession {
-    private Map<String, List<String>> oldBalanceRouteMap ;
+    private final Map<String, List<String>> oldBalanceRouteMap ;
 
     BalanceRouteSession(){
         oldBalanceRouteMap = new ConcurrentHashMap<>();

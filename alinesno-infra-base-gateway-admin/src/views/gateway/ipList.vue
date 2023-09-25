@@ -85,7 +85,7 @@
 </template>
 
 <script>
-import { addIp, updateIp, deleteIp, ipPageList } from '../api/ip_api.js';
+import { addIp, updateIp, deleteIp, ipPageList } from '@/api/ip_api.js';
 
 var is_ip=function(strIP){if(!strIP && strIP!==0 && typeof strIP!=="boolean"){return false}var re=/^(\d+)\.(\d+)\.(\d+)\.(\d+)$/g;if(re.test(strIP)){if(RegExp.$1<256&&RegExp.$2<256&&RegExp.$3<256&&RegExp.$4<256){return true}}return false};
 

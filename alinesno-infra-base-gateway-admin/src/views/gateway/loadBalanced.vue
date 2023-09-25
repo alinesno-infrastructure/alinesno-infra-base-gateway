@@ -150,9 +150,9 @@
 </template>
 
 <script>
-import boxCardComponent from '../components/BoxCard.vue'
-import { balancedPageList, deleteBalanced, startBalanced, stopBalanced } from '../api/balanced_api.js'
-import { loadServerRegList } from '../api/balanced_api.js'
+import boxCardComponent from '@/components/BoxCard.vue'
+import { balancedPageList, deleteBalanced, startBalanced, stopBalanced } from '@/api/balanced_api.js'
+import { loadServerRegList } from '@/api/balanced_api.js'
 
 export default {
 	data() {
@@ -280,13 +280,13 @@ export default {
 	background-color: #fff;
 }
 
-.breathe-keyframes {
+/* .breathe-keyframes {
 	-webkit-animation-timing-function: ease-in-out;
 	-webkit-animation-name: breathe;
 	-webkit-animation-duration: 700ms;
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-direction: alternate;
-}
+} */
 
 /* vue中@-webkit-keyframes改成@keyframes */
 @keyframes breathe {

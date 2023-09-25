@@ -1,5 +1,5 @@
 //groovyscript_api.js
-import request from 'alinesno-ui/src/utils/request'
+import request from '@/utils/request'
 
 /**
  * 添加规则组件动态脚本
@@ -104,9 +104,9 @@ export const groovyScriptCode = ()=>{
     code += "import org.springframework.web.server.ServerWebExchange;\n";
     code += "import java.util.Map;\n";
     code += "/**\n";
-    code += " * @Description\n";
-    code += " * @Author admin\n";
-    code += " * @Version V1.0\n";
+    code += " * @description\n";
+    code += " * @author  admin\n";
+    code += " * @version 1.0.0\n";
     code += "*/\n";
     code += "public class ParameterGroovyService extends BaseGroovyService {\n";
     code += "    private Logger log = LoggerFactory.getLogger(\"ParameterGroovyService\");\n";

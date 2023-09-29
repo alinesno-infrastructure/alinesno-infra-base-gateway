@@ -64,6 +64,19 @@ spring:
     restart:
       enabled: true
 
+# sa-token配置
+sa-token:
+  token-name: satoken
+  host-path: http://alinesno-infra-base-identity-auth-application.beta.base.infra.linesno.com
+  sso:
+    auth-url: ${sa-token.host-path}/login
+    is-http: true
+    check-ticket-url: ${sa-token.host-path}/sso/checkTicket
+    slo-url: ${sa-token.host-path}/sso/signout
+    get-data-url: ${sa-token.host-path}/sso/getData
+  sign:
+    secret-key:
+
 # 配置授权访问服务的IP
 system:
   auth:

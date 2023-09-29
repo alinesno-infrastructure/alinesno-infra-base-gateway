@@ -16,19 +16,16 @@
 	<properties>
 		<docker.base.images>registry.cn-shenzhen.aliyuncs.com/alinesno-infra-base/openjdk:17.0.2-jdk</docker.base.images>
 		<docker.user>root</docker.user>
-		<kaptcha.version>2.3.3</kaptcha.version>
 	</properties>
 
 	<dependencies>
 
-		<!-- 验证码 -->
-		<dependency>
-			<groupId>pro.fessional</groupId>
-			<artifactId>kaptcha</artifactId>
-			<version>${kaptcha.version}</version>
-		</dependency>
-
         <!-- 引用服务 -->
+		<dependency>
+			<groupId>com.alinesno.infra.common</groupId>
+			<artifactId>alinesno-infra-common-web-api-sso</artifactId>
+			<version>${revision}</version>
+		</dependency>
 		<dependency>
 			<groupId>com.alinesno.infra.base</groupId>
 			<artifactId>alinesno-infra-base-gateway-core</artifactId>

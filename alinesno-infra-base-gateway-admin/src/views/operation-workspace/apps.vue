@@ -4,7 +4,7 @@
       <el-col class="panel-col" :span="19">
         <div class="grid-content">
           <div class="panel-header">
-            <div class="header-title"><i class="fa-solid fa-link"></i> 业务最新巡检</div>
+            <div class="header-title"><i class="fa-solid fa-link"></i> 网关接入教程</div>
           </div>
           <div class="panel-body" style="height: auto;position: relative;">
               <div class="direct-box">
@@ -27,7 +27,7 @@
       <el-col :span="5">
         <div class="grid-content">
           <div class="panel-header">
-            <div class="header-title"><i class="fa-solid fa-link"></i> 构建解决方案</div>
+            <div class="header-title"><i class="fa-solid fa-link"></i> 网关常用功能列表</div>
           </div>
           <div class="panel-body" style="height: auto;position: relative;">
             <div class="acp-app-list">
@@ -64,11 +64,11 @@ const directContent = ref([
 ]);
 
 const apps = ref([
-  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/051de32597041e41f73b97d61c67a13b-9cbdaf85e3bcf29b656fdedd8e6d1305.svg', name: '构建 Web 应用程序', desc: 'With Route 53 (3 分钟)' },
-  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/fb0cde6228b21d89ec222b45efec54e7-0856e92285f4e7ed254b2588d1fe1829.svg', name: '部署无服务器微服务', desc: 'With Route 53 (3 分钟)' },
-  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/7177e919b32ad97825f95e902595014b-1594766d92813b5baeb706c453f91de0.svg', name: '使用虚拟服务器构建', desc: 'With Route 53 (3 分钟)' },
-  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/fb0cde6228b21d89ec222b45efec54e7-0856e92285f4e7ed254b2588d1fe1829.svg', name: '开始迁移到 AIP', desc: 'With Route 53 (3 分钟)' },
-  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/9da5a168cf8194c8ee5ed192a443d563-674375b53bc8ae94f48cfdb5c81e8363.svg', name: '托管静态 Web 应用程序', desc: 'With Route 53 (3 分钟)' },
+  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/051de32597041e41f73b97d61c67a13b-9cbdaf85e3bcf29b656fdedd8e6d1305.svg', name: '微服务接入网关', desc: 'With Route 53 (3 分钟)' },
+  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/fb0cde6228b21d89ec222b45efec54e7-0856e92285f4e7ed254b2588d1fe1829.svg', name: '网关分布式限流配置', desc: 'With Route 53 (3 分钟)' },
+  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/7177e919b32ad97825f95e902595014b-1594766d92813b5baeb706c453f91de0.svg', name: '接口调用统计列表', desc: 'With Route 53 (3 分钟)' },
+  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/fb0cde6228b21d89ec222b45efec54e7-0856e92285f4e7ed254b2588d1fe1829.svg', name: 'API Token配置', desc: 'With Route 53 (3 分钟)' },
+  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/9da5a168cf8194c8ee5ed192a443d563-674375b53bc8ae94f48cfdb5c81e8363.svg', name: '多服务集成网关安全', desc: 'With Route 53 (3 分钟)' },
 ]);
 
 </script>

@@ -59,19 +59,12 @@ export const constantRoutes = [
         name: '/index',
         meta: { title: '首页', icon: 'dashboard', affix: true }
       },
-
-//      {
-//        path: '/dashboard/smartService',
-//        component: () => import('@/views/smartService'),
-//        name: '/dashboard/smartService',
-//        meta: { title: '智能客服', icon: 'dashboard', affix: true }
-//      },
-//      {
-//        path: '/dashboard/serviceList',
-//        component: () => import('@/views/serviceList'),
-//        name: '/dashboard/serviceList',
-//        meta: { title: '服务列表', icon: 'dashboard', affix: true }
-//      },
+      {
+        path: '/dashboard/smartService',
+        component: () => import('@/views/smartService'),
+        name: '/dashboard/smartService',
+        meta: { title: '智能客服', icon: 'dashboard', affix: true }
+      },
       {
         path: '/dashboard/suportTechnique',
         component: () => import('@/views/suportTechnique'),
@@ -85,7 +78,56 @@ export const constantRoutes = [
         meta: { title: '学习手册', icon: 'dashboard', affix: true }
       },
 
-      // ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+      // ->>>>>>>>>>>>>>>>>>>>gateway_router_start >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+      {
+        path: '/gatewayList',
+        name: 'gatewayList',
+        hidden: true,
+        component: () => import('@/views/gateway/gatewayList'),
+        meta: { title: '网关服务管理', icon: 'dashboard', affix: true }
+      },
+      {
+        path: '/clientList',
+        name: 'clientList',
+        hidden: true,
+        component: () => import('@/views/gateway/clientList'),
+        meta: { title: '客户端管理', icon: 'dashboard', affix: true }
+      },
+      {
+        path: '/ipList',
+        name: 'ipList',
+        hidden: true,
+        component: () => import('@/views/gateway/ipList'),
+        meta: { title: 'IP名单管理', icon: 'dashboard', affix: true }
+      },
+      {
+        path: '/apiDoc',
+        name: 'apiDoc',
+        hidden: true,
+        component: () => import('@/views/monitor/apiDoc'),
+        meta: { title: '接口文档', icon: 'dashboard', affix: true }
+      },
+      {
+        path: '/apiCount',
+        name: 'apiCount',
+        hidden: true,
+        component: () => import('@/views/monitor/apiCount'),
+        meta: { title: '接口统计', icon: 'dashboard', affix: true }
+      },
+      {
+        path: '/apiMonitor',
+        name: 'apiMonitor',
+        hidden: true,
+        component: () => import('@/views/monitor/apiMonitor'),
+        meta: { title: '接口监控', icon: 'dashboard', affix: true }
+      },
+      {
+        path: '/loadBalanced',
+        name: 'loadBalanced',
+        hidden: true,
+        component: () => import('@/views/gateway/loadBalanced'),
+        meta: { title: '负载均衡管理', icon: 'dashboard', affix: true }
+      },
       {
         path: '/createGateway',
         name: 'createGateway',
@@ -135,7 +177,7 @@ export const constantRoutes = [
         component: () => import('@/views/gateway/createBalanced'),
         meta: { title: '创建负载均衡', icon: 'dashboard', affix: true }
       },
-
+      // ->>>>>>>>>>>>>>>>>>>>gateway_router_end >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     ]
   },

@@ -4,13 +4,13 @@
 		<el-row :gutter="20" style="margin-top: 20px;">
 			<el-col>
 				<el-card shadow="false" class="box-card">
-					<div slot="header" class="clearfix">
+					<div class="clearfix">
 						<span>客户端配置</span>
-						<div style="float: right; margin-left: 10px;"><el-button icon="el-icon-delete" size="mini" type="warning" @click="resetForm">清 空</el-button></div>
-						<div style="float: right; margin-left: 10px;"><el-button icon="el-icon-s-claim" size="mini" type="success" @click="submit">发 布</el-button></div>
+						<div style="float: right; margin-left: 10px;"><el-button icon="Delete"  type="warning" @click="resetForm">清 空</el-button></div>
+						<div style="float: right; margin-left: 10px;"><el-button icon="Promotion"  type="success" @click="submit">发 布</el-button></div>
 					</div>
 
-					<el-form size="small" :rules="rules" ref="form" :model="form" label-width="100px">
+					<el-form :rules="rules" ref="form" :model="form" label-width="100px">
 						<el-form-item label="名称" prop="name">
 							<el-input v-model="form.name" style="width: 300px;" :disabled="nameDisabled"></el-input>
 						</el-form-item>

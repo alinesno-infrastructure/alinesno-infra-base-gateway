@@ -4,7 +4,7 @@
 		<el-row :gutter="24" style="margin-top: 20px;">
 			<el-col :span="16">
 				<el-card shadow="false" >
-					<div slot="header" class="clearfix">
+					<div class="clearfix">
 					    <i class="el-icon-orange" style="font-size: 10pt;"></i>&nbsp;<span style="font-size: 12pt;">注册网关-客户端拓扑结构</span>
 					  </div>
 				  <div id="topologyChart" :style="{ width: '100%', height: '750px', padding: '0px', margin: '0px', border: '0px #0298F9 solid' }"></div>
@@ -12,14 +12,14 @@
 			</el-col>
 			<el-col :span="8" style="border: 0px solid red;">
 				<el-card shadow="false" >
-					<div slot="header" class="clearfix">
+					<div class="clearfix">
 					    <i class="el-icon-s-custom" style="font-size: 10pt;"></i>&nbsp;<span style="font-size: 12pt;">注册客户端列表</span>
 					</div>
 					<el-card shadow="false" class="paper-card__body" v-for="(item,index) in clientList" :key="index" style="margin-bottom: 10px; font-size: 10pt;">					
 						<el-row :gutter="24">
 							<el-col :span="20" style="border: 0px solid red;">
-								<i class="el-icon-s-platform" style="font-size: 10pt;"></i>&nbsp;<el-tag size="small" style="font-weight: bold;">{{item.name}}</el-tag>
-								<i class="el-icon-caret-right" style="font-size: 10pt;"></i>&nbsp;<el-tag size="small" type="warning" style="font-weight: bold;">{{item.id}}</el-tag>
+								<i class="el-icon-s-platform" style="font-size: 10pt;"></i>&nbsp;<el-tag style="font-weight: bold;">{{item.name}}</el-tag>
+								<i class="el-icon-caret-right" style="font-size: 10pt;"></i>&nbsp;<el-tag type="warning" style="font-weight: bold;">{{item.id}}</el-tag>
 							</el-col>
 							<el-col :span="4" style="border: 0px solid red;">
 								<el-switch v-model="item.regServerStatus" @change="handleSwitchChange(item,index)" active-color="#13ce66" inactive-color="#ff4949" active-value="0" inactive-value="1" style="float: right;"></el-switch>

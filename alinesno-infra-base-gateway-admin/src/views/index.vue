@@ -11,12 +11,9 @@
             <div class="title">
                   {{ currentEnvClusterObj.appName }}
               <div class="cluster-info">
-                <span><i class="el-icon-monitor"></i>
-                  {{ currentEnvClusterObj.clusterName }}
-                </span>
                 <span>
-                  <i class="el-icon-link"></i> 
-                  应用地址: {{ currentEnvClusterObj.apiServerUrl }}
+                  <i class="el-icon-monitor"></i>
+                  {{ currentEnvClusterObj.clusterName }}
                 </span>
               </div>
             </div>
@@ -41,7 +38,6 @@
 </template>
 
 <script setup name="Index">
-
 
 // import OperationWorkspaceCountStaitcs from './operation-workspace/countStatics.vue'
 

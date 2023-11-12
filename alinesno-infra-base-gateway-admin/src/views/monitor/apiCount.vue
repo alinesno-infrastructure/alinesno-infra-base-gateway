@@ -7,7 +7,7 @@
 				</el-col>
 				<el-col :span="14">
 					<div style="float: right;">
-					  <el-button size="small" icon="el-icon-refresh" style="font-size: 16px; padding: 6px 12px;" @click="count" title="刷新统计图表"></el-button>
+					  <el-button icon="Refresh" style="font-size: 16px; padding: 6px 12px;" @click="count" title="刷新统计图表"></el-button>
 					</div>
 				</el-col>
 			</el-row>
@@ -40,26 +40,26 @@
 							<el-option label="所有" value=""/>
 							<el-option v-for="item in groupOptions" :key="item.value" :label="item.label" :value="item.value"/>
 						</el-select>
-					    <el-button slot="append" icon="el-icon-search" @click="search"></el-button>
+					    <el-button slot="append" icon="Search" @click="search"></el-button>
 					  </el-input>
 					</div>
 				</el-col>
 			</el-row>
 			
-			<el-table size="small" :data="tableData" style="margin-top: 18px;">
+			<el-table :data="tableData" style="margin-top: 18px;">
 				<el-table-column label="服务ID" width="300">
-					<template slot-scope="scope">
-						<el-tag size="small" type="warning">{{scope.row.id}}</el-tag>
+					<template #default="scope">
+						<el-tag type="warning">{{scope.row.id}}</el-tag>
 					</template>
 				</el-table-column>
 				<el-table-column label="分组">
-					<template slot-scope="scope">
-						<el-tag v-for="group in groupOptions" :key="group.value" v-show="(group.value === scope.row.groupCode)" size="small" type="">{{group.label}}</el-tag>
+					<template #default="scope">
+						<el-tag v-for="group in groupOptions" :key="group.value" v-show="(group.value === scope.row.groupCode)" type="">{{group.label}}</el-tag>
 					</template>
 				</el-table-column>
 				<el-table-column label="服务名称">
-					<template slot-scope="scope">
-						<el-tag size="small" type="success">{{scope.row.name}}</el-tag>
+					<template #default="scope">
+						<el-tag type="success">{{scope.row.name}}</el-tag>
 					</template>
 				</el-table-column>
 				<el-table-column label="服务地址" prop="uri"></el-table-column>
@@ -67,8 +67,8 @@
 				<!-- <el-table-column label="最近请求时间" prop="createTime" width="220"></el-table-column> -->
 				<el-table-column label="今日请求总次数" prop="count" width="140" style="font-weight: bold;"></el-table-column>
 				<el-table-column label="查看" width="80">
-						<template slot-scope="scope" style="border: 1px solid red;">
-							<el-button size="mini" @click="handleShowRouteCount(scope.row)" circle title="请点击选中查看" class="el-icon-s-data">
+						<template #default="scope">
+							<el-button  @click="handleShowRouteCount(scope.row)" circle title="请点击选中查看" class="el-icon-s-data">
 							</el-button>
 						</template>
 					</el-table-column>	

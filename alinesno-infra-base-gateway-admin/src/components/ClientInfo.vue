@@ -9,29 +9,29 @@
 		</el-row>
 		<el-row :gutter="24" style="border: 0px solid red;">
 			<el-col :span="6" class="gateway-info-label">地址:</el-col>
-			<el-col :span="18" class="gateway-info-value"><el-tag size="small" type="success">{{infoForm.ip}}</el-tag></el-col>
+			<el-col :span="18" class="gateway-info-value"><el-tag type="success">{{infoForm.ip}}</el-tag></el-col>
 		</el-row>
 		<el-row :gutter="24" style="border: 0px solid red;">
 			<el-col :span="6" class="gateway-info-label">注册服务:</el-col>
-			<el-col :span="18" class="gateway-info-value"><el-tag size="small" type="success">{{this.totalNum}}个</el-tag></el-col>
+			<el-col :span="18" class="gateway-info-value"><el-tag type="success">{{this.totalNum}}个</el-tag></el-col>
 		</el-row>
 		<el-row :gutter="24" style="border: 0px solid red;">
 			<el-col :span="6" class="gateway-info-label">创建时间:</el-col>
-			<el-col :span="18" class="gateway-info-value"><el-tag size="small" type="success">{{infoForm.createTime}}</el-tag></el-col>
+			<el-col :span="18" class="gateway-info-value"><el-tag type="success">{{infoForm.createTime}}</el-tag></el-col>
 		</el-row>
 		<el-row :gutter="24" style="border: 0px solid red;">
 			<el-col :span="6" class="gateway-info-label">服务状态:</el-col>
 			<el-col :span="18" class="gateway-info-value">
-				<el-tag size="small" type="danger">{{infoForm.status === '0'?'启用':'禁用'}}</el-tag>
+				<el-tag type="danger">{{infoForm.status === '0'?'启用':'禁用'}}</el-tag>
 			</el-col>
 		</el-row>
 		<el-divider content-position="left"><span style="color: #606266; ">已注册服务</span></el-divider>
-		<el-table size="small" :data="tableData" style="width: 100%" height="400">
+		<el-table :data="tableData" style="width: 100%" height="400">
 			<el-table-column label="服务ID" prop="id"></el-table-column>
 			<el-table-column label="服务名称" prop="name"></el-table-column>
 			<el-table-column label="状态" width="70" prop="status">
 				<template>
-					<el-tag size="mini">{{'允许通行'}}</el-tag>
+					<el-tag >{{'允许通行'}}</el-tag>
 				</template>
 			</el-table-column>		
 			<el-table-column label="注册时间"  prop="regServerTime"></el-table-column>

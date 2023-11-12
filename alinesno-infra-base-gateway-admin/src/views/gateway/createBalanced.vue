@@ -2,7 +2,7 @@
 	<div class="app-container">
 		<el-page-header @back="goBack" content="负载管理"></el-page-header>
 		<el-card shadow="false" class="box-card" style="margin-top: 20px;">
-			<div slot="header" class="clearfix">
+			<div class="clearfix">
 				<span>负载管理配置</span>
 				<el-popover trigger="click" placement="bottom">
 					<div style="font-size: 10pt;">
@@ -13,28 +13,28 @@
 						<span>4. 实际转发到服务端不包含该/parent/根路径。</span><br/>
 						<span>5. 网关转发路由规则：http://gateway_host:gateway_port/server-id/api 或 http://gateway_host:gateway_port/api。</span><br/>
 					</div>
-					<el-button slot="reference" style="padding: 3px 0; " icon="el-icon-question" type="text" title="说明"></el-button>
+					<el-button slot="reference" style="padding: 3px 0; " icon="Question" type="text" title="说明"></el-button>
 				</el-popover>
 				<div style="float: right; margin-left: 10px;">
-					<el-button icon="el-icon-delete" size="small" type="warning" @click="resetForm">清 空</el-button>
+					<el-button icon="Delete" type="warning" @click="resetForm">清 空</el-button>
 				</div>
 				<div style="float: right; margin-left: 10px;">
-					<el-button icon="el-icon-s-claim" size="small" type="success" @click="submit">发 布</el-button>
+					<el-button icon="Promotion" type="success" @click="submit">发 布</el-button>
 				</div>
 				<div style="float: right; margin-left: 10px;">
-					<el-button icon="el-icon-connection" size="small" type="primary" @click="search" title="查找服务端">添加服务</el-button>
+					<el-button icon="Connection" type="primary" @click="search" title="查找服务端">添加服务</el-button>
 				</div>
 			</div>
 
-			<el-dialog title="添加服务端" :visible.sync="dialogFormVisible" width="40%" :close-on-click-modal="false">
-				<el-table size="mini" :data="routeTableData" style="width: 100%">
+			<el-dialog title="添加服务端" v-model="dialogFormVisible" width="40%" :close-on-click-modal="false">
+				<el-table  :data="routeTableData" style="width: 100%">
 					<el-table-column label="服务ID" prop="routeId"></el-table-column>
 					<el-table-column label="服务名称" prop="name"></el-table-column>
 					<el-table-column label="服务地址" prop="uri"></el-table-column>
 					<el-table-column label="操作" width="60">
-						<template slot-scope="scope">
-							<el-button v-if="scope.row.selected !== true" size="mini" circle icon="el-icon-plus" type="success" title="点击添加" @click="handleAddRegServer(scope.row)"></el-button>
-							<el-button v-if="scope.row.selected === true" size="mini" circle icon="el-icon-check" type="primary" title="已添加" @click="handleAddRegServer(scope.row)"></el-button>
+						<template #default="scope">
+							<el-button v-if="scope.row.selected !== true"  circle icon="Plus" type="success" title="点击添加" @click="handleAddRegServer(scope.row)"></el-button>
+							<el-button v-if="scope.row.selected === true"  circle icon="el-icon-check" type="primary" title="已添加" @click="handleAddRegServer(scope.row)"></el-button>
 						</template>
 					</el-table-column>
 				</el-table>
@@ -54,10 +54,10 @@
 				</div>
 			</el-dialog>
 
-			<el-row :gutter="24">
+			<el-row :gutter="24" style="margin-top:10px">
 				<el-col :span="8">
 					<el-card shadow="false" class="box-card">
-						<el-form size="small" :rules="rules" ref="form" :model="form" label-width="70px">
+						<el-form :rules="rules" ref="form" :model="form" label-width="70px">
 							<el-form-item label="名称" prop="name">
 								<el-input v-model="form.name" style="width: 60%;"></el-input>
 							</el-form-item>
@@ -90,25 +90,25 @@
 				</el-col>
 				<el-col :span="16">
 					<el-card shadow="false" class="box-card">
-						<el-table size="small" :data="tableData" style="width: 100%">
+						<el-table :data="tableData" style="width: 100%">
 						  <el-table-column prop="settingId" label="路由ID"></el-table-column>
 						  <el-table-column prop="name" label="路由名称"></el-table-column>
 						  <el-table-column prop="uri" label="路由地址"></el-table-column>
 						  <el-table-column label="路由权重" width="80">
-							  <template slot-scope="scope">
-								  <el-tag size="small" type="" style="font-weight: bold;">{{scope.row.weight}}</el-tag>
+							  <template #default="scope">
+								  <el-tag type="" style="font-weight: bold;">{{scope.row.weight}}</el-tag>
 							  </template>
 						  </el-table-column>
 						  <el-table-column label="配置比例">
-							  <template slot-scope="scope">
+							  <template #default="scope">
 							    <div class="block">
 							      <el-slider v-model="scope.row.weight"></el-slider>
 							    </div>
 							  </template>
 						  </el-table-column>
 						  <el-table-column label="操作" width="60">
-						  	<template slot-scope="scope">
-						  		<el-button size="mini" circle icon="el-icon-delete" title="删除" style="border: 0px; font-size: 12pt;" @click="handleDeleteServer(scope.row)"></el-button>
+						  	<template #default="scope">
+						  		<el-button  circle icon="Delete" title="删除" style="border: 0px; font-size: 12pt;" @click="handleDeleteServer(scope.row)"></el-button>
 						  	</template>
 						  </el-table-column>
 						</el-table>
@@ -190,7 +190,7 @@
 				this.serverRegList();
 			},
 			goBack() {
-				this.$router.push({ path: '/gateway/loadBalanced', query: {} });
+				this.$router.push({ path: '/loadBalanced', query: {} });
 			},
 			handleRouteSizeChange(val) {
 				this.currentPage = val;

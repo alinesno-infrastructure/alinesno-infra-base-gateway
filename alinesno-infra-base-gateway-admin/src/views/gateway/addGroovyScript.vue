@@ -1,8 +1,8 @@
 <template>
 	<div class="app-container">
 		<el-page-header @back="goBack" content="网关路由规则组件"></el-page-header>
-		<el-dialog title="添加规则组件" :visible.sync="dialogFormVisible" width="70%" :close-on-click-modal="false">
-			<el-form :model="groovyForm" status-icon :rules="rules" ref="groovyForm" label-width="100px" size="mini">
+		<el-dialog title="添加规则组件" v-model="dialogFormVisible" width="70%" :close-on-click-modal="false">
+			<el-form :model="groovyForm" status-icon :rules="rules" ref="groovyForm" label-width="100px" >
 				<el-form-item label="组件名称" prop="name">
 					<el-input v-model="groovyForm.name" autocomplete="off" placeholder="请输入组件名称"></el-input>
 				</el-form-item>
@@ -12,10 +12,10 @@
 				<el-form-item label="执行事件" prop="event">
 					<!-- <el-input v-model="groovyForm.event" autocomplete="off"></el-input> -->
 					<el-radio v-model="groovyForm.event" label="request">
-						<el-tag size="small" effect="plain">REQUEST</el-tag>
+						<el-tag effect="plain">REQUEST</el-tag>
 					</el-radio>
   					<el-radio v-model="groovyForm.event" label="response">
-						  <el-tag size="small" type="success" effect="plain">RESPONSE</el-tag>
+						  <el-tag type="success" effect="plain">RESPONSE</el-tag>
 					  </el-radio>
 				</el-form-item>
 				<el-form-item label="组件代码" prop="content">
@@ -29,36 +29,36 @@
 					<el-tag type="warning">组件代码采用GroovyScipt动态脚本语言，无缝支持java语法和包</el-tag> &nbsp;&nbsp;
 					<el-link type="primary" @click="showGroovyScriptCode">导入GroovyScipt示例代码</el-link> &nbsp;&nbsp;&nbsp;&nbsp; 
 					<el-link v-show="submitVisible" icon="el-icon-upload2" type="primary"> 提交中 >  </el-link> 
-					<el-link v-show="submitVisible" icon="el-icon-loading" type="primary"> 编译中 >  </el-link>
+					<el-link v-show="submitVisible" icon="Loading" type="primary"> 编译中 >  </el-link>
 					<el-link v-show="successVisible" icon="el-icon-finished" type="success"> 编译成功 </el-link>
 					<el-link v-show="failVisible" icon="el-icon-close" type="danger" @click="showLog"> 编译失败  查看失败日志 </el-link>
 				</el-form-item>
 			</el-form>
-			<el-dialog width="65%" title="编译失败日志" :visible.sync="innerVisible" append-to-body>
+			<el-dialog width="65%" title="编译失败日志" v-model="innerVisible" append-to-body>
 <pre class="language-java line-numbers" style="height: 500px;"><code>{{codeErrorMsg}}</code></pre>
 				<div slot="footer" class="dialog-footer">
-					<el-button icon="el-icon-s-release" size="mini" type="warning" @click="innerVisible = false">关 闭</el-button>
+					<el-button icon="el-icon-s-release"  type="warning" @click="innerVisible = false">关 闭</el-button>
 				</div>
 			</el-dialog>
 			<div slot="footer" class="dialog-footer">
-				<el-button icon="el-icon-s-claim" size="mini" type="success" @click="submitForm">提 交</el-button>
-				<el-button icon="el-icon-s-release" size="mini" type="warning" @click="dialogFormVisible = false">关 闭</el-button>
+				<el-button icon="Promotion"  type="success" @click="submitForm">提 交</el-button>
+				<el-button icon="el-icon-s-release"  type="warning" @click="dialogFormVisible = false">关 闭</el-button>
 			</div>
 		</el-dialog>
 
-		<el-dialog title="查看组件代码" :visible.sync="dialogCodeVisible" width="60%" :close-on-click-modal="false">
+		<el-dialog title="查看组件代码" v-model="dialogCodeVisible" width="60%" :close-on-click-modal="false">
 			<div >
 <pre class="language-java line-numbers" style="height: 700px;"><code v-html="groovScriptCode"></code></pre>
 			</div>
 			<div slot="footer" class="dialog-footer">
-				<el-button icon="el-icon-s-release" size="mini" type="warning" @click="dialogCodeVisible = false">关 闭</el-button>
+				<el-button icon="el-icon-s-release"  type="warning" @click="dialogCodeVisible = false">关 闭</el-button>
 			</div>
 		</el-dialog>
 		
 		<el-row :gutter="20" style="margin-top: 20px;">
 			<el-col>
 				<el-card shadow="false" class="box-card">
-					<div slot="header" class="clearfix">
+					<div class="clearfix">
 						<span>规则组件</span>
 						<el-popover trigger="click" placement="bottom">
 							<div style="font-size: 10pt;">
@@ -69,16 +69,16 @@
 								<span>4. 路由服务端规则组件代码采用GroovyScipt动态脚本语言，无缝支持java语法和包。</span><br/>
 								<span>5. 路由服务端规则组件适用场景为，解决网关代理调用路由服务端之前，增加业务规则较验，如：签名较验、数据加签、参数验证、格式化处理、权限判断等。</span><br/>
 							</div>
-							<el-button slot="reference" style="padding: 3px 0;" icon="el-icon-question" type="text" title="说明"></el-button>
+							<el-button slot="reference" style="padding: 3px 0;" icon="Question" type="text" title="说明"></el-button>
 						</el-popover>
 						<span style="margin-left: 50px;">
 							<i class="el-icon-monitor"></i> 
 							<span style="font-size: 11pt;">
-								<el-tag size="mini" style="font-weight: bold;">{{routeForm.name}}</el-tag> 
+								<el-tag  style="font-weight: bold;">{{routeForm.name}}</el-tag> 
 							</span>	
 						</span>
 						<div style="float: right; margin-left: 10px;">
-						    <el-button icon="el-icon-circle-plus-outline" size="small" type="success" @click="addRule" title="查找服务端"> 添加组件脚本 </el-button>
+						    <el-button icon="CirclePlus" type="success" @click="addRule" title="查找服务端"> 添加组件脚本 </el-button>
 						</div>
 					</div>
 

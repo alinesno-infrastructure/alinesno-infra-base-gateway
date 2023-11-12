@@ -9,7 +9,7 @@
 				</el-col>
 				<el-col :span="14">
 					<div style="float: right; margin-left: 10px;">
-					    <el-button icon="el-icon-folder-add" type="primary" @click="handleCreateClient"></el-button>
+					    <el-button icon="FolderAdd" type="primary" @click="handleCreateClient"></el-button>
 					</div>
 					<div style="float: right;">
 					  <el-input placeholder="请输入客户端名称" v-model="form.name" class="input-with-select" style="width: 620px;" clearable>
@@ -23,53 +23,53 @@
 								服务状态:{{form.status === '0' ? '启用': form.status === '1' ? '禁用' : '所有'}}<i class="el-icon-caret-bottom el-icon--right"></i>
 							</el-button>
 						</el-popover>
-					    <el-button slot="append" icon="el-icon-search" @click="search"></el-button>
+					    <el-button slot="append" icon="Search" @click="search"></el-button>
 					  </el-input>
 					</div>
 				</el-col>
 			</el-row>
-			<el-table size="small" :data="tableData" style="width: 100%">
+			<el-table :data="tableData" style="width: 100%">
 				<el-table-column label="客户端ID(系统生成)" width="300">
-					<template slot-scope="scope">
-						<el-tag size="small" type="warning" style="font-weight: bold;">{{scope.row.id}}</el-tag>
+					<template #default="scope">
+						<el-tag type="warning" style="font-weight: bold;">{{scope.row.id}}</el-tag>
 					</template>
 				</el-table-column>
 				<el-table-column label="分组">
-					<template slot-scope="scope">
-						<el-tag v-for="group in groupOptions" :key="group.value" v-show="group.value === scope.row.groupCode" size="small" type="">{{group.label}}</el-tag>
+					<template #default="scope">
+						<el-tag v-for="group in groupOptions" :key="group.value" v-show="group.value === scope.row.groupCode" type="">{{group.label}}</el-tag>
 					</template>
 				</el-table-column>
 				<el-table-column label="系统代号 -> 客户端名称">
-					<template slot-scope="scope">
+					<template #default="scope">
 						<span style="font-weight: bold;" v-if="scope.row.systemCode != undefined && scope.row.systemCode != ''">{{scope.row.systemCode}} ></span> {{scope.row.name}}
 					</template>
 				</el-table-column>
 				<el-table-column label="IP地址">
-					<template slot-scope="scope">
-						<el-tag size="small" type="success">{{scope.row.ip}}</el-tag>
+					<template #default="scope">
+						<el-tag type="success">{{scope.row.ip}}</el-tag>
 					</template>
 				</el-table-column>
 				<el-table-column label="创建时间" prop="createTime" width="220" align="center"></el-table-column>
 				<el-table-column label="状态" prop="status" width="100" align="center">
-					<template slot-scope="scope">
-						<el-tag effect="dark" size="small" v-if="scope.row.status === '0'" type="">启用</el-tag>
-						<el-tag effect="dark" size="small" v-if="scope.row.status === '1'" type="danger">禁用</el-tag>
+					<template #default="scope">
+						<el-tag effect="dark" v-if="scope.row.status === '0'" type="">启用</el-tag>
+						<el-tag effect="dark" v-if="scope.row.status === '1'" type="danger">禁用</el-tag>
 					</template>
 				</el-table-column>
 				<el-table-column label="备注" prop="remarks" width="350"></el-table-column>
 				<el-table-column label="操作" width="120" align="center">
-					<template slot-scope="scope">
+					<template #default="scope">
 						<el-dropdown trigger="click" @command="handleCommandClient">
-						   <el-button size="mini" type="warning">
+						   <el-button  type="warning">
 						      管理<i class="el-icon-arrow-down el-icon--right"></i>
 						    </el-button>
 						  <el-dropdown-menu slot="dropdown">							
-							<el-dropdown-item icon="el-icon-connection" :command="{command:'addGateway', row: scope.row}">注册网关服务</el-dropdown-item>
+							<el-dropdown-item icon="Connection" :command="{command:'addGateway', row: scope.row}">注册网关服务</el-dropdown-item>
 							<el-dropdown-item icon="el-icon-tickets" :command="{command:'info', row: scope.row}">详情</el-dropdown-item>
-							<el-dropdown-item icon="el-icon-edit" :command="{command:'edit', row: scope.row}">编辑</el-dropdown-item>
+							<el-dropdown-item icon="Edit" :command="{command:'edit', row: scope.row}">编辑</el-dropdown-item>
 							<el-dropdown-item :command="{command:'start', row: scope.row}" divided><i class="el-icon-success" style="color: #409EFF;"></i>启用</el-dropdown-item>
 							<el-dropdown-item :command="{command:'stop', row: scope.row}"><i class="el-icon-error" style="color: red;"></i>禁用</el-dropdown-item>
-							<el-dropdown-item icon="el-icon-delete" :command="{command:'delete', row: scope.row}" divided>删除</el-dropdown-item>
+							<el-dropdown-item icon="Delete" :command="{command:'delete', row: scope.row}" divided>删除</el-dropdown-item>
 						  </el-dropdown-menu>
 						</el-dropdown>
 					</template>
@@ -88,7 +88,7 @@
 			</div>
 		</el-card>
 		
-		<el-drawer :visible.sync="drawer" :direction="direction" :before-close="handleClose" :with-header="false" size="26%" @opened="handleOpenedClientInfo">
+		<el-drawer v-model="drawer" :direction="direction" :before-close="handleClose" :with-header="false" size="26%" @opened="handleOpenedClientInfo">
 			<!-- 父组件传参与子组件方法监听 -->
 			<clientInfoComponent ref="clientInfo" :infoForm="infoForm"></clientInfoComponent>
 		</el-drawer>

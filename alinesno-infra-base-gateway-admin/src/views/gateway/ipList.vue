@@ -1,21 +1,21 @@
 <template>
 	<div class="app-container">
-		<el-dialog title="IP管理" :visible.sync="dialogFormVisible" width="30%" :close-on-click-modal="false">
+		<el-dialog title="IP管理" v-model="dialogFormVisible" width="30%" :close-on-click-modal="false">
 			<el-form :model="form" ref="form" :label-width="formLabelWidth" :rules="rules">
-				<el-form-item label="IP" size="mini" prop="ip">
+				<el-form-item label="IP"  prop="ip">
 					<el-input v-model="form.ip" autocomplete="off" :maxlength="15" style="width: 240px;"></el-input>
 				</el-form-item>
-				<el-form-item label="状态" size="mini" prop="status">
+				<el-form-item label="状态"  prop="status">
 					<el-radio v-model="form.status" label="0">允许通行</el-radio>
 					<el-radio v-model="form.status" label="1">禁止通行</el-radio>
 				</el-form-item>
-				<el-form-item label="备注" size="mini" prop="remarks">
+				<el-form-item label="备注"  prop="remarks">
 					<el-input type="textarea" :rows="3" v-model="form.remarks" :maxlength="200" autocomplete="off"></el-input>
 				</el-form-item>
 			</el-form>
 			<div slot="footer" class="dialog-footer">
-				<el-button icon="el-icon-s-claim" size="mini" type="success" @click="submit">提 交</el-button>
-				<el-button icon="el-icon-s-release" size="mini" type="warning" @click="dialogFormVisible = false">关 闭</el-button>
+				<el-button icon="Promotion"  type="success" @click="submit">提 交</el-button>
+				<el-button icon="el-icon-s-release"  type="warning" @click="dialogFormVisible = false">关 闭</el-button>
 			</div>
 		</el-dialog>
 
@@ -28,42 +28,42 @@
 				</el-col>
 				<el-col :span="14">
 					<div style="float: right; margin-left: 10px;">
-						<el-button icon="el-icon-folder-add" type="primary" @click="handleCreateIp"></el-button>
+						<el-button icon="FolderAdd" type="primary" @click="handleCreateIp"></el-button>
 					</div>
 					<div style="float: right;">
 						<el-input placeholder="请输入IP" v-model="ip" :maxlength="15" class="input-with-select" style="width: 520px;" clearable>
 							<el-select v-model="status" slot="prepend" placeholder="请选择" style="width: 120px;">
 								<el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
 							</el-select>
-							<el-button slot="append" icon="el-icon-search" @click="search"></el-button>
+							<el-button slot="append" icon="Search" @click="search"></el-button>
 						</el-input>
 					</div>
 				</el-col>
 			</el-row>
-			<el-table size="small" :data="tableData" style="width: 100%">
+			<el-table :data="tableData" style="width: 100%">
 				<el-table-column label="IP地址" prop="ip">
-					<template slot-scope="scope">
-						<el-tag size="small" type="success" style="font-weight: bold;">{{scope.row.ip}}</el-tag>
+					<template #default="scope">
+						<el-tag type="success" style="font-weight: bold;">{{scope.row.ip}}</el-tag>
 					</template>
 				</el-table-column>
 				<el-table-column label="状态" prop="status">
-					<template slot-scope="scope">
-						<el-tag effect="dark" size="small" v-if="scope.row.status === '0'" type="">允许通行</el-tag>
-						<el-tag effect="dark" size="small" v-if="scope.row.status === '1'" type="danger">禁止通行</el-tag>
+					<template #default="scope">
+						<el-tag effect="dark" v-if="scope.row.status === '0'" type="">允许通行</el-tag>
+						<el-tag effect="dark" v-if="scope.row.status === '1'" type="danger">禁止通行</el-tag>
 					</template>
 				</el-table-column>
 				<el-table-column label="创建时间" prop="createTime"></el-table-column>
 				<el-table-column label="备注" prop="remarks"></el-table-column>
 				<el-table-column label="操作" width="160">
-					<template slot-scope="scope">
+					<template #default="scope">
 						<el-dropdown trigger="click" @command="handleCommandClient">
-						   <el-button size="mini" type="warning">
+						   <el-button  type="warning">
 						      管理<i class="el-icon-arrow-down el-icon--right"></i>
 						    </el-button>
 						  <el-dropdown-menu slot="dropdown">									
 							<el-dropdown-item :command="{command:'start', row: scope.row}"><i class="el-icon-success" style="color: #409EFF;"></i>允许通行</el-dropdown-item>
 							<el-dropdown-item :command="{command:'stop', row: scope.row}"><i class="el-icon-error" style="color: red;"></i>禁止通行</el-dropdown-item>
-							<el-dropdown-item icon="el-icon-delete-solid" :command="{command:'delete', row: scope.row}" divided>删除</el-dropdown-item>
+							<el-dropdown-item icon="Delete-solid" :command="{command:'delete', row: scope.row}" divided>删除</el-dropdown-item>
 						  </el-dropdown-menu>
 						</el-dropdown>
 					</template>

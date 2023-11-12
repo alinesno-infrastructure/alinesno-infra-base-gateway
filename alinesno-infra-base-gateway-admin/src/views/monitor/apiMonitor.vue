@@ -1,46 +1,46 @@
 <template>
 	<div class="app-container">
-		<el-dialog title="监控告警信息" :visible.sync="dialogFormVisible" width="25%" :close-on-click-modal="false">
+		<el-dialog title="监控告警信息" v-model="dialogFormVisible" width="25%" :close-on-click-modal="false">
 			<el-form :model="infoForm" ref="infoForm" :label-width="formLabelWidth">
-				<el-form-item label="服务ID：" size="mini">
+				<el-form-item label="服务ID：" >
 					<el-tag size="small">{{infoForm.routeId}}</el-tag>
 				</el-form-item>
-				<el-form-item label="服务名称：" size="mini">
+				<el-form-item label="服务名称：" >
 					<el-tag size="small">{{infoForm.name}}</el-tag>
 				</el-form-item>
-				<el-form-item label="服务地址：" size="mini">
-					<el-tag size="small" type="success">{{infoForm.uri}}</el-tag>
+				<el-form-item label="服务地址：" >
+					<el-tag type="success">{{infoForm.uri}}</el-tag>
 				</el-form-item>
-				<el-form-item label="断言路径：" size="mini">
-					<el-tag size="small" type="success">{{infoForm.path}}</el-tag>
+				<el-form-item label="断言路径：" >
+					<el-tag type="success">{{infoForm.path}}</el-tag>
 				</el-form-item>
-				<el-form-item v-show="infoForm.method != ''" label="请求模式：" size="mini">
-					<el-tag size="small" type="success">{{infoForm.method}}</el-tag>
+				<el-form-item v-show="infoForm.method != ''" label="请求模式：" >
+					<el-tag type="success">{{infoForm.method}}</el-tag>
 				</el-form-item>
-				<el-form-item label="告警状态：" size="mini">
-					<el-tag v-show="infoForm.status != '2'" size="small" type="" effect="dark">正常</el-tag>
-					<el-tag v-show="infoForm.status == '2'" size="small" type="danger" effect="dark">告警</el-tag>
+				<el-form-item label="告警状态：" >
+					<el-tag v-show="infoForm.status != '2'" type="" effect="dark">正常</el-tag>
+					<el-tag v-show="infoForm.status == '2'" type="danger" effect="dark">告警</el-tag>
 				</el-form-item>
-				<el-form-item v-show="infoForm.status == '2'" label="告警时间：" size="mini">
-					<el-tag size="small" type="danger" effect="dark">{{infoForm.alarmTime}}</el-tag>
+				<el-form-item v-show="infoForm.status == '2'" label="告警时间：" >
+					<el-tag type="danger" effect="dark">{{infoForm.alarmTime}}</el-tag>
 				</el-form-item>
-				<el-form-item label="告警重试：" size="mini">
-					<el-tag v-show="infoForm.recover == '0'" size="small" type="" effect="dark">启用</el-tag>
-					<el-tag v-show="infoForm.recover == '1'" size="small" type="danger" effect="dark">禁止</el-tag>
+				<el-form-item label="告警重试：" >
+					<el-tag v-show="infoForm.recover == '0'" type="" effect="dark">启用</el-tag>
+					<el-tag v-show="infoForm.recover == '1'" type="danger" effect="dark">禁止</el-tag>
 				</el-form-item>
-				<el-form-item label="通知频率：" size="mini">
-					<el-tag v-for="item in monitorOptions" :key="item.value"  v-show="infoForm.frequency == item.value" size="small" type="" effect="dark">{{item.label}}</el-tag>
+				<el-form-item label="通知频率：" >
+					<el-tag v-for="item in monitorOptions" :key="item.value"  v-show="infoForm.frequency == item.value" type="" effect="dark">{{item.label}}</el-tag>
 				</el-form-item>
-				<el-form-item v-show="infoForm.emails != null && infoForm.emails != ''" label="通知邮箱：" size="mini">
-					<el-tag size="small" type="" effect="dark">{{infoForm.emails}}</el-tag>
+				<el-form-item v-show="infoForm.emails != null && infoForm.emails != ''" label="通知邮箱：" >
+					<el-tag type="" effect="dark">{{infoForm.emails}}</el-tag>
 				</el-form-item>
-				<el-form-item v-show="infoForm.sendTime != null && infoForm.sendTime != ''" label="通知时间：" size="mini">
-					<el-tag size="small" type="" effect="dark">{{infoForm.sendTime}}</el-tag>
+				<el-form-item v-show="infoForm.sendTime != null && infoForm.sendTime != ''" label="通知时间：" >
+					<el-tag type="" effect="dark">{{infoForm.sendTime}}</el-tag>
 				</el-form-item>
 			</el-form>
 			<div slot="footer" class="dialog-footer">
-				<el-button icon="el-icon-document-delete" v-show="infoForm.status == '2'" size="mini" type="success" @click="close">关闭本次告警</el-button>
-				<el-button icon="el-icon-s-release" size="mini" type="warning" @click="dialogFormVisible = false">关 闭</el-button>
+				<el-button icon="el-icon-document-delete" v-show="infoForm.status == '2'"  type="success" @click="close">关闭本次告警</el-button>
+				<el-button icon="el-icon-s-release"  type="warning" @click="dialogFormVisible = false">关 闭</el-button>
 			</div>
 		</el-dialog>
 
@@ -51,7 +51,7 @@
 				</el-col>
 				<el-col :span="14">
                     <div style="margin-top: 5px;" align="right">
-						<el-radio-group v-model="status" size="mini" @change="search">
+						<el-radio-group v-model="status"  @change="search">
 						  <el-radio-button label=""><i class="el-icon-menu" style="font-weight: bold;"></i>&nbsp;所有</el-radio-button>
 						  <el-radio-button label="0"><i class="el-icon-loading" style="font-weight: bold;"></i>&nbsp;运行</el-radio-button>
 						  <el-radio-button label="1"><i class="el-icon-circle-close" style="font-weight: bold;"></i>&nbsp;停止</el-radio-button>

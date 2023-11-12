@@ -1,14 +1,14 @@
 <template>
 	<div class="app-container">
 		<el-page-header @back="goBack" content="已注册服务端管理"></el-page-header>
-		<el-dialog title="添加服务端" :visible.sync="dialogFormVisible" width="40%" :close-on-click-modal="false">
-			<el-table size="mini" :data="routeTableData" style="width: 100%">
+		<el-dialog title="添加服务端" v-model="dialogFormVisible" width="40%" :close-on-click-modal="false">
+			<el-table  :data="routeTableData" style="width: 100%">
 				<el-table-column label="服务ID" prop="routeId"></el-table-column>
 				<el-table-column label="服务名称" prop="name"></el-table-column>
 				<el-table-column label="服务地址" prop="uri"></el-table-column>
 				<el-table-column label="操作" width="60">
-					<template slot-scope="scope">
-						<el-button size="mini" circle icon="el-icon-plus" type="success" title="添加" @click="handleAddRegServer(scope.row)"></el-button>
+					<template #default="scope">
+						<el-button  circle icon="Plus" type="success" title="添加" @click="handleAddRegServer(scope.row)"></el-button>
 					</template>
 				</el-table-column>
 			</el-table>
@@ -31,7 +31,7 @@
 		<el-row :gutter="20" style="margin-top: 20px;">
 			<el-col>
 				<el-card shadow="false" class="box-card">
-					<div slot="header" class="clearfix">
+					<div class="clearfix">
 						<span>网关服务端</span>
 						<el-popover trigger="click" placement="bottom">
 							<div style="font-size: 10pt;">
@@ -40,42 +40,42 @@
 								<span>2. 开启路由服务ID过滤后，此功能主要适用于对第三方开放服务，提供简单认证访问。</span><br/>
 								<span>3. 新添加的路由服务端后，默认为禁止访问路由服务，请手动开启允许访问，才能生效。</span><br/>
 							</div>
-							<el-button slot="reference" style="padding: 3px 0; " icon="el-icon-question" type="text" title="说明"></el-button>
+							<el-button slot="reference" style="padding: 3px 0; " icon="Question" type="text" title="说明"></el-button>
 						</el-popover>
 						<span style="margin-left: 50px;">
 							<i class="el-icon-monitor"></i>
 							<span style="font-size: 11pt;">
-								<el-tag size="mini" style="font-weight: bold;">{{form.name}}</el-tag> -
-								<el-tag size="mini" type="success" style="font-weight: bold;">{{form.ip}}</el-tag>
+								<el-tag  style="font-weight: bold;">{{form.name}}</el-tag> -
+								<el-tag  type="success" style="font-weight: bold;">{{form.ip}}</el-tag>
 							</span>
 						</span>
 						<div style="float: right; margin-left: 10px;">
-						    <el-button icon="el-icon-circle-plus-outline" size="small" type="success" @click="search" title="查找服务端"> 添加服务 </el-button>
+						    <el-button icon="CirclePlus" type="success" @click="search" title="查找服务端"> 添加服务 </el-button>
 						</div>
 						<div style="float: right; margin-left: 10px;">
-						    <el-button icon="el-icon-s-claim" size="small" type="primary" @click="startAll" title="启用所有客户端通行"> 全部允许 </el-button>
+						    <el-button icon="Promotion" type="primary" @click="startAll" title="启用所有客户端通行"> 全部允许 </el-button>
 						</div>
 						<div style="float: right; margin-left: 10px;">
-						    <el-button icon="el-icon-circle-close" size="small" type="danger" @click="stopAll" title="禁用所有客户端通行"> 全部禁止 </el-button>
+						    <el-button icon="CircleClose " type="danger" @click="stopAll" title="禁用所有客户端通行"> 全部禁止 </el-button>
 						</div>
 					</div>
 
-					<el-table size="small" :data="tableData" style="width: 100%">
+					<el-table :data="tableData" style="width: 100%">
 						<el-table-column label="服务ID" prop="routeId"></el-table-column>
 						<el-table-column label="服务名称" prop="name"></el-table-column>
 						<el-table-column label="服务地址" prop="uri"></el-table-column>
 						<el-table-column label="断言路径" prop="path"></el-table-column>
 						<el-table-column label="注册时间" prop="regServerTime" width="200"></el-table-column>
 						<el-table-column label="状态" prop="regServerStatus">
-							<template slot-scope="scope">
-								<div v-if="scope.row.regServerStatus==='0'"><i class="el-icon-success" style="color: #409EFF;"></i>&nbsp;<el-tag size="mini">{{'允许通行'}}</el-tag></div>
-								<div v-if="scope.row.regServerStatus==='1'"><i class="el-icon-error" style="color: #f00000;"></i>&nbsp;<el-tag size="mini" type="danger">{{'禁止通行'}}</el-tag></div>
+							<template #default="scope">
+								<div v-if="scope.row.regServerStatus==='0'"><i class="el-icon-success" style="color: #409EFF;"></i>&nbsp;<el-tag >{{'允许通行'}}</el-tag></div>
+								<div v-if="scope.row.regServerStatus==='1'"><i class="el-icon-error" style="color: #f00000;"></i>&nbsp;<el-tag  type="danger">{{'禁止通行'}}</el-tag></div>
 							</template>
 						</el-table-column>
 						<el-table-column label="操作" width="80">
-							<template slot-scope="scope">
+							<template #default="scope">
 								 <el-dropdown trigger="click" @command="handleCommandRegServer">
-									<el-button size="mini" circle icon="el-icon-setting" title="设置" style="border: 0px;"></el-button>
+									<el-button  circle icon="Setting" title="设置" style="border: 0px;"></el-button>
 								  <el-dropdown-menu slot="dropdown">
 									<el-dropdown-item :command="{command:'start', row: scope.row}"><i class="el-icon-success" style="color: #409EFF;"></i>允许通行</el-dropdown-item>
 									<el-dropdown-item :command="{command:'stop', row: scope.row}"><i class="el-icon-error" style="color: red;"></i>禁止通行</el-dropdown-item>

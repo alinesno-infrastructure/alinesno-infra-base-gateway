@@ -1,6 +1,6 @@
 <template>
 	<el-card shadow="false" class="box-card-component" >
-		<div slot="header" class="box-card-header">
+		<div class="box-card-header">
 			<el-row>
 				<el-col :span="12">&nbsp;
 				<div style="margin-left: 20px;margin-top:20px">
@@ -9,7 +9,7 @@
 				</div>
 				</el-col>
 				<el-col :span="12">
-					<el-radio-group v-model="dateType" size="mini" style="margin-top: 18px; margin-right: 18px; float: right;" @change="loadAccessCard">
+					<el-radio-group v-model="dateType"  style="margin-top: 18px; margin-right: 18px; float: right;" @change="loadAccessCard">
 					  <el-radio-button label="min">60分</el-radio-button>
 					  <el-radio-button label="hour">24小时</el-radio-button>
 					  <el-radio-button label="day">7天</el-radio-button>

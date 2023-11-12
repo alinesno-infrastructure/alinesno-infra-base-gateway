@@ -89,7 +89,6 @@ const opertionAssets = ref([
   {id:'3' , title:'持续集成' , count:65} ,
   {id:'4' , title:'自动配置' , count:85} ,
   {id:'5' , title:'配置管理' , count:45} ,
-  {id:'6' , title:'安全监控' , count:45} ,
 ])
 
 const components = ref([

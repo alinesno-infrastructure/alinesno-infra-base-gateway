@@ -21,7 +21,7 @@
       </router-link>
     </div>
 
-    <el-dropdown size="mini">
+    <el-dropdown >
       <div class="acp-header-item " style="display: flex">
         <a class="header-label-text">
           <i class="fa-solid fa-shield-halved"></i>

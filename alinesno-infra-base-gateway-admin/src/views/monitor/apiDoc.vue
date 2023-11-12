@@ -8,10 +8,10 @@
 						<span slot-scope="{ node, data }">							
 							<span style="font-size: 10pt;">{{ node.label }}</span>							
 							<span>
-							  <el-button size="mini" circle icon="el-icon-edit" title="编辑" 
+							  <el-button  circle icon="Edit" title="编辑" 
 							  style="border: 0px; margin-left: 0px; font-size: 10pt; padding: 2px;" 
 							  @click="() => handleNodeEdit(data)" :disabled="handleType=='edit' && id != data.id" ></el-button>
-							  <el-button v-show="isNotGroups(node.data.code)" size="mini" circle icon="el-icon-view" 
+							  <el-button v-show="isNotGroups(node.data.code)"  circle icon="el-icon-view" 
 							  title="详情" style="border: 0px; margin-left: 0px; font-size: 10pt; padding: 2px;" 
 							  @click="() => handleNodeView(data)"></el-button>
 							</span>
@@ -28,19 +28,19 @@
 						<span v-show="infoForm.isItem" style="margin-left: 50px;">
 							<i class="el-icon-position"></i> 
 							<span style="font-size: 11pt;">
-								<el-tag size="mini" style="font-weight: bold;">{{infoForm.id}}</el-tag>
+								<el-tag  style="font-weight: bold;">{{infoForm.id}}</el-tag>
 							</span>
 						</span>
 						<span v-show="infoForm.isItem" style="margin-left: 30px;">
 							<i class="el-icon-link"></i> 
 							<span style="font-size: 11pt;">
-								<el-tag size="mini" type="success" style="font-weight: bold;">{{infoForm.path}}</el-tag>
+								<el-tag  type="success" style="font-weight: bold;">{{infoForm.path}}</el-tag>
 							</span>
 						</span>	
 						<span v-show="infoForm.isItem" style="margin-left: 30px;">
 							<i class="el-icon-connection"></i> 
 							<span style="font-size: 11pt;">
-								<el-tag size="mini" type="success" style="font-weight: bold;">{{infoForm.uri}}</el-tag>
+								<el-tag  type="success" style="font-weight: bold;">{{infoForm.uri}}</el-tag>
 							</span>
 						</span>	
 					</div>
@@ -59,7 +59,7 @@
 			</el-col>
 		</el-row>
 		
-		<el-drawer :visible.sync="drawer" :direction="direction" :before-close="handleClose" :with-header="false" size="24%">
+		<el-drawer v-model="drawer" :direction="direction" :before-close="handleClose" :with-header="false" size="24%">
 			<!-- 父组件传参与子组件方法监听 -->
 			<routeInfoComponent ref="routeInfo" :infoForm="infoForm"></routeInfoComponent>
 		</el-drawer>

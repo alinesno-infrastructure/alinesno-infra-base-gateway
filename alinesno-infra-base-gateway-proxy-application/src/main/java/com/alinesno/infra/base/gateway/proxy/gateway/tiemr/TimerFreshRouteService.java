@@ -1,7 +1,7 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.tiemr;
 
 
-import com.alinesno.infra.base.gateway.formwork.util.RouteConstants;
+import com.alinesno.infra.base.gateway.core.util.RouteConstants;
 import com.alinesno.infra.base.gateway.proxy.gateway.event.ApplicationEventPublisherFactory;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;

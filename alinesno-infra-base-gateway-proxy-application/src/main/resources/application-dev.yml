@@ -8,21 +8,6 @@ spring:
   main:
     allow-bean-definition-overriding: true
     allow-circular-references: true
-  data:
-    redis:
-      host: 127.0.0.1
-      port: 6379
-      password: aip@local
-      database: 0
-  jpa:
-    show-sql: true
-    database-platform: org.hibernate.dialect.MySQLDialect
-    hibernate:
-      ddl-auto: none
-      dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-      naming:
-        # 采用@Column注解字段命名，否则会用砣峰命名规则生产数据库字段名
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
@@ -39,6 +24,21 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
     maxPoolPreparedStatementPerConnectionSize: 20
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: none
+      dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+      naming:
+        # 采用@Column注解字段命名，否则会用砣峰命名规则生产数据库字段名
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password: aip@local
+      database: 0
   cloud:
     loadbalancer:
       ribbon:

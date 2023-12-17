@@ -1,10 +1,10 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.config;
 
 
-import com.alinesno.infra.base.gateway.formwork.config.ApplicationContextProvider;
-import com.alinesno.infra.base.gateway.formwork.dao.RouteDao;
-import com.alinesno.infra.base.gateway.formwork.entity.Route;
-import com.alinesno.infra.base.gateway.formwork.util.Constants;
+import com.alinesno.infra.base.gateway.core.config.ApplicationContextProvider;
+import com.alinesno.infra.base.gateway.core.dao.RouteDao;
+import com.alinesno.infra.base.gateway.core.entity.Route;
+import com.alinesno.infra.base.gateway.core.util.Constants;
 import com.alinesno.infra.base.gateway.proxy.gateway.cache.RouteCache;
 import com.alinesno.infra.base.gateway.proxy.gateway.filter.factory.AuthorizeGatewayFilterFactory;
 import com.alinesno.infra.base.gateway.proxy.gateway.service.LoadRouteService;

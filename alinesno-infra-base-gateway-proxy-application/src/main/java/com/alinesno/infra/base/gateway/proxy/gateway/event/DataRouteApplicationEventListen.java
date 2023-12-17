@@ -1,17 +1,18 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.event;
 
-import com.alinesno.infra.base.gateway.formwork.dao.RouteDao;
-import com.alinesno.infra.base.gateway.formwork.entity.Balanced;
-import com.alinesno.infra.base.gateway.formwork.entity.LoadServer;
-import com.alinesno.infra.base.gateway.formwork.entity.Route;
-import com.alinesno.infra.base.gateway.formwork.service.BalancedService;
-import com.alinesno.infra.base.gateway.formwork.service.LoadServerService;
-import com.alinesno.infra.base.gateway.formwork.util.Constants;
-import com.alinesno.infra.base.gateway.formwork.util.RouteConstants;
+import com.alinesno.infra.base.gateway.core.dao.RouteDao;
+import com.alinesno.infra.base.gateway.core.entity.Balanced;
+import com.alinesno.infra.base.gateway.core.entity.LoadServer;
+import com.alinesno.infra.base.gateway.core.entity.Route;
+import com.alinesno.infra.base.gateway.core.service.BalancedService;
+import com.alinesno.infra.base.gateway.core.service.LoadServerService;
+import com.alinesno.infra.base.gateway.core.util.Constants;
+import com.alinesno.infra.base.gateway.core.util.RouteConstants;
 import com.alinesno.infra.base.gateway.proxy.gateway.cache.RouteCache;
 import com.alinesno.infra.base.gateway.proxy.gateway.service.LoadRouteService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.cloud.gateway.event.RefreshRoutesEvent;
 import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinitionLocator;
@@ -29,28 +30,32 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
- * @description 注册网关路由事件，动态加载数据库网关路由信息，监听路由配置事件，重新动态加载网关路由数据(已过时)
+ * @description 注册网关路由事件，动态加载数据库网关路由信息，监听路由配置事件，重新动态加载网关路由数据
  * @author  JL
  * @date 2020/05/27
  * @version 1.0.0
  */
 @Slf4j
 @Component
-@Deprecated
 public class DataRouteApplicationEventListen implements RouteDefinitionLocator,ApplicationEventPublisherAware {
+
     @Resource
     private RouteDao routeDao;
+
     @Resource
     private LoadRouteService loadRouteService;
+
     @Resource
     private BalancedService balancedService;
+
     @Resource
     private LoadServerService loadServerService;
     private ApplicationEventPublisher publisher;
-    private List<RouteDefinition> routeDefinitions = new ArrayList<>();
+
+    private final List<RouteDefinition> routeDefinitions = new ArrayList<>();
 
     @Override
-    public void setApplicationEventPublisher(ApplicationEventPublisher publisher) {
+    public void setApplicationEventPublisher(@NotNull ApplicationEventPublisher publisher) {
         this.publisher = publisher;
     }
 
@@ -97,7 +102,6 @@ public class DataRouteApplicationEventListen implements RouteDefinitionLocator,A
         initLoadBalanced();
     }
 
-
     /**
      * 初始化完毕后，加载路由
      */
@@ -143,15 +147,7 @@ public class DataRouteApplicationEventListen implements RouteDefinitionLocator,A
                                 //查找服务对应的路由服务
                                 Optional<Route> optionalRoute = list.stream().filter(r -> r.getId().equals(s.getRouteId())).findFirst();
                                 if (optionalRoute.isPresent()) {
-                                    String weightName = RouteConstants.BALANCED + "-" + b.getId();
-                                    Route route = optionalRoute.get();
-                                    //获取route，改变参数，构造一个新route对象
-                                    route.setId(weightName + "-" + route.getId());
-                                    route.setPath(RouteConstants.PARENT_PATH + b.getLoadUri());
-                                    //设置负载参数
-                                    route.setWeightName(weightName);
-                                    route.setWeight(s.getWeight());
-                                    route.setStripPrefix(1);
+                                    Route route = getRoute(b, s, optionalRoute);
                                     //添加新路由集合中
                                     balancedRouteList.add(route);
                                 }
@@ -170,6 +166,24 @@ public class DataRouteApplicationEventListen implements RouteDefinitionLocator,A
         }catch(Exception e){
             log.error("加载数据库中网关负载路由配置异常：",e);
         }
+    }
+
+    @NotNull
+    private static Route getRoute(Balanced b, LoadServer s, Optional<Route> optionalRoute) {
+
+        String weightName = RouteConstants.BALANCED + "-" + b.getId();
+        Route route = optionalRoute.get();
+
+        //获取route，改变参数，构造一个新route对象
+        route.setId(weightName + "-" + route.getId());
+        route.setPath(RouteConstants.PARENT_PATH + b.getLoadUri());
+
+        //设置负载参数
+        route.setWeightName(weightName);
+        route.setWeight(s.getWeight());
+        route.setStripPrefix(1);
+
+        return route;
     }
 
 }

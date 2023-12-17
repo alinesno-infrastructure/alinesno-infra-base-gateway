@@ -1,12 +1,12 @@
 package com.alinesno.infra.base.gateway.manage.task;
 
-import com.alinesno.infra.base.gateway.formwork.entity.Monitor;
-import com.alinesno.infra.base.gateway.formwork.entity.Route;
-import com.alinesno.infra.base.gateway.formwork.service.MonitorService;
-import com.alinesno.infra.base.gateway.formwork.service.RouteService;
-import com.alinesno.infra.base.gateway.formwork.util.Constants;
-import com.alinesno.infra.base.gateway.formwork.util.HttpUtils;
-import com.alinesno.infra.base.gateway.formwork.util.RouteConstants;
+import com.alinesno.infra.base.gateway.core.entity.Monitor;
+import com.alinesno.infra.base.gateway.core.entity.Route;
+import com.alinesno.infra.base.gateway.core.service.MonitorService;
+import com.alinesno.infra.base.gateway.core.service.RouteService;
+import com.alinesno.infra.base.gateway.core.util.Constants;
+import com.alinesno.infra.base.gateway.core.util.HttpUtils;
+import com.alinesno.infra.base.gateway.core.util.RouteConstants;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;

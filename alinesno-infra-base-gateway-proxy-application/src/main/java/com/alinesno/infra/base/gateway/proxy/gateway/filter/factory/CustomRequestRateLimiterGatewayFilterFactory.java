@@ -2,9 +2,9 @@ package com.alinesno.infra.base.gateway.proxy.gateway.filter.factory;
 
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSONObject;
-import com.alinesno.infra.base.gateway.formwork.util.ApiResult;
-import com.alinesno.infra.base.gateway.formwork.util.Constants;
-import com.alinesno.infra.base.gateway.formwork.util.HttpResponseUtils;
+import com.alinesno.infra.base.gateway.core.util.ApiResult;
+import com.alinesno.infra.base.gateway.core.util.Constants;
+import com.alinesno.infra.base.gateway.core.util.HttpResponseUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.gateway.filter.GatewayFilter;

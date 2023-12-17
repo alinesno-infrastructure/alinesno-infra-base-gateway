@@ -1,9 +1,9 @@
 package com.alinesno.infra.base.gateway.manage.timer;
 
-import com.alinesno.infra.base.gateway.formwork.entity.Monitor;
-import com.alinesno.infra.base.gateway.formwork.service.MonitorService;
-import com.alinesno.infra.base.gateway.formwork.util.Constants;
-import com.alinesno.infra.base.gateway.formwork.util.RouteConstants;
+import com.alinesno.infra.base.gateway.core.entity.Monitor;
+import com.alinesno.infra.base.gateway.core.service.MonitorService;
+import com.alinesno.infra.base.gateway.core.util.Constants;
+import com.alinesno.infra.base.gateway.core.util.RouteConstants;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;

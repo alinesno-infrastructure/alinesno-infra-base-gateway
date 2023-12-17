@@ -1,8 +1,8 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.rest;
 
-import com.alinesno.infra.base.gateway.formwork.entity.Route;
-import com.alinesno.infra.base.gateway.formwork.service.RouteService;
-import com.alinesno.infra.base.gateway.formwork.util.ApiResult;
+import com.alinesno.infra.base.gateway.core.entity.Route;
+import com.alinesno.infra.base.gateway.core.service.RouteService;
+import com.alinesno.infra.base.gateway.core.util.ApiResult;
 import com.alinesno.infra.base.gateway.proxy.gateway.event.DataRouteApplicationEventListen;
 import com.alinesno.infra.base.gateway.proxy.gateway.service.DynamicRouteService;
 import com.alinesno.infra.base.gateway.proxy.gateway.service.LoadRouteService;
@@ -16,18 +16,23 @@ import reactor.core.publisher.Flux;
 /**
  * @description 动态添加路由
  * @author  jianglong
+ * @author luoxiaodong
  * @date 2020/05/11
  * @version 1.0.0
  */
 @RestController
-@RequestMapping("/gateway/route")
+@RequestMapping("/api/base/gateway/proxy/route")
 public class RouteController {
+
     @Resource
     private DynamicRouteService dynamicRouteService;
+
     @Resource
     private LoadRouteService loadRouteService;
+
     @Resource
     private RouteService routeService;
+
     @Resource
     private DataRouteApplicationEventListen redisRouteDefinitionRepository;
 

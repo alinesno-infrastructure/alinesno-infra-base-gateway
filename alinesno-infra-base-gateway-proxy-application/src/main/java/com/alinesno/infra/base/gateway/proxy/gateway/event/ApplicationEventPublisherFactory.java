@@ -1,6 +1,6 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.event;
 
-import com.alinesno.infra.base.gateway.formwork.util.RouteConstants;
+import com.alinesno.infra.base.gateway.core.util.RouteConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.cloud.gateway.event.RefreshRoutesEvent;
@@ -29,10 +29,9 @@ public class ApplicationEventPublisherFactory implements ApplicationEventPublish
 
     /**
      * 刷新路由，通过spring的事件监听机制，发布事件，触发监听方法的执行
-     * （已过时，启用nacos配置监听事件，参见：NacosConfigRefreshEventListener）
+     * （启用nacos配置监听事件，参见：NacosConfigRefreshEventListener）
      * @return
      */
-    @Deprecated
     public void publisherEvent(String type){
         if (StringUtils.equals(type, RouteConstants.IP)) {
             this.publisher.publishEvent(new DataIpApplicationEvent(this));

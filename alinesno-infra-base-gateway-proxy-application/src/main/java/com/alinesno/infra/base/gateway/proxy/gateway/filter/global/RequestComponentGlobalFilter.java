@@ -1,7 +1,7 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.filter.global;
 
-import com.alinesno.infra.base.gateway.formwork.util.HttpResponseUtils;
-import com.alinesno.infra.base.gateway.formwork.util.NetworkIpUtils;
+import com.alinesno.infra.base.gateway.core.util.HttpResponseUtils;
+import com.alinesno.infra.base.gateway.core.util.NetworkIpUtils;
 import com.alinesno.infra.base.gateway.proxy.gateway.cache.RouteGroovyCache;
 import com.alinesno.infra.base.gateway.proxy.gateway.service.DynamicGroovyService;
 import com.alinesno.infra.base.gateway.proxy.gateway.vo.GroovyHandleData;

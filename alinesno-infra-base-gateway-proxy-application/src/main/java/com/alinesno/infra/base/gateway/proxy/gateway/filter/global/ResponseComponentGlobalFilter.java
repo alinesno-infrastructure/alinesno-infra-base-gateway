@@ -1,9 +1,9 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.filter.global;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alinesno.infra.base.gateway.formwork.util.ApiResult;
-import com.alinesno.infra.base.gateway.formwork.util.Constants;
-import com.alinesno.infra.base.gateway.formwork.util.NetworkIpUtils;
+import com.alinesno.infra.base.gateway.core.util.ApiResult;
+import com.alinesno.infra.base.gateway.core.util.Constants;
+import com.alinesno.infra.base.gateway.core.util.NetworkIpUtils;
 import com.alinesno.infra.base.gateway.proxy.gateway.cache.RouteGroovyCache;
 import com.alinesno.infra.base.gateway.proxy.gateway.service.DynamicGroovyService;
 import com.alinesno.infra.base.gateway.proxy.gateway.vo.GroovyHandleData;

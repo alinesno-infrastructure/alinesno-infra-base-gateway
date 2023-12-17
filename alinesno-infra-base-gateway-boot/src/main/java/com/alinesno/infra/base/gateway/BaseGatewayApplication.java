@@ -1,21 +1,13 @@
 package com.alinesno.infra.base.gateway;
 
-import com.alinesno.infra.common.web.adapter.sso.enable.EnableInfraSsoApi;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * 启动类
  * @author  luoxiaodong
  * @version v1.0.0
  */
-@EnableInfraSsoApi
-@EnableAsync
-@EnableScheduling
-@Slf4j
 @SpringBootApplication
 public class BaseGatewayApplication {
 

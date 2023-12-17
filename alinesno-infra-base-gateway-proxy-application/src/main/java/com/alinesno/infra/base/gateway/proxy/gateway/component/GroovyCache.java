@@ -1,6 +1,6 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.component;
 
-import com.alinesno.infra.base.gateway.formwork.base.BaseGroovyService;
+import com.alinesno.infra.base.gateway.core.base.BaseGroovyService;
 import lombok.Data;
 
 import java.util.Map;

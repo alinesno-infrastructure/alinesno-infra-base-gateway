@@ -1,8 +1,8 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.service.load;
 
-import com.alinesno.infra.base.gateway.formwork.entity.SecureIp;
-import com.alinesno.infra.base.gateway.formwork.service.SecureIpService;
-import com.alinesno.infra.base.gateway.formwork.util.Constants;
+import com.alinesno.infra.base.gateway.core.entity.SecureIp;
+import com.alinesno.infra.base.gateway.core.service.SecureIpService;
+import com.alinesno.infra.base.gateway.core.util.Constants;
 import com.alinesno.infra.base.gateway.proxy.gateway.cache.AccountCache;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.Resource;

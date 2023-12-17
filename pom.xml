@@ -31,7 +31,7 @@
         <module>alinesno-infra-base-gateway-boot</module>  <!-- 启动服务 -->
 
         <!-- 前端服务
-        <module>alinesno-infra-base-gateway-admin</module>
+        <module>alinesno-infra-base-gateway-ui</module>
         -->
         <module>alinesno-infra-base-gateway-proxy-application</module>  <!-- 启动服务 -->
     </modules>

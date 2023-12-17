@@ -1,6 +1,6 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.filter.global;
 
-import com.alinesno.infra.base.gateway.formwork.util.NetworkIpUtils;
+import com.alinesno.infra.base.gateway.core.util.NetworkIpUtils;
 import com.alinesno.infra.base.gateway.proxy.gateway.cache.CountCache;
 import com.alinesno.infra.base.gateway.proxy.gateway.cache.ErrorCountCache;
 import com.alinesno.infra.base.gateway.proxy.gateway.cache.RouteReqCache;

@@ -1,13 +1,13 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.service;
 
-import com.alinesno.infra.base.gateway.formwork.base.BaseGroovyService;
-import com.alinesno.infra.base.gateway.formwork.config.ApplicationContextProvider;
-import com.alinesno.infra.base.gateway.formwork.entity.GroovyScript;
-import com.alinesno.infra.base.gateway.formwork.service.GroovyScriptService;
-import com.alinesno.infra.base.gateway.formwork.util.Constants;
-import com.alinesno.infra.base.gateway.formwork.util.HttpEnum;
-import com.alinesno.infra.base.gateway.formwork.util.Md5Utils;
-import com.alinesno.infra.base.gateway.formwork.util.NetworkIpUtils;
+import com.alinesno.infra.base.gateway.core.base.BaseGroovyService;
+import com.alinesno.infra.base.gateway.core.config.ApplicationContextProvider;
+import com.alinesno.infra.base.gateway.core.entity.GroovyScript;
+import com.alinesno.infra.base.gateway.core.service.GroovyScriptService;
+import com.alinesno.infra.base.gateway.core.util.Constants;
+import com.alinesno.infra.base.gateway.core.util.HttpEnum;
+import com.alinesno.infra.base.gateway.core.util.Md5Utils;
+import com.alinesno.infra.base.gateway.core.util.NetworkIpUtils;
 import com.alinesno.infra.base.gateway.proxy.gateway.cache.RouteGroovyCache;
 import com.alinesno.infra.base.gateway.proxy.gateway.component.GroovyCache;
 import com.alinesno.infra.base.gateway.proxy.gateway.vo.GroovyHandleData;

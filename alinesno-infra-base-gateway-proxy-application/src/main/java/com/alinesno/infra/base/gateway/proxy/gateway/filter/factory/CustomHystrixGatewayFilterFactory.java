@@ -1,8 +1,8 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.filter.factory;
 
-import com.alinesno.infra.base.gateway.formwork.util.HttpResponseUtils;
-import com.alinesno.infra.base.gateway.formwork.util.NetworkIpUtils;
-import com.alinesno.infra.base.gateway.formwork.util.RouteConstants;
+import com.alinesno.infra.base.gateway.core.util.HttpResponseUtils;
+import com.alinesno.infra.base.gateway.core.util.NetworkIpUtils;
+import com.alinesno.infra.base.gateway.core.util.RouteConstants;
 import com.alinesno.infra.base.gateway.proxy.gateway.cache.RouteCache;
 import com.netflix.hystrix.HystrixCommandGroupKey;
 import com.netflix.hystrix.HystrixCommandKey;
@@ -97,7 +97,7 @@ public class CustomHystrixGatewayFilterFactory extends AbstractGatewayFilterFact
                 if (config.name.startsWith(RouteConstants.Hystrix.CUSTOM_HYSTRIX_NAME)){
                     Route route = exchange.getRequiredAttribute(GATEWAY_ROUTE_ATTR);
                     //添加自定义熔断器
-                    com.alinesno.infra.base.gateway.formwork.entity.Route cacheRoute = (com.alinesno.infra.base.gateway.formwork.entity.Route)RouteCache.get(route.getId());
+                    com.alinesno.infra.base.gateway.core.entity.Route cacheRoute = (com.alinesno.infra.base.gateway.core.entity.Route)RouteCache.get(route.getId());
                     //HystrixCommandGroupKey groupKey = HystrixCommandGroupKey.Factory.asKey(config.name);
                     //HystrixCommandKey commandKey = HystrixCommandKey.Factory.asKey(config.name);
                     //启用回调

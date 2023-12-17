@@ -3,12 +3,11 @@ package com.alinesno.infra.base.gateway.proxy.gateway.service;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import com.alinesno.infra.base.gateway.formwork.dto.GatewayConfigDTO;
-import com.alinesno.infra.base.gateway.formwork.entity.*;
-import com.alinesno.infra.base.gateway.formwork.service.*;
-import com.alinesno.infra.base.gateway.formwork.util.Constants;
-import com.alinesno.infra.base.gateway.formwork.util.RouteConstants;
-import com.alinesno.infra.base.gateway.proxy.gateway.cache.AccountCache;
+import com.alinesno.infra.base.gateway.core.dto.GatewayConfigDTO;
+import com.alinesno.infra.base.gateway.core.entity.*;
+import com.alinesno.infra.base.gateway.core.service.*;
+import com.alinesno.infra.base.gateway.core.util.Constants;
+import com.alinesno.infra.base.gateway.core.util.RouteConstants;
 import com.alinesno.infra.base.gateway.proxy.gateway.cache.RegServerCache;
 import com.alinesno.infra.base.gateway.proxy.gateway.cache.RouteCache;
 import com.alinesno.infra.base.gateway.proxy.gateway.event.ApplicationEventPublisherFactory;
@@ -31,6 +30,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
+
+import static com.alinesno.infra.base.gateway.proxy.gateway.cache.AccountCache.*;
 
 /**
  * @description 为NacosConfigRefreshEventListener监听事件服务提供网关路由更新与删除方法
@@ -83,6 +84,7 @@ public class ConfigRefreshService {
      * @param gatewayConfig
      */
     public void refreshGatewayConfig(GatewayConfigDTO gatewayConfig){
+
         String balancedId = gatewayConfig.getBalancedId();
         String routeId = gatewayConfig.getRouteId();
         Long regServerId = gatewayConfig.getRegServerId();
@@ -90,6 +92,7 @@ public class ConfigRefreshService {
         String ip = gatewayConfig.getIp();
         String operatorToken = gatewayConfig.getOperatorToken();
         Long groovyScriptId = gatewayConfig.getGroovyScriptId();
+
         //刷新配置项
         refreshBalanced(balancedId);
         refreshRoute(routeId);
@@ -97,6 +100,7 @@ public class ConfigRefreshService {
         refreshClient(clientId);
         refreshIp(operatorToken, ip);
         refreshGroovyScript(groovyScriptId);
+
         // 刷新路由
         if(StrUtil.isNotEmpty(routeId) || StrUtil.isNotEmpty(balancedId) ||ObjectUtil.isNotEmpty(groovyScriptId)){
             applicationEventPublisherFactory.refreshRoutesEvent();
@@ -112,7 +116,7 @@ public class ConfigRefreshService {
             return ;
         }
 
-        ConcurrentHashMap<String, List<String>> cache = AccountCache.getRouteCacheAll();
+        ConcurrentHashMap<String, List<String>> cache = getRouteCacheAll();
         Iterator<String> accountIterator = cache.keys().asIterator();
 
         Balanced balanced = balancedService.findById(balancedId);
@@ -123,11 +127,11 @@ public class ConfigRefreshService {
             // 清除 accountRoute 相关数据
             while (accountIterator.hasNext()){
                 String token = accountIterator.next();
-                List<String> accountRouteIds = AccountCache.getRouteCache(token);
+                List<String> accountRouteIds = getRouteCache(token);
                 List<String> newAccountRouteIds = accountRouteIds.stream()
                         .filter(item -> !item.contains(balancedId))
                         .collect(Collectors.toList());
-                AccountCache.putRouteCache(token, newAccountRouteIds);
+                putRouteCache(token, newAccountRouteIds);
             }
             // 清除route-cache 相应数据
 
@@ -173,7 +177,7 @@ public class ConfigRefreshService {
         // 清除accountCache 相关数据
         while (accountIterator.hasNext()){
             String accountCacheKey = accountIterator.next();
-            List<String> accountRouteIds = AccountCache.getRouteCache(accountCacheKey);
+            List<String> accountRouteIds = getRouteCache(accountCacheKey);
             accountRouteIds.removeAll(clearRouteIds);
         }
 
@@ -198,7 +202,7 @@ public class ConfigRefreshService {
             if (route == null || Constants.NO.equals(route.getStatus())) {
                 continue;
             }
-            AccountCache.getRouteCache(route.getAccountToken()).add(balancedRouteId);
+            getRouteCache(route.getAccountToken()).add(balancedRouteId);
             newBalanceRoutesIds.add(balancedRouteId);
             loadServerService.setBalancedRoute(balanced, loadServer, route);
             RouteCache.put(balancedRouteId, route);
@@ -226,9 +230,9 @@ public class ConfigRefreshService {
         if (route == null) {
             route = new Route();
             route.setId(routeId);
-            List<String> clearAccountTokens = AccountCache.getRouteCacheKeys().stream()
+            List<String> clearAccountTokens = getRouteCacheKeys().stream()
                     .filter(key -> {
-                        List<String> item = AccountCache.getRouteCache(key);
+                        List<String> item = getRouteCache(key);
                         if(item.contains(routeId)){
                             item.remove(routeId);
                             return true;
@@ -246,7 +250,7 @@ public class ConfigRefreshService {
             if (Constants.NO.equals(route.getStatus())){
                 isClose = true;
             }
-            accountRoutes = AccountCache.getRouteCache(route.getAccountToken());
+            accountRoutes = getRouteCache(route.getAccountToken());
             accountRoutes.remove(routeId);
         }
 
@@ -284,7 +288,7 @@ public class ConfigRefreshService {
         if(StrUtil.isEmpty(route.getAccountToken())){
             accountRoutes = new ArrayList<>();
         }else {
-            accountRoutes = AccountCache.getRouteCache(route.getAccountToken());
+            accountRoutes = getRouteCache(route.getAccountToken());
         }
         // 清除accountToken中route记录
         List<String> removeRouteIds = accountRoutes.stream()
@@ -415,10 +419,10 @@ public class ConfigRefreshService {
         qSecureIp.setIp(ip);
         qSecureIp.setAccountToken(operatorToken);
         List<SecureIp> secureIps = secureIpService.findAll(qSecureIp);
-        AccountCache.getIpCache(operatorToken).remove(ip);
+        getIpCache(operatorToken).remove(ip);
         // 状态，0是启用，1是禁用
         if (CollectionUtils.isEmpty(secureIps) || Constants.NO.equals(secureIps.get(0).getStatus())){
-            AccountCache.getIpCache(operatorToken).add(ip);
+            getIpCache(operatorToken).add(ip);
             log.info("成功加载网关路由IP名单中缓存配置！ip={}", ip);
         }else {
             log.info("成功移除网关路由IP名单中缓存配置！ip={}", ip);

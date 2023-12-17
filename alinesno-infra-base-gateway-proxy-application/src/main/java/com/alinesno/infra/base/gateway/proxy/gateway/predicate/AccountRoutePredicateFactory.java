@@ -2,7 +2,7 @@ package com.alinesno.infra.base.gateway.proxy.gateway.predicate;
 
 
 import cn.hutool.core.collection.CollectionUtil;
-import com.alinesno.infra.base.gateway.formwork.util.Constants;
+import com.alinesno.infra.base.gateway.core.util.Constants;
 import com.alinesno.infra.base.gateway.proxy.gateway.cache.AccountCache;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.handler.predicate.AbstractRoutePredicateFactory;

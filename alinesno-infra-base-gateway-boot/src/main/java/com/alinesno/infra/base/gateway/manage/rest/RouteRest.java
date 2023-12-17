@@ -1,19 +1,19 @@
 package com.alinesno.infra.base.gateway.manage.rest;
 
 import cn.hutool.core.collection.CollectionUtil;
-import com.alinesno.infra.base.gateway.formwork.base.BaseRest;
-import com.alinesno.infra.base.gateway.formwork.bean.*;
-import com.alinesno.infra.base.gateway.formwork.entity.Account;
-import com.alinesno.infra.base.gateway.formwork.entity.Monitor;
-import com.alinesno.infra.base.gateway.formwork.entity.Route;
-import com.alinesno.infra.base.gateway.formwork.service.AccountService;
-import com.alinesno.infra.base.gateway.formwork.service.CustomRestConfigService;
-import com.alinesno.infra.base.gateway.formwork.service.MonitorService;
-import com.alinesno.infra.base.gateway.formwork.service.RouteService;
-import com.alinesno.infra.base.gateway.formwork.util.ApiResult;
-import com.alinesno.infra.base.gateway.formwork.util.Constants;
-import com.alinesno.infra.base.gateway.formwork.util.RouteConstants;
-import com.alinesno.infra.base.gateway.formwork.util.UUIDUtils;
+import com.alinesno.infra.base.gateway.core.base.BaseRest;
+import com.alinesno.infra.base.gateway.core.bean.*;
+import com.alinesno.infra.base.gateway.core.entity.Account;
+import com.alinesno.infra.base.gateway.core.entity.Monitor;
+import com.alinesno.infra.base.gateway.core.entity.Route;
+import com.alinesno.infra.base.gateway.core.service.AccountService;
+import com.alinesno.infra.base.gateway.core.service.CustomRestConfigService;
+import com.alinesno.infra.base.gateway.core.service.MonitorService;
+import com.alinesno.infra.base.gateway.core.service.RouteService;
+import com.alinesno.infra.base.gateway.core.util.ApiResult;
+import com.alinesno.infra.base.gateway.core.util.Constants;
+import com.alinesno.infra.base.gateway.core.util.RouteConstants;
+import com.alinesno.infra.base.gateway.core.util.UUIDUtils;
 import com.alinesno.infra.base.gateway.manage.aop.DataFilter;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
@@ -62,16 +62,20 @@ public class RouteRest extends BaseRest<Route> {
     @RequestMapping(value = "/add", method = {RequestMethod.POST})
     public ApiResult add(@RequestBody RouteReq routeReq){
         Assert.notNull(routeReq, "未获取到对象");
+
         Route route = toRoute(routeReq);
         route.setId(UUIDUtils.getUUIDString());
         route.setCreateTime(new Date());
         route.setAccountToken(getAccountToken());
         this.validate(route);
+
         Route dbRoute = new Route();
         dbRoute.setRouteId(route.getId());
         dbRoute.setOperatorId(routeReq.getOperatorId());
+
         long count = routeService.count(dbRoute);
         Assert.isTrue(count <= 0, "RouteId已存在，不能重复");
+
         return this.save(route, toMonitor(routeReq), true);
     }
 
@@ -181,8 +185,10 @@ public class RouteRest extends BaseRest<Route> {
     private ApiResult save(Route route, Monitor monitor, boolean isNews){
         route.setUpdateTime(new Date());
         //this.setRouteCacheVersion();
+
         routeService.save(route);
         customRestConfigService.publishRouteConfig(route.getId());
+
         //保存监控配置
         if (monitor != null) {
             monitor.setId(route.getId());

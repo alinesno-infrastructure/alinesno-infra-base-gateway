@@ -1,7 +1,7 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.filter.factory;
 
-import com.alinesno.infra.base.gateway.formwork.util.HttpResponseUtils;
-import com.alinesno.infra.base.gateway.formwork.util.NetworkIpUtils;
+import com.alinesno.infra.base.gateway.core.util.HttpResponseUtils;
+import com.alinesno.infra.base.gateway.core.util.NetworkIpUtils;
 import com.netflix.hystrix.HystrixCommandGroupKey;
 import com.netflix.hystrix.HystrixCommandKey;
 import com.netflix.hystrix.HystrixCommandProperties;

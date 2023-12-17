@@ -17,6 +17,5 @@ public class MonitorRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         log.info("运行网关路由监控任务...");
-        // monitorTaskService.executeMonitorTask();
     }
 }

@@ -1,11 +1,11 @@
 package com.alinesno.infra.base.gateway.manage.rest;
 
-import com.alinesno.infra.base.gateway.formwork.base.BaseRest;
-import com.alinesno.infra.base.gateway.formwork.entity.GroovyScript;
-import com.alinesno.infra.base.gateway.formwork.service.CustomRestConfigService;
-import com.alinesno.infra.base.gateway.formwork.service.GroovyScriptService;
-import com.alinesno.infra.base.gateway.formwork.util.ApiResult;
-import com.alinesno.infra.base.gateway.formwork.util.Constants;
+import com.alinesno.infra.base.gateway.core.base.BaseRest;
+import com.alinesno.infra.base.gateway.core.entity.GroovyScript;
+import com.alinesno.infra.base.gateway.core.service.CustomRestConfigService;
+import com.alinesno.infra.base.gateway.core.service.GroovyScriptService;
+import com.alinesno.infra.base.gateway.core.util.ApiResult;
+import com.alinesno.infra.base.gateway.core.util.Constants;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;

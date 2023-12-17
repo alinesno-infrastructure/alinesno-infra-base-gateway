@@ -2,7 +2,7 @@ package com.alinesno.infra.base.gateway.proxy.gateway.filter.authorize;
 
 import cn.hutool.core.net.NetUtil;
 import cn.hutool.core.util.StrUtil;
-import com.alinesno.infra.base.gateway.formwork.util.NetworkIpUtils;
+import com.alinesno.infra.base.gateway.core.util.NetworkIpUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 

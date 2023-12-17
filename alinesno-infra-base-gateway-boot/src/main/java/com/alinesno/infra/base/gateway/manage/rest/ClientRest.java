@@ -1,13 +1,13 @@
 package com.alinesno.infra.base.gateway.manage.rest;
 
-import com.alinesno.infra.base.gateway.formwork.base.BaseRest;
-import com.alinesno.infra.base.gateway.formwork.bean.ClientReq;
-import com.alinesno.infra.base.gateway.formwork.entity.Client;
-import com.alinesno.infra.base.gateway.formwork.service.ClientService;
-import com.alinesno.infra.base.gateway.formwork.service.CustomRestConfigService;
-import com.alinesno.infra.base.gateway.formwork.util.ApiResult;
-import com.alinesno.infra.base.gateway.formwork.util.Constants;
-import com.alinesno.infra.base.gateway.formwork.util.UUIDUtils;
+import com.alinesno.infra.base.gateway.core.base.BaseRest;
+import com.alinesno.infra.base.gateway.core.bean.ClientReq;
+import com.alinesno.infra.base.gateway.core.entity.Client;
+import com.alinesno.infra.base.gateway.core.service.ClientService;
+import com.alinesno.infra.base.gateway.core.service.CustomRestConfigService;
+import com.alinesno.infra.base.gateway.core.util.ApiResult;
+import com.alinesno.infra.base.gateway.core.util.Constants;
+import com.alinesno.infra.base.gateway.core.util.UUIDUtils;
 import com.alinesno.infra.base.gateway.manage.aop.DataFilter;
 import jakarta.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;

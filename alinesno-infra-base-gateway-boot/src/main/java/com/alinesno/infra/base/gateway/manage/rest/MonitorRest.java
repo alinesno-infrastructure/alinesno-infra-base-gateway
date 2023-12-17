@@ -1,11 +1,11 @@
 package com.alinesno.infra.base.gateway.manage.rest;
 
-import com.alinesno.infra.base.gateway.formwork.base.BaseRest;
-import com.alinesno.infra.base.gateway.formwork.bean.MonitorReq;
-import com.alinesno.infra.base.gateway.formwork.entity.Monitor;
-import com.alinesno.infra.base.gateway.formwork.service.MonitorService;
-import com.alinesno.infra.base.gateway.formwork.util.ApiResult;
-import com.alinesno.infra.base.gateway.formwork.util.Constants;
+import com.alinesno.infra.base.gateway.core.base.BaseRest;
+import com.alinesno.infra.base.gateway.core.bean.MonitorReq;
+import com.alinesno.infra.base.gateway.core.entity.Monitor;
+import com.alinesno.infra.base.gateway.core.service.MonitorService;
+import com.alinesno.infra.base.gateway.core.util.ApiResult;
+import com.alinesno.infra.base.gateway.core.util.Constants;
 import com.alinesno.infra.base.gateway.manage.aop.DataFilter;
 import jakarta.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;

@@ -1,7 +1,7 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.event;
 
 
-import com.alinesno.infra.base.gateway.formwork.service.SecureIpService;
+import com.alinesno.infra.base.gateway.core.service.SecureIpService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
@@ -10,12 +10,12 @@ import org.springframework.stereotype.Component;
 /**
  * @description 监听DataIpApplicationEvent事件，并触发IP鉴权数据重新加载（已过时）
  * @author  JL
+ * @author luoxiaodong
  * @date 2020/05/28
  * @version 1.0.0
  */
 @Slf4j
 @Component
-@Deprecated
 public class DataIpApplicationEventListen{
 
     @Resource

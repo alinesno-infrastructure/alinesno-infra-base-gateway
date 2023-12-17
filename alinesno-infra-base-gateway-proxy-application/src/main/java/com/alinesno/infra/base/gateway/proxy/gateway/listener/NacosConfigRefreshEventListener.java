@@ -47,7 +47,7 @@ public class NacosConfigRefreshEventListener implements SmartApplicationListener
     @Resource
     private ConfigRefreshService configRefreshService;
 
-    private AtomicBoolean ready = new AtomicBoolean(false);
+    private final AtomicBoolean ready = new AtomicBoolean(false);
 
     public NacosConfigRefreshEventListener(ContextRefresher refresh) {
         this.refresh = refresh;
@@ -82,22 +82,29 @@ public class NacosConfigRefreshEventListener implements SmartApplicationListener
      * @param event
      */
     public void handle(RefreshEvent event) {
+
         // don't handle events before app is ready
         if (this.ready.get()) {
+
             log.debug("Event received " + event.getEventDesc());
             Set<String> keys = this.refresh.refresh();
+
             log.info("Refresh keys changed: " + keys);
             String gatewayConfig = null;
+
             ConfigurableEnvironment environment = applicationContext.getEnvironment();
             // 只处理nacos有关的PropertySource配置更新属性
+
             // 当nacos配置变更推送到应用后，spring-cloud-context.jar中的PropertySourceBootstrapConfiguration.initialize()方法会被重新初始化，
             // 重新获取上下文中的配置，重新初始化覆盖所有配置到spring框架中，如同重启过程中加载所有配置一样；
+
             // 以下代码模仿PropertySourceBootstrapConfiguration.initialize()中的96行~111行逻辑，获取指定配置
             for (PropertySourceLocator locator : propertySourceLocators){
                 Collection<PropertySource<?>> source = locator.locateCollection(environment);
-                if (source == null || source.size() == 0) {
+                if (source == null || source.isEmpty()) {
                     continue;
                 }
+
 //                if (locator instanceof NacosPropertySourceLocator){
 //                    for (PropertySource<?> p : source) {
 //                        //只取nacos中的变更配置
@@ -120,6 +127,7 @@ public class NacosConfigRefreshEventListener implements SmartApplicationListener
 //                configRefreshService.setGatewayConfig(gatewayConfig);
 //                log.info("Refresh gatewayConfig changed success!");
 //            }
+
         }
     }
 

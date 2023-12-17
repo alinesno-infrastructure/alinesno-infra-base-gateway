@@ -1,5 +1,6 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.event;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationEvent;
 
 /**
@@ -8,7 +9,7 @@ import org.springframework.context.ApplicationEvent;
  * @date 2020/05/27
  * @version 1.0.0
  */
-@Deprecated
+@Slf4j
 public class DataRouteApplicationEvent extends ApplicationEvent {
     /**
      * Create a new ApplicationEvent.
@@ -16,5 +17,7 @@ public class DataRouteApplicationEvent extends ApplicationEvent {
      */
     public DataRouteApplicationEvent(Object source) {
         super(source);
+
+        log.debug("object source = {}" , source);
     }
 }

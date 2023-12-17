@@ -23,11 +23,9 @@ public class CustomBeanDefinitionRegistryPostProcessor implements BeanDefinition
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
         // 查找同名的bean，如果存在则用自定义bean覆盖
         RootBeanDefinition beanDefinition = (RootBeanDefinition) registry.getBeanDefinition(BEAN_NAME);
-        if (beanDefinition != null) {
-            registry.removeBeanDefinition(BEAN_NAME);
-            beanDefinition = new RootBeanDefinition(CustomWeightCalculatorWebFilter.class);
-            registry.registerBeanDefinition(BEAN_NAME, beanDefinition);
-        }
+        registry.removeBeanDefinition(BEAN_NAME);
+        beanDefinition = new RootBeanDefinition(CustomWeightCalculatorWebFilter.class);
+        registry.registerBeanDefinition(BEAN_NAME, beanDefinition);
     }
 
     @Override

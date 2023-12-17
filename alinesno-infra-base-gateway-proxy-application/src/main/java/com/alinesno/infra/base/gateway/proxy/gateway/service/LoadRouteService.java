@@ -1,8 +1,8 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.service;
 
-import com.alinesno.infra.base.gateway.formwork.entity.Route;
-import com.alinesno.infra.base.gateway.formwork.util.Constants;
-import com.alinesno.infra.base.gateway.formwork.util.RouteConstants;
+import com.alinesno.infra.base.gateway.core.entity.Route;
+import com.alinesno.infra.base.gateway.core.util.Constants;
+import com.alinesno.infra.base.gateway.core.util.RouteConstants;
 import com.alinesno.infra.base.gateway.proxy.gateway.filter.ClientIdGatewayFilter;
 import com.alinesno.infra.base.gateway.proxy.gateway.filter.IpGatewayFilter;
 import com.alinesno.infra.base.gateway.proxy.gateway.filter.TokenGatewayFilter;
@@ -55,6 +55,7 @@ public class LoadRouteService {
      * @return
      */
     public RouteDefinition assembleRouteDefinition(GatewayRouteDefinition gwdefinition) {
+
         RouteDefinition definition = new RouteDefinition();
         definition.setId(gwdefinition.getId());
         definition.setOrder(gwdefinition.getOrder());
@@ -68,6 +69,7 @@ public class LoadRouteService {
             pdList.add(predicate);
         }
         definition.setPredicates(pdList);
+
         //设置过滤器
         List<FilterDefinition> filters = new ArrayList();
         List<GatewayFilterDefinition> gatewayFilters = gwdefinition.getFilters();
@@ -79,6 +81,7 @@ public class LoadRouteService {
         }
         definition.setFilters(filters);
         definition.setUri(this.getURI(gwdefinition.getUri()));
+
         return definition;
     }
 

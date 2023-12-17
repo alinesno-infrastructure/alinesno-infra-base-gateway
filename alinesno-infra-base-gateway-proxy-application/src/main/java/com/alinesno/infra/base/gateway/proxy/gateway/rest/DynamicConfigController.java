@@ -1,7 +1,7 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.rest;
 
-import com.alinesno.infra.base.gateway.formwork.dto.GatewayConfigDTO;
-import com.alinesno.infra.base.gateway.formwork.util.ApiResult;
+import com.alinesno.infra.base.gateway.core.dto.GatewayConfigDTO;
+import com.alinesno.infra.base.gateway.core.util.ApiResult;
 import com.alinesno.infra.base.gateway.proxy.gateway.service.ConfigRefreshService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @CrossOrigin( allowCredentials = "false")
 @RestController
-@RequestMapping("/gateway/configuration")
+@RequestMapping("/api/base/gateway/proxy/configuration")
 public class DynamicConfigController {
 
     @Autowired

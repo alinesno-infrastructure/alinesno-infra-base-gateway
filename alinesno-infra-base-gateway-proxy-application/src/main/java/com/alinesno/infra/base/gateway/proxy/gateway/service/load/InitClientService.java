@@ -1,6 +1,6 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.service.load;
 
-import com.alinesno.infra.base.gateway.formwork.service.RegServerService;
+import com.alinesno.infra.base.gateway.core.service.RegServerService;
 import com.alinesno.infra.base.gateway.proxy.gateway.cache.RegServerCache;
 import com.alinesno.infra.base.gateway.proxy.gateway.vo.GatewayRegServer;
 import jakarta.annotation.PostConstruct;

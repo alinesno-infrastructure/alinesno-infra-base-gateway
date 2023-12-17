@@ -1,12 +1,12 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.service.load;
 
-import com.alinesno.infra.base.gateway.formwork.dao.RouteDao;
-import com.alinesno.infra.base.gateway.formwork.entity.Balanced;
-import com.alinesno.infra.base.gateway.formwork.entity.LoadServer;
-import com.alinesno.infra.base.gateway.formwork.entity.Route;
-import com.alinesno.infra.base.gateway.formwork.service.BalancedService;
-import com.alinesno.infra.base.gateway.formwork.service.LoadServerService;
-import com.alinesno.infra.base.gateway.formwork.util.Constants;
+import com.alinesno.infra.base.gateway.core.dao.RouteDao;
+import com.alinesno.infra.base.gateway.core.entity.Balanced;
+import com.alinesno.infra.base.gateway.core.entity.LoadServer;
+import com.alinesno.infra.base.gateway.core.entity.Route;
+import com.alinesno.infra.base.gateway.core.service.BalancedService;
+import com.alinesno.infra.base.gateway.core.service.LoadServerService;
+import com.alinesno.infra.base.gateway.core.util.Constants;
 import com.alinesno.infra.base.gateway.proxy.gateway.cache.AccountCache;
 import com.alinesno.infra.base.gateway.proxy.gateway.cache.RouteCache;
 import com.alinesno.infra.base.gateway.proxy.gateway.service.DynamicRouteService;
@@ -37,9 +37,9 @@ import java.util.stream.Collectors;
 @Service
 public class InitRouteService {
 
-    private List<RouteDefinition> routeDefinitions = new ArrayList<>();
+    private final List<RouteDefinition> routeDefinitions = new ArrayList<>();
 
-    private List<String> cacheRouteIds = new ArrayList<>();
+    private final List<String> cacheRouteIds = new ArrayList<>();
 
     @Resource
     private RouteDao routeDao;
@@ -62,9 +62,11 @@ public class InitRouteService {
     public void init(){
         //一定要清空routeDefinitions否则每次刷新会往集合中添加重复数据
         routeDefinitions.clear();
+
         initLoadRoute();
         initLoadBalanced();
         initAccountRouteCache();
+
         dynamicRouteService.addAll(routeDefinitions);
     }
 
@@ -172,7 +174,6 @@ public class InitRouteService {
     }
 
     private void initAccountRouteCache(){
-//        ConcurrentHashMap<String, List<String>> routeCache =  cacheRouteIds.stream()
         ConcurrentHashMap<String, List<String>> routeCache =  cacheRouteIds.stream()
                 .map(routeId -> (Route)RouteCache.get(routeId))
                 .filter(item -> item.getAccountToken() != null)

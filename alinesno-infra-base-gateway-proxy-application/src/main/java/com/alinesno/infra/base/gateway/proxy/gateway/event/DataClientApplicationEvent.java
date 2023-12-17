@@ -3,12 +3,12 @@ package com.alinesno.infra.base.gateway.proxy.gateway.event;
 import org.springframework.context.ApplicationEvent;
 
 /**
- * @description 创建自定义客户端事件（已过时，启用nacos配置监听事件，参见：NacosConfigRefreshEventListener）
+ * @description 创建自定义客户端事件
  * @author  JL
+ * @author luoxiaodong
  * @date 2020/05/28
  * @version 1.0.0
  */
-@Deprecated
 public class DataClientApplicationEvent extends ApplicationEvent {
     /**
      * Create a new ApplicationEvent.

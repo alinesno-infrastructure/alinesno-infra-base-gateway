@@ -1,16 +1,16 @@
 package com.alinesno.infra.base.gateway.manage.rest;
 
 import cn.hutool.core.collection.CollectionUtil;
-import com.alinesno.infra.base.gateway.formwork.base.BaseRest;
-import com.alinesno.infra.base.gateway.formwork.bean.SecureIpReq;
-import com.alinesno.infra.base.gateway.formwork.entity.Account;
-import com.alinesno.infra.base.gateway.formwork.entity.SecureIp;
-import com.alinesno.infra.base.gateway.formwork.service.AccountService;
-import com.alinesno.infra.base.gateway.formwork.service.CustomRestConfigService;
-import com.alinesno.infra.base.gateway.formwork.service.SecureIpService;
-import com.alinesno.infra.base.gateway.formwork.util.ApiResult;
-import com.alinesno.infra.base.gateway.formwork.util.RouteConstants;
-import com.alinesno.infra.base.gateway.formwork.util.UUIDUtils;
+import com.alinesno.infra.base.gateway.core.base.BaseRest;
+import com.alinesno.infra.base.gateway.core.bean.SecureIpReq;
+import com.alinesno.infra.base.gateway.core.entity.Account;
+import com.alinesno.infra.base.gateway.core.entity.SecureIp;
+import com.alinesno.infra.base.gateway.core.service.AccountService;
+import com.alinesno.infra.base.gateway.core.service.CustomRestConfigService;
+import com.alinesno.infra.base.gateway.core.service.SecureIpService;
+import com.alinesno.infra.base.gateway.core.util.ApiResult;
+import com.alinesno.infra.base.gateway.core.util.RouteConstants;
+import com.alinesno.infra.base.gateway.core.util.UUIDUtils;
 import com.alinesno.infra.base.gateway.manage.aop.DataFilter;
 import jakarta.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;

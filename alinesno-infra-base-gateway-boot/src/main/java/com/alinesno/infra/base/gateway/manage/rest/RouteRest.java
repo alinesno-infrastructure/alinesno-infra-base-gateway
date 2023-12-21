@@ -184,7 +184,7 @@ public class RouteRest extends BaseRest<Route> {
      */
     private ApiResult save(Route route, Monitor monitor, boolean isNews){
         route.setUpdateTime(new Date());
-        //this.setRouteCacheVersion();
+        this.setRouteCacheVersion();
 
         routeService.save(route);
         customRestConfigService.publishRouteConfig(route.getId());

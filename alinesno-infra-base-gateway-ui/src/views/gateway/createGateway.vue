@@ -5,7 +5,7 @@
 			<el-col>
 				<el-card shadow="false" class="box-card">
 					<div class="clearfix" style="margin-bottom:10px">
-						<span>网关路由 -> 服务配置</span>
+						<span>网关路由 <el-icon><Right /></el-icon> 服务配置</span>
 
 						<el-popover trigger="click" placement="right" :width="700">
 							<div style="font-size: 10pt;">
@@ -39,36 +39,36 @@
 					<el-row>
 						<el-col :span="24">
 							<div style="float: left;">
-								<el-input placeholder="示例：project-method" v-model="form.routeId" style="width: 343px;" :disabled="idDisabled">
+								<el-input size="large"  placeholder="示例：project-method" v-model="form.routeId" style="width: 343px;" :disabled="idDisabled">
 								  <template #prepend>RouteId</template>
 								</el-input>
 							</div>
 							<div style="float: left; margin-left: 10px;">
-								<el-input placeholder="示例：CRM" v-model="form.systemCode" style="width: 343px;">
+								<el-input size="large"  placeholder="示例：CRM" v-model="form.systemCode" style="width: 343px;">
 								  <template #prepend>系统代号</template>
 								</el-input>
 							</div>
 							<div style="float: left; margin-left: 10px;">
-								<el-input placeholder="示例：CRM-用户信息获取网关" v-model="form.name" style="width: 343px;">
+								<el-input size="large"  placeholder="示例：CRM-用户信息获取网关" v-model="form.name" style="width: 343px;">
 								  <template #prepend>名称</template>
 								</el-input>
 							</div>
 							<div style="float: left; margin-left: 10px;">
-								<el-popover placement="bottom" width="170" trigger="click">
+								<el-popover  placement="bottom" width="170" trigger="click">
 								  <el-radio v-model="form.status" label="0">启用</el-radio>
 								  <el-radio v-model="form.status" label="1">禁用</el-radio>
 									<template #reference>
-								  	<el-button>服务状态:{{form.status === '0'?'启用':'禁用'}} <el-icon><ArrowRightBold /></el-icon></el-button>
+								  	<el-button size="large">服务状态:{{form.status === '0'?'启用':'禁用'}} <el-icon><CaretBottom /></el-icon></el-button>
 									</template>
 								</el-popover>
 							</div>
 							<div style="float: left; margin-left: 10px;">
-								<el-popover placement="bottom" width="100" trigger="click">
+								<el-popover placement="bottom" width="500" trigger="click">
 								  <el-radio-group v-model="form.groupCode"  @change="handleSelectedGroup">
 									  <el-radio-button v-for="item in groupOptions" :key="item.value" :label="item.value">{{item.label}}</el-radio-button>
 								  </el-radio-group>
 									<template #reference>
-										<el-button>分组:{{groupName}}<i class="el-icon-caret-bottom el-icon--right"></i></el-button>
+										<el-button size="large">分组:{{groupName}} <el-icon><CaretBottom /></el-icon></el-button>
 									</template>
 								</el-popover>
 							</div>
@@ -79,9 +79,9 @@
 
 						<el-col :span="24">
 							<div style="float: left;">
-							  <el-input placeholder="请输入网关服务URL,示例:http://server:port、http://server.com、lb://xxx" v-model="form.uri" class="input-with-select" style="width: 696px;">
+							  <el-input size="large"  placeholder="请输入网关服务URL,示例:http://server:port、http://server.com、lb://xxx" v-model="form.uri" class="input-with-select" style="width: 696px;">
 									<template #prepend>
-										<el-select v-model="form.method" placeholder="请选择" style="width: 90px;">
+										<el-select  size="large" v-model="form.method" placeholder="请选择" style="width: 90px;">
 											<el-option v-for="item in methodOptions" :key="item.value" :label="item.label" :value="item.value"/>
 										</el-select>
 									</template>
@@ -89,31 +89,31 @@
 							</div>
 							<div style="float: left; margin-left: 10px;">
 								<el-popover placement="bottom" width="500" trigger="click">
-								  <el-input placeholder="示例：Path=/route/producer/** 或 /producer/api" v-model="form.path" style="width: 475px;">
+								  <el-input size="large"  placeholder="示例：Path=/route/producer/** 或 /producer/api" v-model="form.path" style="width: 475px;">
 									<template #prepend>Path=</template>
 								  </el-input>
 									<template #reference>
-										<el-button>断言Path={{form.path}}<i class="el-icon-caret-bottom el-icon--right"></i></el-button>
+										<el-button size="large">断言Path={{form.path}} <el-icon><CaretBottom /></el-icon></el-button>
 									</template>
 								</el-popover>
 							</div>
 							<div style="float: left; margin-left: 10px;">
 								<el-popover placement="bottom" width="500" trigger="click">
-								  <el-input placeholder="示例：Header=X-Request-Id, \d+" v-model="form.header">
+								  <el-input size="large"  placeholder="示例：Header=X-Request-Id, \d+" v-model="form.header">
 										<template #prepend>Header=</template>
 								  </el-input>
 									<template #reference>
-										<el-button>断言Header={{form.header}}<i class="el-icon-caret-bottom el-icon--right"></i></el-button>
+										<el-button size="large">断言Header={{form.header}} <el-icon><CaretBottom /></el-icon></el-button>
 									</template>
 								</el-popover>
 							</div>
 							<div style="float: left; margin-left: 10px;">
 								<el-popover placement="bottom" width="350" trigger="click">
-								  <el-input type="number" placeholder="请输入数字，示例：1" v-model="form.stripPrefix">
+								  <el-input size="large"  type="number" placeholder="请输入数字，示例：1" v-model="form.stripPrefix">
 									<template #prepend>StripPrefix=</template>
 								  </el-input>
 									<template #reference>
-								  	<el-button>过滤StripPrefix={{form.stripPrefix}}<i class="el-icon-caret-bottom el-icon--right"></i></el-button>
+								  	<el-button size="large">过滤StripPrefix={{form.stripPrefix}} <el-icon><CaretBottom /></el-icon></el-button>
 									</template>
 								</el-popover>
 							</div>
@@ -124,41 +124,41 @@
 						<el-col :span="24">
 							<div style="float: left;">
 								<el-popover placement="bottom" width="500" trigger="click">
-								  <el-input placeholder="示例：Host=**.my.com,my.com" v-model="form.host" >
+								  <el-input size="large"  placeholder="示例：Host=**.my.com,my.com" v-model="form.host" >
 									<template #prepend>Host=</template>
 								  </el-input>
 									<template #reference>
-										<el-button>断言Host={{form.host}}<i class="el-icon-caret-bottom el-icon--right"></i></el-button>
+										<el-button size="large">断言Host={{form.host}} <el-icon><CaretBottom /></el-icon></el-button>
 									</template>
 								</el-popover>
 							</div>
 							<div style="float: left; margin-left: 10px;">
 								<el-popover placement="bottom" width="500" trigger="click">
-								  <el-input placeholder="示例：RemoteAddr=192.168.1.1/100" v-model="form.remoteAddr" >
+								  <el-input size="large"  placeholder="示例：RemoteAddr=192.168.1.1/100" v-model="form.remoteAddr" >
 									<template #prepend>RemoteAddr=</template>
 								  </el-input>
 									<template #reference>
-										<el-button>断言RemoteAddr={{form.remoteAddr}}<i class="el-icon-caret-bottom el-icon--right"></i></el-button>
+										<el-button size="large">断言RemoteAddr={{form.remoteAddr}} <el-icon><CaretBottom /></el-icon></el-button>
 									</template>
 								</el-popover>
 							</div>
 							<div style="float: left; margin-left: 10px;">
 								<el-popover placement="bottom" width="550" trigger="click">
-								  <el-input placeholder="示例：RequestParameter=version,v01" v-model="form.requestParameter" >
+								  <el-input size="large"  placeholder="示例：RequestParameter=version,v01" v-model="form.requestParameter" >
 									<template #prepend>RequestParameter=</template>
 								  </el-input>
 									<template #reference>
-										<el-button>参数RequestParameter={{form.requestParameter}}<i class="el-icon-caret-bottom el-icon--right"></i></el-button>
+										<el-button size="large">参数RequestParameter={{form.requestParameter}} <el-icon><CaretBottom /></el-icon></el-button>
 									</template>
 								</el-popover>
 							</div>
 							<div style="float: left; margin-left: 10px;">
 								<el-popover placement="bottom" width="600" trigger="click">
-								  <el-input placeholder="示例：RewritePath=/foo/(?<segment>.*), /$\{segment}" v-model="form.rewritePath">
+								  <el-input size="large"  placeholder="示例：RewritePath=/foo/(?<segment>.*), /$\{segment}" v-model="form.rewritePath">
 									<template #prepend>RewritePath=</template>
 								  </el-input>
 									<template #reference>
-										<el-button>重定向RewritePath={{form.rewritePath}}<i class="el-icon-caret-bottom el-icon--right"></i></el-button>
+										<el-button size="large">重定向RewritePath={{form.rewritePath}} <el-icon><CaretBottom /></el-icon></el-button>
 									</template>
 								</el-popover>
 							</div>
@@ -192,12 +192,12 @@
 					    <div><el-checkbox v-model="hystrix.customChecked" @change="handleHystrixChecked('custom')">启用</el-checkbox></div>
 					    <div>启用超时检测，当请求到响应返回的时间，超过自定义时长后，将触发自定义Hystrix熔断方法（name: customHystrix_no），默认回调路径fallbackUri: forward:/fallback/custom 。(如无特殊要求，<span style="font-weight: bold;">强列建议用默认全局Hystrix方法</span>，过多定制Hystrix否则会增加gateway网关服务性能压力)</div>
 						<div style="margin-top: 10px;">
-							<el-input placeholder="触发fallbackcmd超时时长,如:3000" v-model="form.fallbackTimeout">
+							<el-input size="large"  placeholder="触发fallbackcmd超时时长,如:3000" v-model="form.fallbackTimeout">
 							  <template #prepend>超时时长</template>
 							</el-input>
 						</div>
 						<div style="margin-top: 10px;">
-							<el-input placeholder="触发fallbackcmd提示内容,如:system is error" v-model="form.fallbackMsg">
+							<el-input size="large"  placeholder="触发fallbackcmd提示内容,如:system is error" v-model="form.fallbackMsg">
 							  <template #prepend>提示内容</template>
 							</el-input>
 						</div>
@@ -235,7 +235,7 @@
 								<el-radio v-model="form.monitor.recover" label="0">启用</el-radio>
 								<el-radio v-model="form.monitor.recover" label="1">禁用</el-radio>
 								<template #reference>
-									<el-button>告警重试：{{form.monitor.recover === '0'?'启用':'禁用'}}<i class="el-icon-caret-bottom el-icon--right"></i></el-button>
+									<el-button size="large">告警重试：{{form.monitor.recover === '0'?'启用':'禁用'}} <el-icon><CaretBottom /></el-icon></el-button>
 								</template>
 							</el-popover>
 							<el-popover placement="bottom" width="460" trigger="click">
@@ -243,17 +243,17 @@
 									<el-radio-button v-for="item in monitorOptions" :key="item.value" :label="item.value">{{item.label}}</el-radio-button>
 								</el-radio-group>
 								<template #reference>
-									<el-button>告警通知频率：{{monitorFrequencyName}}<i class="el-icon-caret-bottom el-icon--right"></i></el-button>
+									<el-button size="large">告警通知频率：{{monitorFrequencyName}} <el-icon><CaretBottom /></el-icon></el-button>
 								</template>
 							</el-popover>
 						</div>
 						<div style="margin-top: 10px;">
-							<el-input placeholder="示例：user1@qq.com,user2@qq.com" v-model="form.monitor.emails" maxlength="200" show-word-limit>
+							<el-input size="large"  placeholder="示例：user1@qq.com,user2@qq.com" v-model="form.monitor.emails" maxlength="200" show-word-limit>
 							  <template #prepend>通知邮箱</template>
 							</el-input>
 						</div>
 						<div style="margin-top: 10px;">
-							<el-input placeholder="示例：XXX网关服务发生告警，请及时处理" v-model="form.monitor.topic" maxlength="200" show-word-limit>
+							<el-input size="large"  placeholder="示例：XXX网关服务发生告警，请及时处理" v-model="form.monitor.topic" maxlength="200" show-word-limit>
 							  <template #prepend>告警提示</template>
 							</el-input>
 						</div>
@@ -318,7 +318,7 @@
 								<span class="text item" style="line-height: 38px;">令牌总量</span>
 							</el-col>
 							<el-col :span="18">
-								<el-input-number v-model="form.burstCapacity" :step="20" :min="0" :max="10000" style="width: 60%;"/>
+								<el-input size="large" type="number" v-model="form.burstCapacity" :step="20" :min="0" :max="10000" style="width: 60%;"/>
 							</el-col>
 						</el-row>
 					</div>
@@ -377,7 +377,7 @@
 							</div>
 					    <div>获取客户端请求中的所带的HEADER头部信息，验证指定键值，不符合验证规则，则直接拒决请求。</div>
 						<div style="margin-top: 10px;">
-							<el-input placeholder="示例：Accept-Language: zh-CN,zh;q=0.9" v-model="form.accessHeader">
+							<el-input size="large"  placeholder="示例：Accept-Language: zh-CN,zh;q=0.9" v-model="form.accessHeader">
 							  <template #prepend>HEADER</template>
 							</el-input>
 						</div>
@@ -389,7 +389,7 @@
 					    <div><el-checkbox v-model="access.ipChecked">启用</el-checkbox></div>
 					    <div>如果启用IP过滤，则会先执行IP过滤后，再执行本IP验证，不符合验证规则，则直接拒决请求。通常用于临时性IP过滤。</div>
 						<div style="margin-top: 10px;">
-							<el-input placeholder="示例：192.168.1.100,92.168.1.*" v-model="form.accessIp">
+							<el-input size="large"  placeholder="示例：192.168.1.100,92.168.1.*" v-model="form.accessIp">
 							  <template #prepend>IP</template>
 							</el-input>
 						</div>
@@ -401,7 +401,7 @@
 					    <div><el-checkbox v-model="access.parameterChecked">启用</el-checkbox></div>
 					    <div>获取URL请求串中的所带的参数，验证指定参数值，不符合验证规则，则直接拒决请求。</div>
 						<div style="margin-top: 10px;">
-							<el-input placeholder="示例：token=uuid" v-model="form.accessParameter">
+							<el-input size="large"  placeholder="示例：token=uuid" v-model="form.accessParameter">
 							  <template #prepend>请求参数</template>
 							</el-input>
 						</div>
@@ -413,7 +413,7 @@
 					    <div><el-checkbox v-model="access.timeChecked">启用</el-checkbox></div>
 					    <div>只允许指定时间段内进行访问，不符合验证规则，则直接拒决请求。</div>
 						<div style="margin-top: 10px;">
-							<el-input placeholder="示例：08:00:00,20:00:00" v-model="form.accessTime">
+							<el-input size="large"  placeholder="示例：08:00:00,20:00:00" v-model="form.accessTime">
 							  <template #prepend>时间</template>
 							</el-input>
 						</div>
@@ -425,7 +425,7 @@
 					    <div><el-checkbox v-model="access.cookieChecked">启用</el-checkbox></div>
 					    <div>获取客户端请求所带的cookie信息，验证指定cookie参数值，不符合验证规则，则直接拒决请求。</div>
 						<div style="margin-top: 10px;">
-							<el-input placeholder="示例：name=value" v-model="form.accessCookie">
+							<el-input size="large"  placeholder="示例：name=value" v-model="form.accessCookie">
 							  <template #prepend>Cookie</template>
 							</el-input>
 						</div>
@@ -438,209 +438,209 @@
 </template>
 
 <script>
-	// import gatewayJson from '@/api/json/gateway.json'
-	import {addRoute,updateRoute} from '@/api/gateway_api.js'
+// import gatewayJson from '@/api/json/gateway.json'
+import {addRoute,updateRoute} from '@/api/gateway_api.js'
 
-	export default {
-		data() {
-			return {
-				form:{
-					id:'',
-          routeId: '',
-					systemCode:'',
-					name:'',
-					stripPrefix:'',
-					status:'1',
-					uri:'',
-					method:'',
-					path:'',
-					host:'',
-					remoteAddr:'',
-					header:'',
-					rewritePath:'',
-					requestParameter:'',
-					accessHeader:'',
-					accessIp:'',
-					accessParameter:'',
-					accessTime:'',
-					accessCookie:'',
-					fallbackMsg:'',
-					fallbackTimeout:0,
-					replenishRate:20,
-					burstCapacity:100,
-					burstFrequency:100,
-					burstTimeUnit:'min',//minute,hour,day,week,month,year
-					groupCode:'',
-					monitor:{
+export default {
+	data() {
+		return {
+			form:{
+				id:'',
+				routeId: '',
+				systemCode:'',
+				name:'',
+				stripPrefix:'',
+				status:'1',
+				uri:'',
+				method:'',
+				path:'',
+				host:'',
+				remoteAddr:'',
+				header:'',
+				rewritePath:'',
+				requestParameter:'',
+				accessHeader:'',
+				accessIp:'',
+				accessParameter:'',
+				accessTime:'',
+				accessCookie:'',
+				fallbackMsg:'',
+				fallbackTimeout:0,
+				replenishRate:20,
+				burstCapacity:100,
+				burstFrequency:100,
+				burstTimeUnit:'min',//minute,hour,day,week,month,year
+				groupCode:'',
+				monitor:{
+					recover: '0',
+					frequency: '30m',
+					emails: '',
+					topic: ''
+				}
+			},
+			filter:{
+				ipChecked: false,
+				tokenChecked: false,
+				idChecked: false
+			},
+			hystrix:{
+				defaultChecked: false,
+				customChecked: false
+			},
+			limiter:{
+				ipChecked: false,
+				uriChecked: false,
+				idChecked: false
+			},
+			access:{
+				headerChecked: false,
+				ipChecked: false,
+				parameterChecked: false,
+				timeChecked: false,
+				cookieChecked: false
+			},
+			monitor: {
+				checked: false
+			},
+			handleType: 'add',
+			idDisabled: false,
+			methodOptions: [
+				{value: null, label: 'ALL'},
+				{value: 'POST',label: 'POST'},
+				{value: 'GET',label: 'GET'},
+				{value: 'PUT',label: 'PUT'},
+				{value: 'DELETE',label: 'DELETE'},
+			],
+			monitorFrequencyName: '',
+			monitorOptions: [
+				{value: '30m',label: '30分钟一次'},
+				{value: '1h', label: '1小时一次'},
+				{value: '5h',label: '5小时一次'},
+				{value: '12h',label: '12小时一次'},
+				{value: '24h',label: '24小时一次'}
+			],
+			groupName:'',
+			groupOptions: this.GLOBAL_VAR.groups
+		}
+	},
+	created: function() {
+		//在组件创建完毕后加载
+		let query = this.$route.query;
+		if (query){
+			this.handleType = query.handleType;
+			if (this.handleType === 'edit'){
+				let route = JSON.parse(query.route);
+				console.log('route', route);
+				this.init(route);
+			}
+		}
+	},
+	mounted: function() {
+	},
+	beforeDestroy: function() {
+	},
+	methods:{
+		init(route) {
+			if (route && route.form){
+				this.form = route.form;
+				this.filter = route.filter;
+				this.hystrix = route.hystrix;
+				this.limiter = route.limiter;
+				this.access = route.access;
+				this.monitor = route.monitor;
+				this.idDisabled = true;
+				if (this.form.monitor == undefined){
+					this.form.monitor = {
+						checked: false,
 						recover: '0',
 						frequency: '30m',
 						emails: '',
 						topic: ''
-					}
-				},
-				filter:{
-					ipChecked: false,
-					tokenChecked: false,
-					idChecked: false
-				},
-				hystrix:{
-					defaultChecked: false,
-					customChecked: false
-				},
-				limiter:{
-					ipChecked: false,
-					uriChecked: false,
-					idChecked: false
-				},
-				access:{
-					headerChecked: false,
-					ipChecked: false,
-					parameterChecked: false,
-					timeChecked: false,
-					cookieChecked: false
-				},
-				monitor: {
-					checked: false
-				},
-				handleType: 'add',
-				idDisabled: false,
-				methodOptions: [
-					{value: null, label: 'ALL'},
-					{value: 'POST',label: 'POST'},
-					{value: 'GET',label: 'GET'},
-					{value: 'PUT',label: 'PUT'},
-					{value: 'DELETE',label: 'DELETE'},
-				],
-				monitorFrequencyName: '',
-				monitorOptions: [
-					{value: '30m',label: '30分钟一次'},
-					{value: '1h', label: '1小时一次'},
-					{value: '5h',label: '5小时一次'},
-					{value: '12h',label: '12小时一次'},
-					{value: '24h',label: '24小时一次'}
-				],
-				groupName:'',
-				groupOptions: this.GLOBAL_VAR.groups
+					};
+				}
+				this.handleSelectedGroup(this.form.groupCode);
+				this.handleSelectedMonitorFrequency(this.form.monitor? this.form.monitor.frequency: null);
 			}
 		},
-		created: function() {
-			//在组件创建完毕后加载
-			let query = this.$route.query;
-			if (query){
-				this.handleType = query.handleType;
-				if (this.handleType === 'edit'){
-					let route = query.route;
-					console.log('route', route);
-					this.init(route);
+		goBack() {
+			this.$router.push({path:'/gatewayList',query:{}});
+		},
+		handleHystrixChecked(type){//熔断器，二选一
+			this.hystrix.defaultChecked = (this.hystrix.defaultChecked && type === 'default')?true:false;
+			this.hystrix.customChecked = (this.hystrix.customChecked && type === 'custom')?true:false;
+		},
+		handleLimiterChecked(type){//限流器，三选一
+			this.limiter.ipChecked = (this.limiter.ipChecked && type === 'ip')?true:false;
+			this.limiter.uriChecked = (this.limiter.uriChecked && type === 'uri')?true:false;
+			this.limiter.idChecked = (this.limiter.idChecked && type === 'id')?true:false;
+		},
+		handleSelectedGroup(val){
+			let size = this.groupOptions.length;
+			for (var i=0;i <size; i++){
+				if (this.groupOptions[i].value === val){
+					this.groupName = this.groupOptions[i].label;
+					break;
 				}
 			}
 		},
-		mounted: function() {
-		},
-		beforeDestroy: function() {
-		},
-		methods:{
-			init(route) {
-				if (route && route.form){
-					this.form = route.form;
-					this.filter = route.filter;
-					this.hystrix = route.hystrix;
-					this.limiter = route.limiter;
-					this.access = route.access;
-					this.monitor = route.monitor;
-					this.idDisabled = true;
-					if (this.form.monitor == undefined){
-						this.form.monitor = {
-							checked: false,
-							recover: '0',
-							frequency: '30m',
-							emails: '',
-							topic: ''
-						};
-					}
-					this.handleSelectedGroup(this.form.groupCode);
-					this.handleSelectedMonitorFrequency(this.form.monitor? this.form.monitor.frequency: null);
-				}
-			},
-			goBack() {
-				this.$router.push({path:'/gatewayList',query:{}});
-			},
-			handleHystrixChecked(type){//熔断器，二选一
-				this.hystrix.defaultChecked = (this.hystrix.defaultChecked && type === 'default')?true:false;
-				this.hystrix.customChecked = (this.hystrix.customChecked && type === 'custom')?true:false;
-			},
-			handleLimiterChecked(type){//限流器，三选一
-				this.limiter.ipChecked = (this.limiter.ipChecked && type === 'ip')?true:false;
-				this.limiter.uriChecked = (this.limiter.uriChecked && type === 'uri')?true:false;
-				this.limiter.idChecked = (this.limiter.idChecked && type === 'id')?true:false;
-			},
-			handleSelectedGroup(val){
-				let size = this.groupOptions.length;
+		handleSelectedMonitorFrequency(val){
+			if (val){
+				let size = this.monitorOptions.length;
 				for (var i=0;i <size; i++){
-					if (this.groupOptions[i].value === val){
-						this.groupName = this.groupOptions[i].label;
+					if (this.monitorOptions[i].value === val){
+						this.monitorFrequencyName = this.monitorOptions[i].label;
 						break;
 					}
 				}
-			},
-			handleSelectedMonitorFrequency(val){
-				if (val){
-					let size = this.monitorOptions.length;
-					for (var i=0;i <size; i++){
-						if (this.monitorOptions[i].value === val){
-							this.monitorFrequencyName = this.monitorOptions[i].label;
-							break;
-						}
-					}
-				}
-			},
-			submit(){
-				let data = {form:this.form, filter:this.filter, hystrix:this.hystrix, limiter:this.limiter, access:this.access, monitor:this.monitor};
-				let _this = this;
-				if (this.handleType === 'edit'){
-					updateRoute(data).then(function(result){
-						console.log(result);
-						_this.GLOBAL_FUN.successMsg();
-					});
-				} else {
-					addRoute(data).then(function(result){
-						_this.GLOBAL_FUN.successMsg();
-					});
-				}
-			},
-			resetForm() {
-				this.form = {
-					id: this.handleType === 'edit'?this.form.id:null,
-          routeId: this.handleType === 'edit'?this.form.routeId:null,
-					systemCode:null,
-					name:null,
-					stripPrefix:'',
-					status:'1',
-					uri:null,
-					method:null,
-					path:null,
-					host:null,
-					remoteAddr:null,
-					header:null,
-					rewritePath:null,
-					requestParameter:null,
-					accessHeader:null,
-					accessIp:null,
-					accessParameter:null,
-					accessTime:'',
-					accessCookie:null,
-					fallbackMsg:null,
-					fallbackTimeout:0,
-					replenishRate:20,
-					burstCapacity:100,
-				}
-				this.filter={}
-				this.limiter={}
-				this.hystrix={}
-				this.access={}
 			}
+		},
+		submit(){
+			let data = {form:this.form, filter:this.filter, hystrix:this.hystrix, limiter:this.limiter, access:this.access, monitor:this.monitor};
+			let _this = this;
+			if (this.handleType === 'edit'){
+				updateRoute(data).then(function(result){
+					console.log(result);
+					_this.GLOBAL_FUN.successMsg();
+				});
+			} else {
+				addRoute(data).then(function(result){
+					_this.GLOBAL_FUN.successMsg();
+				});
+			}
+		},
+		resetForm() {
+			this.form = {
+				id: this.handleType === 'edit'?this.form.id:null,
+		routeId: this.handleType === 'edit'?this.form.routeId:null,
+				systemCode:null,
+				name:null,
+				stripPrefix:'',
+				status:'1',
+				uri:null,
+				method:null,
+				path:null,
+				host:null,
+				remoteAddr:null,
+				header:null,
+				rewritePath:null,
+				requestParameter:null,
+				accessHeader:null,
+				accessIp:null,
+				accessParameter:null,
+				accessTime:'',
+				accessCookie:null,
+				fallbackMsg:null,
+				fallbackTimeout:0,
+				replenishRate:20,
+				burstCapacity:100,
+			}
+			this.filter={}
+			this.limiter={}
+			this.hystrix={}
+			this.access={}
 		}
 	}
+}
 </script>
 
 <style scoped>
@@ -659,11 +659,11 @@
 	clear: both;
 }
 
-/deep/input[type="number"]::-webkit-outer-spin-button, /deep/input[type="number"]::-webkit-inner-spin-button {
+/* /deep/input[type="number"]::-webkit-outer-spin-button, /deep/input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none !important;
-}
-input[type="number"]{
+} */
+/* input[type="number"]{
   -moz-appearance: textfield !important;
-}
+} */
 </style>
 

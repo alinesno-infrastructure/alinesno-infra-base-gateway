@@ -50,7 +50,7 @@ public class GroovyScript {
      * 脚本内容
      */
     @NotNull(message = "网关路由规则引擎动态脚本组件代码不能为空")
-    @Column(name = "content" )
+    @Column(name = "content" , columnDefinition = "TEXT")
     private String content;
 
     /**

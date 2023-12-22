@@ -9,26 +9,32 @@
 				</el-col>
 				<el-col :span="14">
 					<div style="float: right; margin-left: 10px;">
-					    <el-button icon="FolderAdd" type="primary" @click="handleCreateClient"></el-button>
+					    <el-button size="large" icon="FolderAdd" type="primary" @click="handleCreateClient"></el-button>
 					</div>
 					<div style="float: right;">
 					  <el-input placeholder="请输入客户端名称" v-model="form.name" class="input-with-select" style="width: 620px;" clearable>
-						<el-select v-model="form.groupCode" slot="prepend" placeholder="请选择分组" style="width: 140px; margin-right: 10px;">
-							<el-option label="所有" value=""/>
-							<el-option v-for="item in groupOptions" :key="item.value" :label="item.label" :value="item.value"/>
-						</el-select>
-						<el-popover placement="bottom" slot="prepend" trigger="click">
-							<el-radio v-model="form.status" v-for="item in statusOptions" :key="item.value" :label="item.value">{{item.label}}</el-radio>
-							<el-button slot="reference">
-								服务状态:{{form.status === '0' ? '启用': form.status === '1' ? '禁用' : '所有'}}<i class="el-icon-caret-bottom el-icon--right"></i>
-							</el-button>
-						</el-popover>
-					    <el-button slot="append" icon="Search" @click="search"></el-button>
+						<template #prepend>
+							<el-select  size="large"  v-model="form.groupCode" slot="prepend" placeholder="请选择分组" style="width: 140px; margin-right: 10px;">
+								<el-option label="所有" value=""/>
+								<el-option v-for="item in groupOptions" :key="item.value" :label="item.label" :value="item.value"/>
+							</el-select>
+							<el-popover placement="bottom" slot="prepend" trigger="click">
+								<el-radio v-model="form.status" v-for="item in statusOptions" :key="item.value" :label="item.value">{{item.label}}</el-radio>
+								<template #reference>
+									<el-button slot="reference">
+										服务状态:{{form.status === '0' ? '启用': form.status === '1' ? '禁用' : '所有'}}<i class="el-icon-caret-bottom el-icon--right"></i>
+									</el-button>
+								</template>
+							</el-popover>
+						</template>
+						<template #append>
+							<el-button  size="large"  slot="append" icon="Search" @click="search"></el-button>
+						</template>
 					  </el-input>
 					</div>
 				</el-col>
 			</el-row>
-			<el-table :data="tableData" style="width: 100%">
+			<el-table :data="tableData" style="width: 100%;margin-top:20px">
 				<el-table-column label="客户端ID(系统生成)" width="300">
 					<template #default="scope">
 						<el-tag type="warning" style="font-weight: bold;">{{scope.row.id}}</el-tag>

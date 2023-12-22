@@ -15,14 +15,105 @@
             <span class="span_14">60分钟请求总量</span>
             <el-divider style="width: 80%;"></el-divider>
             <div id="route60MinAccessChart" class="chart_line_2"></div>
-			<div slot="footer" class="dialog-footer">
-				<el-button icon="el-icon-s-release"  type="warning" @click="dialogFormVisible = false">关 闭</el-button>
+			<div slot="footer" class="dialog-footer" style="margin-top:30px;text-align: right;">
+				<el-button icon="Close"  type="warning" @click="dialogFormVisible = false">关 闭</el-button>
 			</div>
 		</el-dialog>
   </div>
 </template>
 
-<script>
+<script setup>
+import { countAppRequestTotal } from '@/api/count_api.js'
+import { ref } from 'vue'
+const { proxy } = getCurrentInstance()
+
+const name = ref("routeRequestCount")
+const dialogFormVisible = ref(false)
+const dialogTitle = ref('统计详情')
+
+const count = (obj) => {
+	dialogTitle.value = obj.name +　'统计详情';
+	countAppRequestTotal({ id: obj.id }).then((result) => {
+		console.log(result);
+		if (result.data) {
+			drawLine('route7dayAccessChart', result.data.dayCounts, '#37A2FF','rgba(128, 255, 165)', 'rgba(1, 191, 236)');
+			drawLine('route24HourAccessChart', result.data.hourCounts, '#FFBF00','rgba(55, 162, 255)', 'rgba(116, 21, 219)');
+			drawLine('route60MinAccessChart', result.data.minCounts, '#00DDFF', 'rgba(0, 221, 255)', 'rgba(77, 119, 255)');
+		}
+	});
+}
+
+const drawLine = (id, result, color, color0, color1) => {
+	let xAxisData =  [];
+	let seriesData = [];
+	if (result !== undefined && result.dates && result.counts) {
+		xAxisData = result.dates;
+		seriesData = result.counts;
+	}
+
+	let accessChart = proxy.$echarts.init(document.getElementById(id));
+	var option = {
+		color: [color],
+		tooltip: {
+			trigger: 'axis',
+			axisPointer: {
+				type: 'cross',
+				label: {
+					backgroundColor: '#6a7985'
+				}
+			}
+		},
+		grid: {
+			top: '5%',
+			left: '1%',
+			right: '2%',
+			bottom: '1%',
+			containLabel: true
+		},
+		xAxis: [
+			{
+				type: 'category',
+				boundaryGap: false,
+				data: xAxisData
+			}
+		],
+		yAxis: {
+			type: 'value'
+		},
+		series: [
+			{
+				type: 'line',
+				smooth: true,
+				showSymbol: true,
+				areaStyle: {
+					opacity: 0.8,
+					color: proxy.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+						offset: 0,
+						color: color0
+					}, {
+						offset: 1,
+						color: color1
+					}])
+				},
+				emphasis: {
+					focus: 'series'
+				},
+				data: seriesData
+			}
+		]
+	};
+	accessChart.setOption(option, true);
+}
+
+defineExpose({ 
+    dialogFormVisible,
+    count
+});
+
+</script>
+
+
+<!-- <script>
 import {countAppRequestTotal} from '@/api/count_api.js'
 export default {
   data() {
@@ -115,11 +206,11 @@ export default {
     }
   }
 };
-</script>
+</script> -->
 
 <style>
 .chart_line_2 {
     width: 100%;
-    height: 180px;
+    height: 130px;
 }
 </style>

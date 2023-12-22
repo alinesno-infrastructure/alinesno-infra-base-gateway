@@ -28,19 +28,23 @@
 				</el-col>
 				<el-col :span="14">
 					<div style="float: right; margin-left: 10px;">
-						<el-button icon="FolderAdd" type="primary" @click="handleCreateIp"></el-button>
+						<el-button size="large" icon="FolderAdd" type="primary" @click="handleCreateIp"></el-button>
 					</div>
 					<div style="float: right;">
 						<el-input placeholder="请输入IP" v-model="ip" :maxlength="15" class="input-with-select" style="width: 520px;" clearable>
-							<el-select v-model="status" slot="prepend" placeholder="请选择" style="width: 120px;">
-								<el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
-							</el-select>
-							<el-button slot="append" icon="Search" @click="search"></el-button>
+							<template #prepend>
+								<el-select size="large" v-model="status" slot="prepend" placeholder="请选择" style="width: 120px;">
+									<el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+								</el-select>
+							</template>
+							<template #append>
+								<el-button slot="append" icon="Search" @click="search"></el-button>
+							</template>
 						</el-input>
 					</div>
 				</el-col>
 			</el-row>
-			<el-table :data="tableData" style="width: 100%">
+			<el-table :data="tableData" style="width: 100%;margin-top:20px">
 				<el-table-column label="IP地址" prop="ip">
 					<template #default="scope">
 						<el-tag type="success" style="font-weight: bold;">{{scope.row.ip}}</el-tag>

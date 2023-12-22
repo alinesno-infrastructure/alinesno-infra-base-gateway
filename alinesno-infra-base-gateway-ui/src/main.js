@@ -46,14 +46,16 @@ import DictTag from '@/components/DictTag'
 // 引用全局变量文件
 import GLOBAL_VAR from '@/api/global_variable.js'
 import GLOBAL_FUN from '@/api/global_function.js'
-// import echarts from 'echarts'
+
+import * as echarts from 'echarts';//引入echarts
 import mavonEditor from 'mavon-editor'
+import axios from 'axios'
 
 const app = createApp(App)
 
 app.config.globalProperties.GLOBAL_VAR = GLOBAL_VAR
 app.config.globalProperties.GLOBAL_FUN = GLOBAL_FUN
-// app.config.globalProperties.$echarts = echarts
+app.config.globalProperties.$echarts = echarts
 
 // 全局方法挂载
 app.config.globalProperties.useDict = useDict
@@ -64,6 +66,8 @@ app.config.globalProperties.handleTree = handleTree
 app.config.globalProperties.addDateRange = addDateRange
 app.config.globalProperties.selectDictLabel = selectDictLabel
 app.config.globalProperties.selectDictLabels = selectDictLabels
+
+app.config.globalProperties.$ajax= axios
 
 
 // 全局组件挂载

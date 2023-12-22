@@ -19,7 +19,7 @@
 					  </el-radio>
 				</el-form-item>
 				<el-form-item label="组件代码" prop="content">
-					<el-input type="textarea" :rows="25" v-model="groovyForm.content" placeholder="请输入内容"></el-input>
+					<el-input type="textarea" :rows="15" v-model="groovyForm.content" placeholder="请输入内容"></el-input>
 				</el-form-item>
 				<el-form-item label="备注" prop="remarks">
 					<el-input v-model="groovyForm.remarks" autocomplete="off"></el-input>
@@ -29,7 +29,7 @@
 					<el-tag type="warning">组件代码采用GroovyScipt动态脚本语言，无缝支持java语法和包</el-tag> &nbsp;&nbsp;
 					<el-link type="primary" @click="showGroovyScriptCode">导入GroovyScipt示例代码</el-link> &nbsp;&nbsp;&nbsp;&nbsp; 
 					<el-link v-show="submitVisible" icon="el-icon-upload2" type="primary"> 提交中 >  </el-link> 
-					<el-link v-show="submitVisible" icon="Loading" type="primary"> 编译中 >  </el-link>
+					<el-link v-show="submitVisible" icon="Loading" type="primary" loading> 编译中 >  </el-link>
 					<el-link v-show="successVisible" icon="el-icon-finished" type="success"> 编译成功 </el-link>
 					<el-link v-show="failVisible" icon="el-icon-close" type="danger" @click="showLog"> 编译失败  查看失败日志 </el-link>
 				</el-form-item>
@@ -48,7 +48,7 @@
 
 		<el-dialog title="查看组件代码" v-model="dialogCodeVisible" width="60%" :close-on-click-modal="false">
 			<div >
-<pre class="language-java line-numbers" style="height: 700px;"><code v-html="groovScriptCode"></code></pre>
+<pre class="language-java line-numbers" style="height: 600px;"><code v-html="groovScriptCode"></code></pre>
 			</div>
 			<div slot="footer" class="dialog-footer">
 				<el-button icon="el-icon-s-release"  type="warning" @click="dialogCodeVisible = false">关 闭</el-button>
@@ -156,7 +156,8 @@
 			//在组件创建完毕后加载
 			let query = this.$route.query;
 			if (query){
-				let route = query.route;
+				// let route = query.route;
+				let route = JSON.parse(query.route);
 				console.log('route', route);
 				this.init(route);
 			}
@@ -258,9 +259,11 @@
 						this.successVisible = false;
 						this.groovyForm.routeId = this.routeForm.id;
 						let path = this.handleType == 'add' ? '/groovyScript/add' : '/groovyScript/update' ;
-						this.$ajax
-						.post(this.GLOBAL_VAR.baseURL + path, this.groovyForm)
-						.then((result) => {
+
+						console.log('this.GLOBAL_VAR.baseURL  = ' + this.GLOBAL_VAR.baseURL);
+						console.log('this.ajax = ' + this.$ajax);
+
+						this.$ajax.post(this.GLOBAL_VAR.baseURL + path, this.groovyForm).then((result) => {
 							if (result && result.data) {
 								if (result.data.code == '1') {
 									_this.successVisible = true;

@@ -9,25 +9,30 @@
 				</el-col>
 				<el-col :span="14">
 					<div style="float: right; margin-left: 10px;">
-						<el-button icon="FolderAdd" type="primary" @click="handleCreateBalanced" title="创建负载服务"></el-button>
+						<el-button icon="FolderAdd" size="large" type="primary" @click="handleCreateBalanced" title="创建负载服务"></el-button>
 					</div>
 					<div style="float: right;">
-						<el-input placeholder="请输入网关服务名称" v-model="form.name" class="input-with-select" style="width: 620px;"
-							clearable>
-							<el-select v-model="form.groupCode" slot="prepend" placeholder="请选择分组"
-								style="width: 140px; margin-right: 10px;">
-								<el-option label="所有" value="" />
-								<el-option v-for="item in groupOptions" :key="item.value" :label="item.label" :value="item.value" />
-							</el-select>
-							<el-popover placement="bottom" slot="prepend" trigger="click">
-								<el-radio v-model="form.status" v-for="item in statusOptions" :key="item.value"
-									:label="item.value">{{ item.label }}</el-radio>
-								<el-button slot="reference">
-									服务状态:{{ form.status === '0' ? '启用' : form.status === '1' ? '禁用' : '所有' }}<i
-										class="el-icon-caret-bottom el-icon--right"></i>
-								</el-button>
-							</el-popover>
-							<el-button icon="Search" @click="search" title="查询网关服务"></el-button>
+						<el-input size="large" placeholder="请输入网关服务名称" v-model="form.name" class="input-with-select" style="width: 620px;" clearable>
+							<template #prepend>
+								<el-select size="large" v-model="form.groupCode" slot="prepend" placeholder="请选择分组"
+									style="width: 140px; margin-right: 10px;">
+									<el-option label="所有" value="" />
+									<el-option v-for="item in groupOptions" :key="item.value" :label="item.label" :value="item.value" />
+								</el-select>
+								<el-popover placement="bottom" slot="prepend" trigger="click">
+									<el-radio v-model="form.status" v-for="item in statusOptions" :key="item.value"
+										:label="item.value">{{ item.label }}</el-radio>
+									<template #reference>
+										<el-button>
+											服务状态:{{ form.status === '0' ? '启用' : form.status === '1' ? '禁用' : '所有' }}<i
+												class="el-icon-caret-bottom el-icon--right"></i>
+										</el-button>
+									</template>
+								</el-popover>
+							</template>
+							<template #append>
+								<el-button size="large" icon="Search" @click="search" title="查询网关服务"></el-button>
+							</template>
 						</el-input>
 					</div>
 				</el-col>

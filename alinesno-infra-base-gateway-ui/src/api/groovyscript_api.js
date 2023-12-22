@@ -93,10 +93,10 @@ export const stopGroovyScript = data => {
  * 规则组件GroovyScript示例代码
  */
 export const groovyScriptCode = ()=>{
-    let code = "package com.flying.fish.gateway.component.groovy;\n";
+    let code = "package com.alinesno.infra.base.gateway;\n";
     code += " \n";
-    code += "import com.flying.fish.formwork.base.BaseGroovyService;\n";
-    code += "import com.flying.fish.formwork.util.NetworkIpUtils;\n";
+    code += "import com.alinesno.infra.base.gateway.core.base.BaseGroovyService;\n";
+    code += "import com.alinesno.infra.base.gateway.core.util.NetworkIpUtils;\n";
     code += "import org.apache.commons.lang3.*;\n";
     code += "import org.slf4j.*;\n";
     code += "import org.springframework.http.HttpHeaders;\n";

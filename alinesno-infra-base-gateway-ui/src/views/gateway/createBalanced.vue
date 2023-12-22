@@ -59,15 +59,15 @@
 					<el-card shadow="false" class="box-card">
 						<el-form :rules="rules" ref="form" :model="form" label-width="70px">
 							<el-form-item label="名称" prop="name">
-								<el-input v-model="form.name" style="width: 60%;"></el-input>
+								<el-input size="large" v-model="form.name" style="width: 60%;"></el-input>
 							</el-form-item>
 							<el-form-item label="分组" prop="groupCode">
-								<el-select filterable v-model="form.groupCode" placeholder="请选择分组" style="width: 60%;">
+								<el-select  size="large"  filterable v-model="form.groupCode" placeholder="请选择分组" style="width: 60%;">
 									<el-option v-for="item in groupOptions" :key="item.value" :label="item.label" :value="item.value" />
 								</el-select>
 							</el-form-item>
 							<el-form-item label="状态" prop="status">
-								<el-radio-group v-model="form.status">
+								<el-radio-group  size="large"  v-model="form.status">
 									<el-radio label="0">启用</el-radio>
 									<el-radio label="1">禁用</el-radio>
 								</el-radio-group>
@@ -75,15 +75,15 @@
 							<el-form-item label="路径" prop="loadUri">
 								<el-row :gutter="20">
 									<el-col :span="4" style="border: 0px solid red; padding: 0;">
-										<el-input v-model="parent" :disabled="true"  title="默认负载地址前缀'/parent/',请不要在自定义地址前加/"></el-input>
+										<el-input  size="large"  v-model="parent" :disabled="true"  title="默认负载地址前缀'/parent/',请不要在自定义地址前加/"></el-input>
 									</el-col>
 									<el-col :span="19" style="border: 0px solid red; padding: 0;">
-										<el-input v-model="form.loadUri" :disabled="uriDisabled" placeholder="请输入网关Path,示例：producer/** 或 producer/api"></el-input>
+										<el-input  size="large"  v-model="form.loadUri" :disabled="uriDisabled" placeholder="请输入网关Path,示例：producer/** 或 producer/api"></el-input>
 									</el-col>
 								</el-row>
 							</el-form-item>
 							<el-form-item label="备注" prop="remarks">
-								<el-input type="textarea" v-model="form.remarks"></el-input>
+								<el-input  size="large"  type="textarea" v-model="form.remarks"></el-input>
 							</el-form-item>
 						</el-form>
 					</el-card>

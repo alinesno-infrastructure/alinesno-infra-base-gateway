@@ -3,6 +3,7 @@ package com.alinesno.infra.base.gateway.core.base;
 import com.alinesno.infra.base.gateway.core.util.PageResult;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.query.sql.internal.NativeQueryImpl;
 import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigInteger;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -22,6 +22,7 @@ import java.util.Optional;
  * @date 2020/05/16
  * @version v1.0.0
  */
+@Slf4j
 public class BaseService<T,ID,DAO extends JpaRepository> {
 
     private static final String DEFAULT_SORT_FIELD = "createTime";
@@ -127,10 +128,18 @@ public class BaseService<T,ID,DAO extends JpaRepository> {
                 queryCount.setParameter(i + 1, params.get(i));
             }
         }
-        long totalNum = ((BigInteger) queryCount.getSingleResult()).longValue();
+
+        log.debug("queryCount.getSingleResult() = {}" , queryCount.getSingleResult());
+
+        long totalNum = (long) queryCount.getSingleResult();
+
+//        long totalNum = ((BigInteger) queryCount.getSingleResult()).longValue();
+
         query.unwrap(NativeQueryImpl.class).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);//转换成map
+
         query.setFirstResult((currentPage -1) * pageSize).setMaxResults(pageSize);
         List<Map<String,Object>> list = query.getResultList();
+        
         return this.setPageResult(list, currentPage, pageSize, totalNum);
     }
 

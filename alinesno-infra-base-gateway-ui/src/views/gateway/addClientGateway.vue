@@ -23,14 +23,16 @@
 					:total="routeTotalNum">
 				</el-pagination>
 			</div>
-			<div slot="footer" class="dialog-footer">
-				<el-button @click="dialogFormVisible = false" size="small">关 闭</el-button>
-			</div>
+			<template #footer>
+				<div class="dialog-footer">
+					<el-button @click="dialogFormVisible = false" size="small">关 闭</el-button>
+				</div>
+			</template>
 		</el-dialog>
 
 		<el-row :gutter="20" style="margin-top: 20px;">
 			<el-col>
-				<el-card shadow="false" class="box-card">
+				<el-card shadow="never" class="box-card">
 					<div class="clearfix">
 						<span>网关服务端</span>
 						<el-popover trigger="click" placement="bottom">
@@ -40,7 +42,9 @@
 								<span>2. 开启路由服务ID过滤后，此功能主要适用于对第三方开放服务，提供简单认证访问。</span><br/>
 								<span>3. 新添加的路由服务端后，默认为禁止访问路由服务，请手动开启允许访问，才能生效。</span><br/>
 							</div>
-							<el-button slot="reference" style="padding: 3px 0; " icon="Question" type="text" title="说明"></el-button>
+							<template #append>
+								<el-button style="padding: 3px 0; " icon="Question" type="text" title="说明"></el-button>
+							</template>
 						</el-popover>
 						<span style="margin-left: 50px;">
 							<i class="el-icon-monitor"></i>
@@ -56,11 +60,11 @@
 						    <el-button icon="Promotion" type="primary" @click="startAll" title="启用所有客户端通行"> 全部允许 </el-button>
 						</div>
 						<div style="float: right; margin-left: 10px;">
-						    <el-button icon="CircleClose " type="danger" @click="stopAll" title="禁用所有客户端通行"> 全部禁止 </el-button>
+						    <el-button type="danger" @click="stopAll" title="禁用所有客户端通行"> 全部禁止 </el-button>
 						</div>
 					</div>
 
-					<el-table :data="tableData" style="width: 100%">
+					<el-table :data="tableData" style="width: 100%;margin-top:20px">
 						<el-table-column label="服务ID" prop="routeId"></el-table-column>
 						<el-table-column label="服务名称" prop="name"></el-table-column>
 						<el-table-column label="服务地址" prop="uri"></el-table-column>
@@ -76,11 +80,13 @@
 							<template #default="scope">
 								 <el-dropdown trigger="click" @command="handleCommandRegServer">
 									<el-button  circle icon="Setting" title="设置" style="border: 0px;"></el-button>
-								  <el-dropdown-menu slot="dropdown">
-									<el-dropdown-item :command="{command:'start', row: scope.row}"><i class="el-icon-success" style="color: #409EFF;"></i>允许通行</el-dropdown-item>
-									<el-dropdown-item :command="{command:'stop', row: scope.row}"><i class="el-icon-error" style="color: red;"></i>禁止通行</el-dropdown-item>
-									<el-dropdown-item :command="{command:'delete', row: scope.row}" divided><i class="el-icon-delete"></i>移除</el-dropdown-item>
-								  </el-dropdown-menu>
+									<template #dropdown>
+										<el-dropdown-menu>
+											<el-dropdown-item :command="{command:'start', row: scope.row}"><i class="el-icon-success" style="color: #409EFF;"></i>允许通行</el-dropdown-item>
+											<el-dropdown-item :command="{command:'stop', row: scope.row}"><i class="el-icon-error" style="color: red;"></i>禁止通行</el-dropdown-item>
+											<el-dropdown-item :command="{command:'delete', row: scope.row}" divided><i class="el-icon-delete"></i>移除</el-dropdown-item>
+										</el-dropdown-menu>
+									</template>
 								</el-dropdown>
 							</template>
 						</el-table-column>
@@ -127,7 +133,7 @@
 			//在组件创建完毕后加载
 			let query = this.$route.query;
 			if (query){
-				let client = query.client;
+				let client = JSON.parse(query.client);
 				console.log('client', client);
 				this.init(client);
 			}

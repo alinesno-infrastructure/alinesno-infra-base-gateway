@@ -57,7 +57,7 @@
 		
 		<el-row :gutter="20" style="margin-top: 20px;">
 			<el-col>
-				<el-card shadow="false" class="box-card">
+				<el-card shadow="never" class="box-card">
 					<div class="clearfix">
 						<span>规则组件</span>
 						<el-popover trigger="click" placement="bottom">

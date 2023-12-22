@@ -2,7 +2,7 @@
 	<div class="app-container">
 		<el-row :gutter="18">
 			<el-col :span="4">
-				<el-card shadow="false" >
+				<el-card shadow="never" >
 					<span style="font-size: 18pt; font-weight: bold;">接口文档</span>
 					<el-tree :data="apiTreeData" :props="defaultProps" @node-click="handleNodeClick" :expand-on-click-node="false" style="margin-top: 20px;">
 						<span slot-scope="{ node, data }">							
@@ -21,7 +21,7 @@
 			</el-col>
 			<el-col :span="20">
 				<!-- 说明 -->
-				<el-card shadow="false">
+				<el-card shadow="never">
 					<div class="clearfix">
 						<i class="el-icon-monitor"></i> 
 						<span style="font-weight: bold;">{{infoForm.name}}</span>						

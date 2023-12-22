@@ -3,7 +3,7 @@
 		<el-page-header @back="goBack" content="客户端管理"></el-page-header>
 		<el-row :gutter="20" style="margin-top: 20px;">
 			<el-col>
-				<el-card shadow="false" class="box-card">
+				<el-card shadow="never" class="box-card">
 					<div class="clearfix">
 						<span>客户端配置</span>
 						<div style="float: right; margin-left: 10px;"><el-button icon="Delete"  type="warning" @click="resetForm">清 空</el-button></div>
@@ -91,7 +91,7 @@ export default {
 			this.handleType = query.handleType;
 			if (this.handleType === 'edit'){
 				// this.nameDisabled = true;
-				let client = query.client;
+				let client = JSON.parse(query.client);
 				console.log('client', client);
 				this.init(client);
 			}
@@ -104,7 +104,7 @@ export default {
 			}
 		},
 		goBack() {
-			this.$router.push({ path: '/gateway/clientList', query: {} });
+			this.$router.push({ path: '/clientList', query: {} });
 		},
 		submit() {
 			let _this = this;

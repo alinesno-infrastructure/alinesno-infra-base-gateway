@@ -1,6 +1,6 @@
 <template>
 	<div class="app-container">
-		<el-card shadow="false" class="box-card">
+		<el-card shadow="never" class="box-card">
 			<el-row>
 				<el-col :span="10">
 					<span class="span_1">接口统计</span>

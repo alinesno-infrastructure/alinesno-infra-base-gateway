@@ -44,7 +44,7 @@
 			</div>
 		</el-dialog>
 
-		<el-card shadow="false" class="box-card" style="padding-bottom: 20px;">
+		<el-card shadow="never" class="box-card" style="padding-bottom: 20px;">
 			<el-row>
 				<el-col :span="10">
 					<span class="span_1">接口监控</span>

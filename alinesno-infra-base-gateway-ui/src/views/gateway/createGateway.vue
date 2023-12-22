@@ -3,7 +3,7 @@
 		<el-page-header @back="goBack" content="服务管理"></el-page-header>
 		<el-row :gutter="20" style="margin-top: 20px;">
 			<el-col>
-				<el-card shadow="false" class="box-card">
+				<el-card shadow="never" class="box-card">
 					<div class="clearfix" style="margin-bottom:10px">
 						<span>网关路由 <el-icon><Right /></el-icon> 服务配置</span>
 
@@ -171,7 +171,7 @@
 
 		<el-row :gutter="20" style="margin-top: 20px;">
 			<el-col :span="6">
-				<el-card shadow="false" class="box-card">
+				<el-card shadow="never" class="box-card">
 					<div class="clearfix">
 						<span>熔断器</span>
 						<el-button style="float: right; padding: 3px 0; " icon="Question" type="text">说明</el-button>
@@ -205,7 +205,7 @@
 					</el-collapse>
 				</el-card>
 
-				<el-card shadow="false" class="box-card" style="margin-top: 20px;">
+				<el-card shadow="never" class="box-card" style="margin-top: 20px;">
 					<div class="clearfix">
 						<span>监控器</span>
 						<el-popover trigger="click" placement="bottom">
@@ -263,7 +263,7 @@
 			</el-col>
 
 			<el-col :span="6">
-				<el-card shadow="false" class="box-card">
+				<el-card shadow="never" class="box-card">
 					<div class="clearfix">
 						<span>过滤器</span>
 						<el-popover trigger="click" placement="bottom">
@@ -307,7 +307,7 @@
 			</el-col>
 
 			<el-col :span="6">
-				<el-card shadow="false" class="box-card">
+				<el-card shadow="never" class="box-card">
 					<div class="clearfix">
 						<span>限流器</span>
 						<el-button style="float: right; padding: 3px 0; " icon="Question" type="text">说明</el-button>
@@ -361,7 +361,7 @@
 			</el-col>
 
 			<el-col :span="6">
-				<el-card shadow="false" class="box-card">
+				<el-card shadow="never" class="box-card">
 					<div class="clearfix">
 						<span>鉴权器</span>
 						<el-button style="float: right; padding: 3px 0; " icon="Question" type="text">说明</el-button>

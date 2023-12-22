@@ -1,6 +1,6 @@
 <template>
 	<div class="app-container">
-		<el-card shadow="false" class="box-card">
+		<el-card shadow="never" class="box-card">
 			<el-row>
 				<el-col :span="10">
 					<div style="margin-bottom: 9px;">
@@ -21,7 +21,7 @@
 							<el-popover placement="bottom" slot="prepend" trigger="click">
 								<el-radio v-model="form.status" v-for="item in statusOptions" :key="item.value" :label="item.value">{{item.label}}</el-radio>
 								<template #reference>
-									<el-button slot="reference">
+									<el-button>
 										服务状态:{{form.status === '0' ? '启用': form.status === '1' ? '禁用' : '所有'}}<i class="el-icon-caret-bottom el-icon--right"></i>
 									</el-button>
 								</template>
@@ -35,9 +35,10 @@
 				</el-col>
 			</el-row>
 			<el-table :data="tableData" style="width: 100%;margin-top:20px">
-				<el-table-column label="客户端ID(系统生成)" width="300">
+				<el-table-column label="客户端ID(系统生成)" width="200" :show-overflow-tooltip="true">
 					<template #default="scope">
-						<el-tag type="warning" style="font-weight: bold;">{{scope.row.id}}</el-tag>
+						<!-- <el-tag type="warning" style="font-weight: bold;">{{scope.row.id}}</el-tag> -->
+						{{scope.row.id}}
 					</template>
 				</el-table-column>
 				<el-table-column label="分组">
@@ -69,14 +70,16 @@
 						   <el-button  type="warning">
 						      管理<i class="el-icon-arrow-down el-icon--right"></i>
 						    </el-button>
-						  <el-dropdown-menu slot="dropdown">							
-							<el-dropdown-item icon="Connection" :command="{command:'addGateway', row: scope.row}">注册网关服务</el-dropdown-item>
-							<el-dropdown-item icon="el-icon-tickets" :command="{command:'info', row: scope.row}">详情</el-dropdown-item>
-							<el-dropdown-item icon="Edit" :command="{command:'edit', row: scope.row}">编辑</el-dropdown-item>
-							<el-dropdown-item :command="{command:'start', row: scope.row}" divided><i class="el-icon-success" style="color: #409EFF;"></i>启用</el-dropdown-item>
-							<el-dropdown-item :command="{command:'stop', row: scope.row}"><i class="el-icon-error" style="color: red;"></i>禁用</el-dropdown-item>
-							<el-dropdown-item icon="Delete" :command="{command:'delete', row: scope.row}" divided>删除</el-dropdown-item>
-						  </el-dropdown-menu>
+								<template #dropdown>
+									<el-dropdown-menu>							
+									<el-dropdown-item icon="Connection" :command="{command:'addGateway', row: scope.row}">注册网关服务</el-dropdown-item>
+									<el-dropdown-item icon="UserFilled" :command="{command:'info', row: scope.row}">详情</el-dropdown-item>
+									<el-dropdown-item icon="Edit" :command="{command:'edit', row: scope.row}">编辑</el-dropdown-item>
+									<el-dropdown-item :command="{command:'start', row: scope.row}" divided><el-icon style="color: #409EFF;"><SuccessFilled/></el-icon> 启用</el-dropdown-item>
+									<el-dropdown-item :command="{command:'stop', row: scope.row}"><el-icon style="color: #F56C6C;"><WarningFilled/></el-icon>  禁用</el-dropdown-item>
+									<el-dropdown-item icon="Delete" :command="{command:'delete', row: scope.row}" divided>删除</el-dropdown-item>
+									</el-dropdown-menu>
+								</template>
 						</el-dropdown>
 					</template>
 				</el-table-column>
@@ -96,14 +99,14 @@
 		
 		<el-drawer v-model="drawer" :direction="direction" :before-close="handleClose" :with-header="false" size="26%" @opened="handleOpenedClientInfo">
 			<!-- 父组件传参与子组件方法监听 -->
-			<clientInfoComponent ref="clientInfo" :infoForm="infoForm"></clientInfoComponent>
+			<ClientInfoComponent ref="clientInfo" :infoForm="infoForm"></ClientInfoComponent>
 		</el-drawer>
 	</div>
 </template>
 
 <script>
 	import {clientPageList, deleteClient, startClient, stopClient} from '@/api/client_api.js'
-	import clientInfoComponent from '@/components/ClientInfo.vue'
+	import ClientInfoComponent from '@/components/ClientInfo.vue'
 	
 	export default {
 		data() {
@@ -133,7 +136,7 @@
 			this.init();
 		},
 		components:{
-			clientInfoComponent
+			ClientInfoComponent
 		},
 		mounted: function() {
 	    
@@ -163,13 +166,13 @@
 				console.log("command" , obj);
 				let _this = this;
 				if (obj.command === 'addGateway'){
-					this.$router.push({path:'/addClientGateway',query:{client:obj.row}});
+					this.$router.push({path:'/addClientGateway',query:{client:JSON.stringify(obj.row)}});
 				} else if (obj.command === 'info'){
 					this.drawer = true;
 					this.infoForm = obj.row;
 				}  else if (obj.command === 'edit'){
 					this.infoForm = obj.row;
-					this.$router.push({path:'/createClient',query:{handleType:'edit',client:obj.row}});
+					this.$router.push({path:'/createClient',query:{handleType:'edit',client:JSON.stringify(obj.row)}});
 				} else if (obj.command === 'start'){
 					startClient({id:obj.row.id}).then(function(result){
 						_this.GLOBAL_FUN.successMsg();

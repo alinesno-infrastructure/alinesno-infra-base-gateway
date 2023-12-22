@@ -1,6 +1,6 @@
 <template>
 	<div class="app-container">
-		<el-card shadow="false" class="box-card">
+		<el-card shadow="never" class="box-card">
 			<el-row>
 				<el-col :span="10">
 					<div style="margin-bottom: 9px;">
@@ -41,7 +41,7 @@
 
 		<el-row :gutter="16" style="margin-top: 20px;">
 			<el-col :span="11">
-				<el-card shadow="false" class="box-card">
+				<el-card shadow="never" class="box-card">
 					<el-table :data="tableData" style="width: 100%">
 						<el-table-column label="服务名称">
 							<template #default="scope">
@@ -121,7 +121,7 @@
 				</el-card>
 			</el-col>
 			<el-col :span="5">
-				<el-card shadow="false" class="box-card">
+				<el-card shadow="never" class="box-card">
 					<div style="margin-bottom: 14px;">
 						<i class="iconfont icon-wumoxing" style="font-size: 16pt; color: #90A0A5;"></i>
 						<span class="route-title">转发路由</span>

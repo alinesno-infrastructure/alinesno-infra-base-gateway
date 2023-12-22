@@ -1,11 +1,5 @@
 package com.alinesno.infra.base.gateway.core.service;
 
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
 import com.alinesno.infra.base.gateway.core.base.BaseService;
 import com.alinesno.infra.base.gateway.core.dao.RegServerDao;
 import com.alinesno.infra.base.gateway.core.entity.RegServer;
@@ -15,6 +9,13 @@ import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @description 注册服务业务管理类
@@ -141,7 +142,7 @@ public class RegServerService extends BaseService<RegServer,Long, RegServerDao> 
     @Transactional(readOnly = true)
     public PageResult serverPageList(RegServer regServer, int currentPage, int pageSize){
         String sql = "SELECT s.id AS regServerId,s.status as regServerStatus,DATE_FORMAT(s.createTime,'%Y-%m-%d %H:%i:%s') as regServerTime,r.* FROM route r, regserver s WHERE r.id = s.routeId and s.clientId=?";
-        return pageNativeQuery(sql, Arrays.asList(regServer.getClientId()), currentPage, pageSize);
+        return pageNativeQuery(sql, Collections.singletonList(regServer.getClientId()), currentPage, pageSize);
     }
 
     /**

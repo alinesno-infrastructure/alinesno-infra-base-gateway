@@ -1,6 +1,6 @@
 <template>
 	<div class="app-container">
-		<el-card shadow="false" class="box-card">
+		<el-card shadow="never" class="box-card">
 			<el-row>
 				<el-col :span="10">
 					<div style="margin-bottom: 9px;">
@@ -237,7 +237,7 @@ export default {
 			console.log("command", obj);
 			let _this = this;
 			if (obj.command === 'addClient') {
-				this.$router.push({ path: '/addGatewayClient', query: { route: this.newRoute(obj.row) } });
+				this.$router.push({ path: '/addGatewayClient', query: { route: JSON.stringify(this.newRoute(obj.row)) } });
 			} else if (obj.command === 'info') {
 				this.drawer = true;
 				this.infoForm = obj.row;

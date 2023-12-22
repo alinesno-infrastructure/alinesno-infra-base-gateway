@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div style="height: 52px; background-color: #005bd4;font-size: 14pt; font-weight: bold; color: #F0F0F0; padding-top: 18px; padding-left: 20px;">
+		<div style="height: 52px; background-color: #005bd4;font-size: 14pt; font-weight: bold; color: #F0F0F0;margin:-20px -20px 20px -20px; padding-top: 18px; padding-left: 20px;">
 			<i class="el-icon-s-custom"></i>&nbsp;客户端详情
 		</div>
 		<el-row :gutter="24" style="border: 0px solid red;">

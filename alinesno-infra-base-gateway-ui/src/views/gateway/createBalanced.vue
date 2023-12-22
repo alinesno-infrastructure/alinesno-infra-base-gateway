@@ -1,7 +1,7 @@
 <template>
 	<div class="app-container">
 		<el-page-header @back="goBack" content="负载管理"></el-page-header>
-		<el-card shadow="false" class="box-card" style="margin-top: 20px;">
+		<el-card shadow="never" class="box-card" style="margin-top: 20px;">
 			<div class="clearfix">
 				<span>负载管理配置</span>
 				<el-popover trigger="click" placement="bottom">
@@ -56,7 +56,7 @@
 
 			<el-row :gutter="24" style="margin-top:10px">
 				<el-col :span="8">
-					<el-card shadow="false" class="box-card">
+					<el-card shadow="never" class="box-card">
 						<el-form :rules="rules" ref="form" :model="form" label-width="70px">
 							<el-form-item label="名称" prop="name">
 								<el-input size="large" v-model="form.name" style="width: 60%;"></el-input>
@@ -89,7 +89,7 @@
 					</el-card>
 				</el-col>
 				<el-col :span="16">
-					<el-card shadow="false" class="box-card">
+					<el-card shadow="never" class="box-card">
 						<el-table :data="tableData" style="width: 100%">
 						  <el-table-column prop="settingId" label="路由ID"></el-table-column>
 						  <el-table-column prop="name" label="路由名称"></el-table-column>

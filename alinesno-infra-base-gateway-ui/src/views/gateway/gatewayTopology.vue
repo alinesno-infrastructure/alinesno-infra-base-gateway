@@ -3,7 +3,7 @@
 		<el-page-header @back="goBack" content="服务管理"></el-page-header>
 		<el-row :gutter="24" style="margin-top: 20px;">
 			<el-col :span="16">
-				<el-card shadow="false" >
+				<el-card shadow="never" >
 					<div class="clearfix">
 					    <i class="el-icon-orange" style="font-size: 10pt;"></i>&nbsp;<span style="font-size: 12pt;">注册网关-客户端拓扑结构</span>
 					  </div>
@@ -11,11 +11,11 @@
 				</el-card>
 			</el-col>
 			<el-col :span="8" style="border: 0px solid red;">
-				<el-card shadow="false" >
+				<el-card shadow="never" >
 					<div class="clearfix">
 					    <i class="el-icon-s-custom" style="font-size: 10pt;"></i>&nbsp;<span style="font-size: 12pt;">注册客户端列表</span>
 					</div>
-					<el-card shadow="false" class="paper-card__body" v-for="(item,index) in clientList" :key="index" style="margin-bottom: 10px; font-size: 10pt;">					
+					<el-card shadow="never" class="paper-card__body" v-for="(item,index) in clientList" :key="index" style="margin-bottom: 10px; font-size: 10pt;">					
 						<el-row :gutter="24">
 							<el-col :span="20" style="border: 0px solid red;">
 								<i class="el-icon-s-platform" style="font-size: 10pt;"></i>&nbsp;<el-tag style="font-weight: bold;">{{item.name}}</el-tag>

@@ -19,7 +19,7 @@
 			</div>
 		</el-dialog>
 
-		<el-card shadow="false" class="box-card">
+		<el-card shadow="never" class="box-card">
 			<el-row>
 				<el-col :span="10">
 					<div style="margin-bottom: 9px;">

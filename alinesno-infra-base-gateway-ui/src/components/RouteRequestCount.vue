@@ -3,17 +3,17 @@
       <el-dialog :title="dialogTitle" v-model="dialogFormVisible" width="55%" :close-on-click-modal="false">
             <i class="iconfont icon-icon_renwujincheng" style="font-size: 16pt; color: #90A0A5;"></i>
             <span class="span_14">7日请求总量</span>
-            <el-divider style="width: 80%;"></el-divider>
+            <el-divider style="width: calc(100% - 30px);"></el-divider>
             <div id="route7dayAccessChart" class="chart_line_2"></div>
             <br/>
             <i class="iconfont icon-yibiaopan" style="font-size: 16pt; color: #90A0A5;"></i>
             <span class="span_14">24小时请求总量</span>
-            <el-divider style="width: 80%;"></el-divider>
+            <el-divider style="width: calc(100% - 30px);"></el-divider>
             <div id="route24HourAccessChart" class="chart_line_2"></div>
             <br/>
             <i class="iconfont icon-yibiaopan" style="font-size: 16pt; color: #90A0A5;"></i>
             <span class="span_14">60分钟请求总量</span>
-            <el-divider style="width: 80%;"></el-divider>
+            <el-divider style="width: calc(100% - 30px);"></el-divider>
             <div id="route60MinAccessChart" class="chart_line_2"></div>
             <template #footer>
                 <div class="dialog-footer" style="margin-top:30px;text-align: right;">

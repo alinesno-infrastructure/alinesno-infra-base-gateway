@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
 
 /**
  * @description 定时刷新route路由配置，如：变更配置后，会在redis中记录版本号，本地版本号不相同，则重新加载最新路由配置（已过时，启用nacos配置监听事件，参见：NacosConfigRefreshEventListener）
@@ -16,8 +17,8 @@ import org.springframework.scheduling.annotation.Scheduled;
  * @version 1.0.0
  */
 @Slf4j
-//@Service
-@Deprecated
+@Service
+//@Deprecated
 public class TimerFreshRouteService {
 
     @Resource

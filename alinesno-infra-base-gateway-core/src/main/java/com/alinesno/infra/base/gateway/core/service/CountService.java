@@ -10,6 +10,7 @@ import com.alinesno.infra.base.gateway.core.util.Constants;
 import com.alinesno.infra.base.gateway.core.util.PageResult;
 import com.alinesno.infra.base.gateway.core.util.RouteConstants;
 import jakarta.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.commons.lang3.time.DateUtils;
@@ -29,6 +30,7 @@ import java.util.stream.Collectors;
  * @date 2020/12/30
  * @version v1.0.0
  */
+@Slf4j
 @Service
 public class CountService {
 
@@ -155,6 +157,9 @@ public class CountService {
         List<Integer> counts = new ArrayList<>(dateList.size());
         List<String> dates = new ArrayList<>(dateList.size());
         for (String date : dateList){
+
+            log.debug("countTag + date = {} , value = {}" , (countTag + date) , redisTemplate.opsForHash().entries(countTag+date));
+
             Map<String,String> countMap = redisTemplate.opsForHash().entries(countTag + date);
             AtomicReference<Integer> count = new AtomicReference<>(0);
             if (!CollectionUtils.isEmpty(countMap)){
@@ -196,7 +201,7 @@ public class CountService {
 
         // 获取当前用户所有route
         Route qRoute = new Route();
-        qRoute.setOperatorId(userId);
+//        qRoute.setOperatorId(userId);
         List<Route> routes = routeService.findAll(qRoute);
         List<String> routeIds = Optional.ofNullable(routes)
                 .orElse(Collections.emptyList())

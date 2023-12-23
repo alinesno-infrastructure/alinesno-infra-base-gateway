@@ -62,6 +62,8 @@ public class TimerCountService {
         //记录到统计表
         renewStatistical(minMap, minErrorMap);
 
+        log.debug("cacheMap = {}" , cacheMap);
+
         //每次统计完清除缓存统计数据，重新记录下一分钟请求量
         CountCache.clear();
 
@@ -138,6 +140,9 @@ public class TimerCountService {
                 }
                 v += count;
             }
+
+            log.debug("key = {} , k = {} , value = {}" , key , k , v);
+
             redisTemplate.opsForHash().put(key, k, String.valueOf(v));
         });
     }
@@ -165,10 +170,10 @@ public class TimerCountService {
                 qRouteId = routeId;
             }
             Route route = routeService.findById(qRouteId);
-            String userId = route.getOperatorId();
+//            String userId = route.getOperatorId();
 
             // 获取要更新表项
-            qStatisticalData.setAccountId(userId);
+//            qStatisticalData.setAccountId(userId);
             List<StatisticalData> statisticalDataList = statisticalDataService.findAll(qStatisticalData);
             StatisticalData statisticalDataTotal = null;
             StatisticalData statisticalDataDay = null;
@@ -176,10 +181,10 @@ public class TimerCountService {
                 statisticalDataTotal = new StatisticalData();
                 statisticalDataDay = new StatisticalData();
                 statisticalDataTotal.setId(UUIDUtils.getUUIDString());
-                statisticalDataTotal.setAccountId(userId);
+//                statisticalDataTotal.setAccountId(userId);
                 statisticalDataTotal.setCountTimeKey(StatisticalDataConstant.STATISTICAL_TOTAL_KEY);
                 statisticalDataDay.setId(UUIDUtils.getUUIDString());
-                statisticalDataDay.setAccountId(userId);
+//                statisticalDataDay.setAccountId(userId);
                 statisticalDataDay.setCountTimeKey(dayKey);
             } else {
                 statisticalDataTotal = statisticalDataList.stream()
@@ -190,7 +195,7 @@ public class TimerCountService {
                 if(CollectionUtil.isEmpty(errorStatisticalDataList)){
                     statisticalDataDay = new StatisticalData();
                     statisticalDataDay.setId(UUIDUtils.getUUIDString());
-                    statisticalDataDay.setAccountId(userId);
+//                    statisticalDataDay.setAccountId(userId);
                     statisticalDataDay.setCountTimeKey(dayKey);
                 } else {
                     statisticalDataDay = errorStatisticalDataList.get(0);
@@ -224,7 +229,7 @@ public class TimerCountService {
             Date clearData = calendar.getTime();
             String clearKey = StatisticalDataConstant.STATISTICAL_DAY_KEY + DateFormatUtils.format(clearData, Constants.YYYYMMDD);
             StatisticalData qClearStatisticalData = new StatisticalData();
-            qClearStatisticalData.setAccountId(userId);
+//            qClearStatisticalData.setAccountId(userId);
             qClearStatisticalData.setCountTimeKey(clearKey);
             List<StatisticalData> clearStatisticalDataList = statisticalDataService.findAll(qClearStatisticalData);
             if(CollectionUtil.isNotEmpty(clearStatisticalDataList)){

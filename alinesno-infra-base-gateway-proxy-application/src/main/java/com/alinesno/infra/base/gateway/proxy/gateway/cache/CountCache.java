@@ -1,9 +1,9 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.cache;
 
-import java.util.concurrent.ConcurrentHashMap;
-
 import lombok.Getter;
 import org.springframework.util.Assert;
+
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @description 缓存接口请求统计缓存

@@ -91,7 +91,7 @@ public class LogGlobalFilter implements GlobalFilter, Ordered {
         if(status >= 400) {
             ErrorCountCache.put(routeId, Optional.ofNullable(ErrorCountCache.get(routeId)).orElse(0) + 1);
         }
-        CountCache.put(routeId, count == null ? 1 : count.intValue() + 1);
+        CountCache.put(routeId, count == null ? 1 : count + 1);
     }
 
     /**

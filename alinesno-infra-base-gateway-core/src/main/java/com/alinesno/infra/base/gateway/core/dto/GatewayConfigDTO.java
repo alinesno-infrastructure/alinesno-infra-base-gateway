@@ -3,7 +3,7 @@ package com.alinesno.infra.base.gateway.core.dto;
 
 /**
  * @author luoxiaodong
- * @data 2023/04/04 11:55
+ * @version 1.0.0
  */
 public class GatewayConfigDTO {
 

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author luoxiaodong
- * @data 2023/04/04 13:59
+ * @version 1.0.0
  */
 @Service
 public class CustomRestConfigService {

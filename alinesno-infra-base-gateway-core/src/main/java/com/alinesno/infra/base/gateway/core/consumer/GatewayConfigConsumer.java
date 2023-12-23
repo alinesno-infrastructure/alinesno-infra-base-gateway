@@ -8,7 +8,7 @@ import com.dtflys.forest.annotation.Post;
 
 /**
  * @author luoxiaodong
- * @data 2023/04/04 14:26
+ * @version 1.0.0
  */
 @BaseRequest(baseURL = "#{alinesno.infra.base.gateway.proxy.host}")
 public interface GatewayConfigConsumer {

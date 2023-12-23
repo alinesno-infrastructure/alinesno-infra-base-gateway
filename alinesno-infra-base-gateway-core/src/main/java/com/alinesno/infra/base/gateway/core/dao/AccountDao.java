@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * @author luoxiaodong
- * @data 2023/04/25 17:26
+ * @version 1.0.0
  */
 public interface AccountDao extends JpaRepository<StatisticalData, String> {
 

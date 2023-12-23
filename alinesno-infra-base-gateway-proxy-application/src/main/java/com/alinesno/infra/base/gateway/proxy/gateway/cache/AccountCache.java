@@ -5,13 +5,12 @@ import org.springframework.util.Assert;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 用于进行用户权限划分的， key 是用户 token，用户初次添加路由或ip时创建，value 是route或ip
  * @author  luoxiaodong
- * @data 2023/04/25 14:14
+ * @version 1.0.0
  */
 public class AccountCache {
 

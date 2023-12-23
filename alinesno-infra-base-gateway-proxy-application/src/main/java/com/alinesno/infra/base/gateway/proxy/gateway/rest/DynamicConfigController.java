@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * @author  luoxiaodong
- * @data 2023/04/04 11:42
+ * @version 1.0.0
  */
 @CrossOrigin( allowCredentials = "false")
 @RestController

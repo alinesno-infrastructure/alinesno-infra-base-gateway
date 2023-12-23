@@ -10,7 +10,7 @@ import lombok.Data;
 
 /**
  * @author luoxiaodong
- * @data 2023/04/25 17:22
+ * @version 1.0.0
  */
 @Entity
 @Table(name="account")

@@ -2,7 +2,7 @@ package com.alinesno.infra.base.gateway.core.bean;
 
 /**
  * @author luoxiaodong
- * @data 2023/04/21 15:53
+ * @version 1.0.0
  */
 public class BaseReq {
 

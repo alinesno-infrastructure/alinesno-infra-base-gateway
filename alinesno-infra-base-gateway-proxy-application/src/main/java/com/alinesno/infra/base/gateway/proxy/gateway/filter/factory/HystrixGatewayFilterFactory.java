@@ -36,7 +36,7 @@ import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.*
 
 /**
  * @author  luoxiaodong
- * @data 2023/04/11 14:54
+ * @version 1.0.0
  */
 @Slf4j
 @Component

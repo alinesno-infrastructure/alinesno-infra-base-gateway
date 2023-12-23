@@ -139,7 +139,7 @@ public class BaseService<T,ID,DAO extends JpaRepository> {
 
         query.setFirstResult((currentPage -1) * pageSize).setMaxResults(pageSize);
         List<Map<String,Object>> list = query.getResultList();
-        
+
         return this.setPageResult(list, currentPage, pageSize, totalNum);
     }
 

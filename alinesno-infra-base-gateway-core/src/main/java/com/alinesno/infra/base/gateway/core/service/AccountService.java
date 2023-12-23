@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author luoxiaodong
- * @data 2023/04/25 17:28
+ * @version 1.0.0
  */
 @Service
 public class AccountService extends BaseService<Account,String, AccountDao> {

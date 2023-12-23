@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Size;
 
 /**
  * @author luoxiaodong
- * @data 2023/04/21 16:27
+ * @version 1.0.0
  */
 @MappedSuperclass
 public class BaseEntity {

@@ -375,6 +375,6 @@ export default {
 	 }
 	 .chart_line_1 {
 		width: 100%;
-		height: 220px;
+		height: 180px;
 	 }
 </style>

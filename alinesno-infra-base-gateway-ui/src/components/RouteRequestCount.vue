@@ -15,9 +15,11 @@
             <span class="span_14">60分钟请求总量</span>
             <el-divider style="width: 80%;"></el-divider>
             <div id="route60MinAccessChart" class="chart_line_2"></div>
-			<div slot="footer" class="dialog-footer" style="margin-top:30px;text-align: right;">
-				<el-button icon="Close"  type="warning" @click="dialogFormVisible = false">关 闭</el-button>
-			</div>
+            <template #footer>
+                <div class="dialog-footer" style="margin-top:30px;text-align: right;">
+                    <el-button icon="Close"  type="warning" @click="dialogFormVisible = false">关 闭</el-button>
+                </div>
+            </template>
 		</el-dialog>
   </div>
 </template>

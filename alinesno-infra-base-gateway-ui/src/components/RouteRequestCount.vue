@@ -89,7 +89,7 @@ const drawLine = (id, result, color, color0, color1) => {
 				showSymbol: true,
 				areaStyle: {
 					opacity: 0.8,
-					color: proxy.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+					color: new proxy.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{
 						offset: 0,
 						color: color0
 					}, {

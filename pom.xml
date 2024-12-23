@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.alinesno.infra.common</groupId>
         <artifactId>alinesno-infra-platform-parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.1.0-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <packaging>pom</packaging>
@@ -16,7 +16,7 @@
     <version>${revision}</version>
 
     <properties>
-        <revision>1.0.0-SNAPSHOT</revision>
+        <revision>1.1.0-SNAPSHOT</revision>
         <alinesno.infra.version>${revision}</alinesno.infra.version>
     </properties>
 
@@ -26,6 +26,7 @@
         <module>alinesno-infra-base-gateway-facade</module>  <!-- 接口和引用 -->
         <module>alinesno-infra-base-gateway-domain</module>  <!-- 领域服务 -->
         <module>alinesno-infra-base-gateway-adapter</module> <!-- 适配层 -->
+        <module>alinesno-infra-base-gateway-rest</module> <!-- 接口配置层 -->
         <module>alinesno-infra-base-gateway-api</module>  <!-- 接口服务 -->
         <module>alinesno-infra-base-gateway-client</module>  <!-- 对外引用 -->
         <module>alinesno-infra-base-gateway-boot</module>  <!-- 启动服务 -->

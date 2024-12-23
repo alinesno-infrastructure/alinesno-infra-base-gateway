@@ -42,8 +42,9 @@
 		<el-row :gutter="16" style="margin-top: 20px;">
 			<el-col :span="11">
 				<el-card shadow="never" class="box-card">
+
 					<el-table :data="tableData" style="width: 100%">
-						<el-table-column label="服务名称">
+						<el-table-column label="服务名称" width="100" :show-overflow-tooltip="true">
 							<template #default="scope">
 								<el-tooltip effect="dark" :content="scope.row.name" placement="top-start">
 									<el-tag type="warning" style="font-weight: bold;">{{ scope.row.name }}</el-tag>
@@ -57,7 +58,7 @@
 									type="">{{ group.label }}</el-tag>
 							</template>
 						</el-table-column>
-						<el-table-column label="断言地址" width="250" :show-overflow-tooltip="true">
+						<el-table-column label="断言地址" :show-overflow-tooltip="true">
 							<template #default="scope">
 								{{ parent }}{{ scope.row.loadUri }}
 								<el-popover trigger="click" placement="bottom">
@@ -74,43 +75,44 @@
 										</span>
 										<br />
 									</div>
-									<el-button slot="reference" style="padding: 3px 0; " icon="iconfont icon-IP" type="text"
-										title="网关代理地址"></el-button>
+									<el-button slot="reference" style="padding: 3px 0; " type="text" title="网关代理地址"></el-button>
 								</el-popover>
 							</template>
 						</el-table-column>
-						<el-table-column label="创建时间" align="center" width="135" prop="createTime"></el-table-column>
-						<el-table-column label="状态" width="65" align="center" prop="status" :formatter="formatterStatus">
+						<el-table-column label="创建时间" align="center" width="160" prop="createTime"></el-table-column>
+						<el-table-column label="状态" width="85" align="center" prop="status" :formatter="formatterStatus">
 							<template #default="scope">
 								<el-tag effect="dark" v-if="scope.row.status === '0'" type="">启用</el-tag>
 								<el-tag effect="dark" v-if="scope.row.status === '1'" type="danger">禁用</el-tag>
 							</template>
 						</el-table-column>
-						<el-table-column label="操作" align="center" width="80">
-							<template :v-if="scope.row.id != null" slot-scope="scope">
-								<el-dropdown trigger="click" @command="handleCommandGateway">
-									<el-button  type="warning">
-										管理<i class="el-icon-arrow-down el-icon--right"></i>
+						<el-table-column label="操作" align="center" width="100">
+							<template #default="scope">
+								<el-dropdown :v-if="scope.row.id != null" trigger="click" @command="handleCommandGateway">
+									<el-button  type="warning" size="default">
+										管理 <el-icon><ArrowDownBold /></el-icon>
 									</el-button>
-									<el-dropdown-menu slot="dropdown">
-										<el-dropdown-item icon="Edit"
-											:command="{ command: 'edit', row: scope.row }">编辑</el-dropdown-item>
-										<el-dropdown-item :command="{ command: 'start', row: scope.row }" divided><i class="el-icon-success"
-												style="color: #409EFF;"></i>启用</el-dropdown-item>
-										<el-dropdown-item :command="{ command: 'stop', row: scope.row }"><i class="el-icon-error"
-												style="color: red;"></i>禁用</el-dropdown-item>
-										<el-dropdown-item icon="Delete" :command="{ command: 'delete', row: scope.row }"
-											divided>删除</el-dropdown-item>
-									</el-dropdown-menu>
+									<template #dropdown>
+										<el-dropdown-menu>
+											<el-dropdown-item icon="Edit" :command="{ command: 'edit', row: scope.row }">编辑</el-dropdown-item>
+											<el-dropdown-item :command="{ command: 'start', row: scope.row }" divided><el-icon style="color: #409EFF;"><SuccessFilled/></el-icon>启用</el-dropdown-item>
+											<el-dropdown-item :command="{ command: 'stop', row: scope.row }"><el-icon style="color: #F56C6C;"><WarningFilled/></el-icon>  禁用</el-dropdown-item>
+											<el-dropdown-item icon="Delete" :command="{ command: 'delete', row: scope.row }" divided>删除</el-dropdown-item>
+										</el-dropdown-menu>
+									</template>
 								</el-dropdown>
 							</template>
+
 						</el-table-column>
 						<el-table-column label="查看" width="58">
-							<template slot-scope="scope" style="border: 1px solid red;">
-								<el-button  @click="handleClickBalanced(scope.row)" circle title="请点击选中查看"
-									:class="(selectedId === scope.row.id) ? 'el-icon-arrow-right breathe-keyframes btn-select' : 'el-icon-arrow-down btn-not-select'">
+							<template #default="scope" style="border: 1px solid red;">
+								<el-button @click="handleClickBalanced(scope.row)" type="primary" bg circle title="请点击选中查看" v-if="selectedId === scope.row.id" >
+									<el-icon><Right /></el-icon>
 								</el-button>
-							</template>
+								<el-button @click="handleClickBalanced(scope.row)" type="text" bg circle title="请点击选中查看" v-else >
+									<el-icon><Right /></el-icon>
+								</el-button>
+							</template> 
 						</el-table-column>
 					</el-table>
 					<div class="block" style="margin-top: 20px;">
@@ -235,7 +237,7 @@ export default {
 		handleCommandGateway(obj) {
 			let _this = this;
 			if (obj.command === 'edit') {
-				this.$router.push({ path: '/createBalanced', query: { handleType: 'edit', balanced: obj.row } });
+				this.$router.push({ path: '/createBalanced', query: { handleType: 'edit', balanced: JSON.stringify(obj.row) } });
 			} else if (obj.command === 'start') {
 				startBalanced({ id: obj.row.id }).then(function (result) {
 					_this.GLOBAL_FUN.successMsg();

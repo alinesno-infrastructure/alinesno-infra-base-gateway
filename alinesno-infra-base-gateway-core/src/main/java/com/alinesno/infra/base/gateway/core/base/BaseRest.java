@@ -38,12 +38,12 @@ public class BaseRest<E extends BaseEntity> {
      */
     public <T> void validate(T t, boolean isMulti, Class<?> ...groups) {
         Set<ConstraintViolation<T>> constraintViolationSet = validator.validate(t, groups);
-        if (!constraintViolationSet.isEmpty()  && constraintViolationSet.size() >0) {
+        if (!constraintViolationSet.isEmpty()) {
             StringBuilder sb = new StringBuilder();
             Iterator<ConstraintViolation<T>> iterator = constraintViolationSet.iterator();
             //true表示多个验证一起组合后抛出
             if (isMulti){
-                for (;iterator.hasNext();){
+                while (iterator.hasNext()) {
                     ConstraintViolation<T> violation =iterator.next();
                     sb.append(",").append(violation.getMessage());
                 }
@@ -61,7 +61,7 @@ public class BaseRest<E extends BaseEntity> {
      * @return
      */
     public int getCurrentPage(Integer currentPage){
-        return currentPage == null? Constants.CURRENT_PAGE:currentPage.intValue();
+        return currentPage == null? Constants.CURRENT_PAGE: currentPage;
     }
 
     /**
@@ -70,7 +70,7 @@ public class BaseRest<E extends BaseEntity> {
      * @return
      */
     public int getPageSize(Integer pageSize){
-        return pageSize == null? Constants.PAGE_SIZE:pageSize.intValue();
+        return pageSize == null? Constants.PAGE_SIZE: pageSize;
     }
 
 
@@ -80,8 +80,26 @@ public class BaseRest<E extends BaseEntity> {
      * @param operatorId
      * @return
      */
-    protected E toExample(E entity, String operatorId){
+    @Deprecated
+    protected E toExample(E entity, Long operatorId){
+        if(operatorId == null){
+            operatorId = 0L ;
+        }
         entity.setOperatorId(operatorId);
+        return entity;
+    }
+
+    /**
+     * 设置操作用户
+     * @param entity
+     * @param orgId
+     * @return
+     */
+    protected E toExampleOrg(E entity, Long orgId){
+        if(orgId == null){
+            orgId = 0L ;
+        }
+        entity.setOrgId(orgId);
         return entity;
     }
 }

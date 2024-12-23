@@ -81,17 +81,22 @@ public class RouteService extends BaseService<Route,String, RouteDao> {
      */
     @Override
     public PageResult<Route> pageList(Route route, int currentPage, int pageSize){
+
         //构造条件查询方式
         ExampleMatcher matcher = ExampleMatcher.matching();
+
         if (StringUtils.isNotBlank(route.getName())) {
             //支持模糊条件查询
             matcher = matcher.withMatcher("name", ExampleMatcher.GenericPropertyMatchers.contains());
         }
+
         PageResult<Route> result = this.pageList(route, matcher, currentPage, pageSize);
+
         List<Route> routeList = result.getLists();
         if (CollectionUtils.isEmpty(routeList)){
             return result;
         }
+
         //获取所有监控配置
         List<Monitor> monitorList = monitorService.findAll();
         if (CollectionUtils.isEmpty(monitorList)){
@@ -110,6 +115,7 @@ public class RouteService extends BaseService<Route,String, RouteDao> {
             routeRspList.add(routeRsp);
         }
         result.setLists(routeRspList);
+
         return result;
     }
 }

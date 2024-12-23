@@ -1,5 +1,6 @@
 package com.alinesno.infra.base.gateway;
 
+import com.alinesno.infra.common.web.adapter.base.controller.SysDictDataController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

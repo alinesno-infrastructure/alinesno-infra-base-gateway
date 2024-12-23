@@ -4,19 +4,20 @@
       <el-col class="panel-col" :span="19">
         <div class="grid-content">
           <div class="panel-header">
-            <div class="header-title"><i class="fa-solid fa-link"></i> 网关接入教程</div>
+            <div class="header-title"><i class="fa-solid fa-link"></i> 网关平台能力</div>
           </div>
           <div class="panel-body" style="height: auto;position: relative;">
               <div class="direct-box">
                 <ul>
-                  <li class="box-item" v-for="item in directContent" :key="item">
+                  <li class="box-item" v-for="item in advantages" :key="item">
                     <div class="dire-panel">
                       <div class="panel-title">
-                        <img class="dire-panel-icon" :src="item.icon" :alt="item.name" />
-                        {{ item.name }} 
+                        <i class="dire-panel-icon" :class="item.icon" :alt="item.name" />
+                        {{ item.title }} 
                       </div>
-                      <div class="panel-describe">通过简单几步，图中7种主流开发环境轻松部署，摆脱海量文档搜索之苦。</div>
-                      <div class="panel-tip">访问链接</div>
+                      <div class="panel-describe">
+                        {{ item.description }}
+                      </div>
                     </div>
                   </li>
                 </ul>
@@ -27,19 +28,18 @@
       <el-col :span="5">
         <div class="grid-content">
           <div class="panel-header">
-            <div class="header-title"><i class="fa-solid fa-link"></i> 网关常用功能列表</div>
+            <div class="header-title"><i class="fa-solid fa-link"></i> 应用场景</div>
           </div>
           <div class="panel-body" style="height: auto;position: relative;">
             <div class="acp-app-list">
               <ul>
-                <li class="app-items" style="width:100%" v-for="item in apps" :key="item">
-                  <div class="app-icon">
-                    <img :src="item.icon" :alt="item.name" />
-                  </div>
+                <li class="app-items" style="width:100%" v-for="item in gatewayApplicationScenarios" :key="item">
                   <div class="app-info">
-                    <div class="app-item-title">{{ item.name }} <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <div class="app-item-title">
+                      <i :class="item.icon" :alt="item.name" />
+                        {{ item.name }}
                     </div>
-                    <div class="app-item desc">{{ item.desc }}</div>
+                    <div class="app-item desc">{{ item.description }}</div>
                   </div>
                 </li>
               </ul>
@@ -55,20 +55,20 @@
 
 <script setup>
 
-const directContent = ref([
-  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/d88319dfa5d204f019b4284149886c59-7d586ea82f792b61a8c87de60565133d.svg', name: '快速搭建网站', desc: 'With EC2 (2 分钟)' },
-  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/f5d2c00d40914bff4f82f29f9ef768bc-53a84099cf556710383a52b4612a8612.svg', name: '部署开发环境', desc: 'With Route 53 (3 分钟)' },
-  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/3da5e8169d2f1426f99fbef54575fe96-6382cb2dfdd2f74c99bc8a64a338358e.svg', name: '搭建云上博客', desc: 'With Route 53 (3 分钟)' },
-  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/fb0cde6228b21d89ec222b45efec54e7-0856e92285f4e7ed254b2588d1fe1829.svg', name: '搭建小程序', desc: 'With Route 53 (3 分钟)' },
-  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/a5ffe5487f62ef75d8e5cf78c18525a5-d4867f9d4adcd749f0c5aff987232847.svg', name: '云上高可用架构', desc: 'With Route 53 (3 分钟)' },
-]);
+const advantages = [
+  { icon: 'fa-solid fa-shield-alt', title: '安全更可靠', description: '采用先进的安全策略和技术，提供强大的身份验证、授权和加密功能，确保微服务通信的安全性。' },
+  { icon: 'fa-solid fa-chart-line', title: '路由更智能', description: '内置智能路由算法，根据请求特征动态选择最优路径，保证高并发下的高效和稳定的服务访问。' },
+  { icon: 'fa-solid fa-clipboard-list', title: '配置更灵活', description: '支持多种配置管理方式，包括但不限于图形界面、API接口，让配置和服务治理更加直观和便捷。' },
+  { icon: 'fa-solid fa-chart-bar', title: '性能监控全面', description: '提供对微服务调用链路的全维度性能监控，从流量到响应时间，助力实时掌握系统运行状态。' },
+  { icon: 'fa-solid fa-cogs', title: '插件化扩展', description: '通过插件机制，可以轻松集成第三方服务或自定义功能，满足多样化的业务需求，增强平台的适应性和灵活性。' },
+  { icon: 'fa-solid fa-users-cog', title: '运维更省心', description: '自动化运维工具简化了日常管理和维护工作，降低了运维成本，使团队能够专注于核心业务的发展。' }
+];
 
-const apps = ref([
-  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/051de32597041e41f73b97d61c67a13b-9cbdaf85e3bcf29b656fdedd8e6d1305.svg', name: '微服务接入网关', desc: 'With Route 53 (3 分钟)' },
-  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/fb0cde6228b21d89ec222b45efec54e7-0856e92285f4e7ed254b2588d1fe1829.svg', name: '网关分布式限流配置', desc: 'With Route 53 (3 分钟)' },
-  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/7177e919b32ad97825f95e902595014b-1594766d92813b5baeb706c453f91de0.svg', name: '接口调用统计列表', desc: 'With Route 53 (3 分钟)' },
-  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/fb0cde6228b21d89ec222b45efec54e7-0856e92285f4e7ed254b2588d1fe1829.svg', name: 'API Token配置', desc: 'With Route 53 (3 分钟)' },
-  { icon: 'https://d1by4p17n947rt.cloudfront.net/icon/9da5a168cf8194c8ee5ed192a443d563-674375b53bc8ae94f48cfdb5c81e8363.svg', name: '多服务集成网关安全', desc: 'With Route 53 (3 分钟)' },
-]);
+const gatewayApplicationScenarios = [
+  { icon: 'fa-solid fa-code-branch', name: '微服务间通信', description: '为微服务架构中的服务提供安全、可靠的通信通道，管理服务间的调用流量，确保高并发情况下的稳定性和响应速度。' },
+  { icon: 'fa-solid fa-arrows-turn-right', name: '流量路由', description: '根据预定义规则或实时状态动态地分配请求到不同的后端服务实例，支持负载均衡和故障转移，提高系统的可用性。' },
+  { icon: 'fa-solid fa-chart-line', name: '性能监控与分析', description: '收集并分析通过网关的流量数据，监控API性能指标，如响应时间、成功率等，帮助识别和优化性能瓶颈。' },
+];
+
 
 </script>

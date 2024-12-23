@@ -1,19 +1,17 @@
 package com.alinesno.infra.base.gateway.core.bean;
 
+import lombok.Data;
+
 /**
  * @author luoxiaodong
  * @version 1.0.0
  */
+@Data
 public class BaseReq {
 
     //  操作员
-    String operatorId;
+    private long operatorId; // 操作员ID
+    private long deptId ; // 部门ID
+    private long orgId ; // 机构ID
 
-    public String getOperatorId() {
-        return operatorId;
-    }
-
-    public void setOperatorId(String operatorId) {
-        this.operatorId = operatorId;
-    }
 }

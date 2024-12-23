@@ -5,6 +5,7 @@ server:
 spring:
   application:
     name: alinesno-infra-base-gateway-boot
+    id: 1865936259484930048
   main:
     allow-bean-definition-overriding: true
     allow-circular-references: true
@@ -67,7 +68,7 @@ spring:
 
 # sa-token配置
 sa-token:
-  token-name: satoken
+  token-name: Authorization
   host-path: http://alinesno-infra-base-identity-auth-application.beta.base.infra.linesno.com
   sso:
     auth-url: ${sa-token.host-path}/login
@@ -76,7 +77,19 @@ sa-token:
     slo-url: ${sa-token.host-path}/sso/signout
     get-data-url: ${sa-token.host-path}/sso/getData
   sign:
-    secret-key:
+    secret-key: kQwIOrYvnXmSDkwEiFngrKidMcdrgKor
+
+# wechat token
+alinesno:
+  security:
+    # 排除路径
+    excludes:
+      - /sso/**
+      - /logout
+      - /api/infra/base/platform/provider/**
+  infra:
+    gateway:
+      host: http://alinesno-infra-base-gateway-proxy-application.beta.base.infra.linesno.com
 
 # 配置授权访问服务的IP
 system:

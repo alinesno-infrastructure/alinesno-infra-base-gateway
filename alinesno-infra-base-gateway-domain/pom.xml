@@ -23,6 +23,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>com.alinesno.infra.base</groupId>
+			<artifactId>alinesno-infra-base-gateway-core</artifactId>
+			<version>${revision}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>com.alinesno.infra.common</groupId>
 			<artifactId>alinesno-infra-common-core</artifactId>
 			<version>${revision}</version>

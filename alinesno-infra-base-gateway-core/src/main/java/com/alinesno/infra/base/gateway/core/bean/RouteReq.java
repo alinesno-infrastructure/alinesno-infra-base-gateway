@@ -1,6 +1,7 @@
 package com.alinesno.infra.base.gateway.core.bean;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @description
@@ -8,6 +9,7 @@ import lombok.Data;
  * @date 2020/05/11
  * @version v1.0.0
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class RouteReq extends BaseReq implements java.io.Serializable  {
 

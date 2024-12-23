@@ -40,7 +40,7 @@ public class MonitorService extends BaseService<Monitor, String, MonitorDao> {
     public List<Route> list(MonitorReq monitorReq){
         Route queryRoute = new Route();
         queryRoute.setOperatorId(monitorReq.getOperatorId());
-        if (monitorReq != null && StringUtils.isNotBlank(monitorReq.getStatus())) {
+        if (StringUtils.isNotBlank(monitorReq.getStatus())) {
             //如果前端搜索状态为2告警类型，则直查询路由网关状态的为0的记录
             //网关路由服务，只有0正常，1禁用，两种状态
             //网关路由服务监控，有0正常，1禁用，2告警三种状态
@@ -50,7 +50,7 @@ public class MonitorService extends BaseService<Monitor, String, MonitorDao> {
                 queryRoute.setStatus(monitorReq.getStatus());
             }
         }
-        List<Monitor> monitorList = this.validMonitorList(monitorReq.getOperatorId());
+        List<Monitor> monitorList = this.validMonitorList(String.valueOf(monitorReq.getOperatorId()));
         //没有监控数据
         if (CollectionUtils.isEmpty(monitorList)){
             return null;

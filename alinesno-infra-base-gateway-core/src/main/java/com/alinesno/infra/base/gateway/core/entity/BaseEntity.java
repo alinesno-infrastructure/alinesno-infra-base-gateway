@@ -3,24 +3,23 @@ package com.alinesno.infra.base.gateway.core.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Min;
+import lombok.Data;
 
 /**
  * @author luoxiaodong
  * @version 1.0.0
  */
+@Data
 @MappedSuperclass
 public class BaseEntity {
 
-    @Size(min = 2, max = 64, message = "2到64个字符内")
+    @Min(value = 2 , message = "2个字符以上")
     @Column(name = "operatorId" )
-    private String operatorId;
+    private Long operatorId;
 
-    public String getOperatorId() {
-        return operatorId;
-    }
+    @Min(value = 2 , message = "2个字符以上")
+    @Column(name = "orgId" , nullable = true)
+    private Long orgId ; // 组织id
 
-    public void setOperatorId(String operatorId) {
-        this.operatorId = operatorId;
-    }
 }

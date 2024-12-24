@@ -56,8 +56,11 @@ public class CountRest extends BaseRest {
         Assert.notNull(countReq, "未获取到对象");
         int currentPage = getCurrentPage(countReq.getCurrentPage());
         int pageSize = getPageSize(countReq.getPageSize());
+
         Route route = new Route();
-        route.setOperatorId(countReq.getOperatorId());
+        // route.setOperatorId(countReq.getOperatorId());
+        route.setOrgId(countReq.getOrgId());
+
         if (StringUtils.isNotBlank(countReq.getName())) {
             route.setName(countReq.getName());
         }

@@ -51,7 +51,7 @@ function successMsg(msg, duration) {
  */
 function errorMsg(msg, duration) {
 	msg = (msg) ? msg : err_msg
-	Message({
+	ElMessage({
 		message: msg,
 		showClose: true,
 		type: 'error',

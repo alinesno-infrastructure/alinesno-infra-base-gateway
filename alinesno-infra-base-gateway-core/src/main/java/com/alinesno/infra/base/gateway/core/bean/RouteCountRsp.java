@@ -1,7 +1,6 @@
 package com.alinesno.infra.base.gateway.core.bean;
 
 import com.alinesno.infra.base.gateway.core.entity.Route;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

@@ -1,19 +1,18 @@
 package com.alinesno.infra.base.gateway.core.util;
 
-import java.nio.charset.Charset;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.commons.codec.digest.Md5Crypt;
-import org.apache.commons.lang3.time.DateUtils;
-
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.Claim;
+import org.apache.commons.codec.digest.Md5Crypt;
+import org.apache.commons.lang3.time.DateUtils;
+
+import java.nio.charset.Charset;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @description JWT跨域管理token工具类

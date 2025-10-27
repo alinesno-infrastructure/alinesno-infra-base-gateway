@@ -1,11 +1,11 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.cache;
 
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-
 import com.alinesno.infra.base.gateway.proxy.gateway.vo.GatewayRegServer;
 import lombok.Getter;
 import org.springframework.util.Assert;
+
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @description 缓存客户端Token信息

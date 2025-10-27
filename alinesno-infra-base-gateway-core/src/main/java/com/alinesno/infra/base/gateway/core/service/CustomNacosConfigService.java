@@ -1,9 +1,8 @@
 package com.alinesno.infra.base.gateway.core.service;
 
 import com.alinesno.infra.base.gateway.core.bean.GatewayNacosConfigBean;
-import org.springframework.stereotype.Service;
-
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 /**
  * @description 将自定义配置推送到nacos配置中心

@@ -1,7 +1,7 @@
 package com.alinesno.infra.base.gateway.core.service;
 
-import com.alinesno.infra.base.gateway.core.dto.GatewayConfigDTO;
 import com.alinesno.infra.base.gateway.core.consumer.GatewayConfigConsumer;
+import com.alinesno.infra.base.gateway.core.dto.GatewayConfigDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

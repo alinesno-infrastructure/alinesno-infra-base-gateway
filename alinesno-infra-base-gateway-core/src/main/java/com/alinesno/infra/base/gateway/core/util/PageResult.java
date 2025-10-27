@@ -1,8 +1,8 @@
 package com.alinesno.infra.base.gateway.core.util;
 
-import java.util.List;
-
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * @description 分页实体类

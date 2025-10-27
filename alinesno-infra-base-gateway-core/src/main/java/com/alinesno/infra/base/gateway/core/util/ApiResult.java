@@ -1,8 +1,8 @@
 package com.alinesno.infra.base.gateway.core.util;
 
-import java.util.Date;
-
 import lombok.Data;
+
+import java.util.Date;
 
 /**
  * @description 所有接口调用返回的统一包装结果类

@@ -1,9 +1,9 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.vo;
 
+import lombok.Data;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
-
-import lombok.Data;
 
 /**
  * @description 路由断言模型

@@ -1,18 +1,17 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.filter.factory;
 
-import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.GATEWAY_ROUTE_ATTR;
-
-import java.util.Arrays;
-import java.util.List;
-
 import com.alinesno.infra.base.gateway.proxy.gateway.filter.ClientIdGatewayFilter;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.cloud.gateway.route.Route;
 import org.springframework.stereotype.Component;
 
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.GATEWAY_ROUTE_ATTR;
 
 /**
  * @description 自定义clientId安全验证过滤器工厂

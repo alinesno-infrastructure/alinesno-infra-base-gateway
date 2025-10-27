@@ -1,9 +1,8 @@
 package com.alinesno.infra.base.gateway.core.bean;
 
-import org.apache.commons.lang3.StringUtils;
-
 import lombok.Data;
 import lombok.ToString;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * @description nacos中的配置属性

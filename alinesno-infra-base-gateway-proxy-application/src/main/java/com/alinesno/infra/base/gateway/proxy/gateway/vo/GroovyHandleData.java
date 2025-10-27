@@ -1,8 +1,8 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.vo;
 
-import java.util.Map;
-
 import lombok.Data;
+
+import java.util.Map;
 
 /**
  * @description

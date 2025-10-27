@@ -1,8 +1,7 @@
 package com.alinesno.infra.base.gateway.core.util;
 
-import org.codehaus.groovy.control.CompilationFailedException;
-
 import groovy.lang.GroovyClassLoader;
+import org.codehaus.groovy.control.CompilationFailedException;
 
 /**
  * @description 通过groovy动态反射加载与初始化类

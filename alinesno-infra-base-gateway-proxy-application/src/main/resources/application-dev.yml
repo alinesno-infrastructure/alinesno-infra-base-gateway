@@ -62,6 +62,20 @@ spring:
               - PUT
               - DELETE
 
+sa-token:
+  token-name: Authorization
+  timeout: 1800  # 30分钟
+  is-print: false  # 关闭控制台日志
+  token-style: uuid  # token生成方式
+  active-timeout: -1  # 不设置空闲超时
+
+alinesno:
+  security:
+    # 排除路径
+    excludes:
+      - /sso/**
+      - /logout
+
 logging:
   level:
     org.springframework.cloud.gateway: debug

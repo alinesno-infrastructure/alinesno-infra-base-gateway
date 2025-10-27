@@ -66,6 +66,10 @@ spring:
     restart:
       enabled: true
 
+forest:
+  interceptors:
+    - com.alinesno.infra.base.gateway.config.SaTokenForestInterceptor
+
 # sa-token配置
 sa-token:
   token-name: Authorization
@@ -88,8 +92,9 @@ alinesno:
       - /logout
       - /api/infra/base/platform/provider/**
   infra:
+    base.gateway.proxy.host: http://localhost:8771
     gateway:
-      host: http://alinesno-infra-base-gateway-proxy-application.beta.base.infra.linesno.com
+      host: ${alinesno.infra.base.gateway.proxy.host}
 
 # 配置授权访问服务的IP
 system:

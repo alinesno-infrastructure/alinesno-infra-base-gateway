@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.alinesno.infra.common</groupId>
         <artifactId>alinesno-infra-platform-parent</artifactId>
-        <version>1.1.0-SNAPSHOT</version>
+        <version>1.2.0-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <packaging>pom</packaging>
@@ -16,8 +16,12 @@
     <version>${revision}</version>
 
     <properties>
-        <revision>1.1.0-SNAPSHOT</revision>
-        <alinesno.infra.version>${revision}</alinesno.infra.version>
+        <!-- 当前版本 -->
+        <revision>2.0.0-SNAPSHOT</revision>
+        <alinesno.infra.common.version>1.2.0-SNAPSHOT</alinesno.infra.common.version>
+
+        <!-- 引用权限服务 -->
+        <alinesno.infra.base.authority.version>1.1.0-SNAPSHOT</alinesno.infra.base.authority.version>
     </properties>
 
     <modules>

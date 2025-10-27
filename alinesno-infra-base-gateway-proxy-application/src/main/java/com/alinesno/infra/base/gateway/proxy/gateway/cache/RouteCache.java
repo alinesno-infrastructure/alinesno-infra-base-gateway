@@ -1,8 +1,8 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.cache;
 
-import java.util.concurrent.ConcurrentHashMap;
-
 import org.springframework.util.Assert;
+
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @description 缓存请求服务路由信息

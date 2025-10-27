@@ -6,6 +6,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+/**
+ * AppConfiguration
+ */
 @EnableJpaRepositories(basePackages = "com.alinesno.infra.base.gateway.core.dao")
 @EnableScheduling
 @Configuration

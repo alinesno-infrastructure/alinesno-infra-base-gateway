@@ -1,10 +1,10 @@
 package com.alinesno.infra.base.gateway.core.dao;
 
-import java.util.List;
-
 import com.alinesno.infra.base.gateway.core.entity.Route;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 /**
  * @description 网关服务Dao数据层操作接口

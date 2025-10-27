@@ -1,8 +1,8 @@
 package com.alinesno.infra.base.gateway.core.bean;
 
-import java.util.List;
-
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * @description

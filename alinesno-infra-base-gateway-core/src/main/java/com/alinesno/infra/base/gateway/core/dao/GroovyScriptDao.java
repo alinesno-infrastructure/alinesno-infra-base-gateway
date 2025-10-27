@@ -1,10 +1,10 @@
 package com.alinesno.infra.base.gateway.core.dao;
 
-import java.util.List;
-
 import com.alinesno.infra.base.gateway.core.entity.GroovyScript;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 /**
  * @description

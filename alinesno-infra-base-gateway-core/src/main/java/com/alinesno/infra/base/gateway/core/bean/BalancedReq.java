@@ -1,12 +1,11 @@
 package com.alinesno.infra.base.gateway.core.bean;
 
-import java.util.List;
-
 import com.alinesno.infra.base.gateway.core.entity.Balanced;
 import com.alinesno.infra.base.gateway.core.entity.LoadServer;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.util.List;
 
 /**
  * @description

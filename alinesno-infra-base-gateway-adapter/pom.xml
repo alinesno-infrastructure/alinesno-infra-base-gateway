@@ -26,7 +26,7 @@
 		<dependency>
 			<groupId>com.alinesno.infra.base</groupId>
 			<artifactId>alinesno-infra-base-authority-facade</artifactId>
-			<version>${revision}</version>
+			<version>${alinesno.infra.base.authority.version}</version>
 		</dependency>
 
 	</dependencies>

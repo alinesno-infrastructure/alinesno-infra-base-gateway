@@ -1,11 +1,9 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.vo;
 
+import com.netflix.hystrix.HystrixObservableCommand;
+import lombok.Data;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.ratelimit.KeyResolver;
-
-import com.netflix.hystrix.HystrixObservableCommand;
-
-import lombok.Data;
 
 /**
  * @description 网关路由配置属性

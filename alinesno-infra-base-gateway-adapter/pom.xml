@@ -22,6 +22,12 @@
 			<version>${revision}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.dtflys.forest</groupId>
+			<artifactId>forest-spring-boot3-starter</artifactId>
+			<version>${forest.version}</version>
+		</dependency>
+
 		<!-- 引入第公共权限facade -->
 		<dependency>
 			<groupId>com.alinesno.infra.base</groupId>

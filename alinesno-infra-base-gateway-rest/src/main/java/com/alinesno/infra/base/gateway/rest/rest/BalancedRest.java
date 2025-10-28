@@ -8,7 +8,7 @@ import com.alinesno.infra.base.gateway.core.entity.LoadServer;
 import com.alinesno.infra.base.gateway.core.service.BalancedService;
 import com.alinesno.infra.base.gateway.core.service.CustomRestConfigService;
 import com.alinesno.infra.base.gateway.core.service.LoadServerService;
-import com.alinesno.infra.base.gateway.core.util.ApiResult;
+import com.alinesno.infra.base.gateway.adapter.dto.ApiResult;
 import com.alinesno.infra.base.gateway.core.util.Constants;
 import com.alinesno.infra.base.gateway.core.util.RouteConstants;
 import com.alinesno.infra.base.gateway.core.util.UUIDUtils;

@@ -4,6 +4,7 @@ import cn.dev33.satoken.stp.StpUtil;
 import com.dtflys.forest.http.ForestRequest;
 import com.dtflys.forest.interceptor.Interceptor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 /**
  * Forest拦截器
@@ -17,7 +18,7 @@ public class SaTokenForestInterceptor<T> implements Interceptor<T> {
      */
     @Override
     public boolean beforeExecute(ForestRequest req) {
-        req.addHeader("Authorization", "Bearer " + StpUtil.getTokenValue());
+        req.addHeader(StpUtil.getTokenName(), "Bearer " + StpUtil.getTokenValue());
         return true;  // 继续执行请求返回true
     }
 

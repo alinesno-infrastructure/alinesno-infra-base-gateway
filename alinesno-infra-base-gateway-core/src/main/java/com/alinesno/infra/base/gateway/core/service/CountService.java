@@ -1,11 +1,11 @@
 package com.alinesno.infra.base.gateway.core.service;
 
+import com.alinesno.infra.base.gateway.adapter.dto.ApiResult;
 import com.alinesno.infra.base.gateway.core.bean.CountReq;
 import com.alinesno.infra.base.gateway.core.bean.CountRsp;
 import com.alinesno.infra.base.gateway.core.bean.CountTotalRsp;
 import com.alinesno.infra.base.gateway.core.bean.RouteCountRsp;
 import com.alinesno.infra.base.gateway.core.entity.Route;
-import com.alinesno.infra.base.gateway.core.util.ApiResult;
 import com.alinesno.infra.base.gateway.core.util.Constants;
 import com.alinesno.infra.base.gateway.core.util.PageResult;
 import com.alinesno.infra.base.gateway.core.util.RouteConstants;

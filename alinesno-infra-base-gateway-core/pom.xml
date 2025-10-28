@@ -27,6 +27,13 @@
 			<artifactId>spring-boot-starter-data-redis-reactive</artifactId>
 		</dependency>
 
+		<!-- 引入三方接口适配 -->
+		<dependency>
+			<groupId>com.alinesno.infra.base</groupId>
+			<artifactId>alinesno-infra-base-gateway-adapter</artifactId>
+			<version>${revision}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
@@ -102,8 +109,9 @@
 		<dependency>
 			<groupId>com.dtflys.forest</groupId>
 			<artifactId>forest-spring-boot3-starter</artifactId>
-			<version>1.5.33</version>
+			<version>${forest.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>

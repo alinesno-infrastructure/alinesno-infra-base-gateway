@@ -5,7 +5,7 @@ import com.alinesno.infra.base.gateway.core.base.BaseRest;
 import com.alinesno.infra.base.gateway.core.bean.LoadServerReq;
 import com.alinesno.infra.base.gateway.core.entity.LoadServer;
 import com.alinesno.infra.base.gateway.core.service.LoadServerService;
-import com.alinesno.infra.base.gateway.core.util.ApiResult;
+import com.alinesno.infra.base.gateway.adapter.dto.ApiResult;
 import com.alinesno.infra.base.gateway.rest.aop.DataFilter;
 import jakarta.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;

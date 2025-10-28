@@ -1,7 +1,7 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.rest;
 
+import com.alinesno.infra.base.gateway.adapter.dto.ApiResult;
 import com.alinesno.infra.base.gateway.core.entity.Route;
-import com.alinesno.infra.base.gateway.core.util.ApiResult;
 import com.alinesno.infra.base.gateway.core.util.Constants;
 import com.alinesno.infra.base.gateway.proxy.gateway.cache.RouteCache;
 import lombok.extern.slf4j.Slf4j;

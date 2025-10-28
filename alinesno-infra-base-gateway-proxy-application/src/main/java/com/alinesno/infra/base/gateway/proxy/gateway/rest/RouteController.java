@@ -1,8 +1,8 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.rest;
 
+import com.alinesno.infra.base.gateway.adapter.dto.ApiResult;
 import com.alinesno.infra.base.gateway.core.entity.Route;
 import com.alinesno.infra.base.gateway.core.service.RouteService;
-import com.alinesno.infra.base.gateway.core.util.ApiResult;
 import com.alinesno.infra.base.gateway.proxy.gateway.event.DataRouteApplicationEventListen;
 import com.alinesno.infra.base.gateway.proxy.gateway.service.DynamicRouteService;
 import com.alinesno.infra.base.gateway.proxy.gateway.service.LoadRouteService;

@@ -5,7 +5,7 @@ import com.alinesno.infra.base.gateway.core.bean.ClientReq;
 import com.alinesno.infra.base.gateway.core.entity.Client;
 import com.alinesno.infra.base.gateway.core.service.ClientService;
 import com.alinesno.infra.base.gateway.core.service.CustomRestConfigService;
-import com.alinesno.infra.base.gateway.core.util.ApiResult;
+import com.alinesno.infra.base.gateway.adapter.dto.ApiResult;
 import com.alinesno.infra.base.gateway.core.util.Constants;
 import com.alinesno.infra.base.gateway.core.util.UUIDUtils;
 import com.alinesno.infra.base.gateway.rest.aop.DataFilter;

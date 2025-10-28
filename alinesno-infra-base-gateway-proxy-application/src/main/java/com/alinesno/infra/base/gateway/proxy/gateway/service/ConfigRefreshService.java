@@ -3,7 +3,7 @@ package com.alinesno.infra.base.gateway.proxy.gateway.service;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import com.alinesno.infra.base.gateway.core.dto.GatewayConfigDTO;
+import com.alinesno.infra.base.gateway.adapter.dto.GatewayConfigDTO;
 import com.alinesno.infra.base.gateway.core.entity.*;
 import com.alinesno.infra.base.gateway.core.service.*;
 import com.alinesno.infra.base.gateway.core.util.Constants;

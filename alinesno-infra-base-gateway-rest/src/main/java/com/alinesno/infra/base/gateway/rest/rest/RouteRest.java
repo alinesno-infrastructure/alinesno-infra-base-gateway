@@ -10,7 +10,7 @@ import com.alinesno.infra.base.gateway.core.service.AccountService;
 import com.alinesno.infra.base.gateway.core.service.CustomRestConfigService;
 import com.alinesno.infra.base.gateway.core.service.MonitorService;
 import com.alinesno.infra.base.gateway.core.service.RouteService;
-import com.alinesno.infra.base.gateway.core.util.ApiResult;
+import com.alinesno.infra.base.gateway.adapter.dto.ApiResult;
 import com.alinesno.infra.base.gateway.core.util.Constants;
 import com.alinesno.infra.base.gateway.core.util.RouteConstants;
 import com.alinesno.infra.base.gateway.core.util.UUIDUtils;

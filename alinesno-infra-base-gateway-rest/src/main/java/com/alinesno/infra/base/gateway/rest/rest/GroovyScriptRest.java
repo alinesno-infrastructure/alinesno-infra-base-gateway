@@ -4,7 +4,7 @@ import com.alinesno.infra.base.gateway.core.base.BaseRest;
 import com.alinesno.infra.base.gateway.core.entity.GroovyScript;
 import com.alinesno.infra.base.gateway.core.service.CustomRestConfigService;
 import com.alinesno.infra.base.gateway.core.service.GroovyScriptService;
-import com.alinesno.infra.base.gateway.core.util.ApiResult;
+import com.alinesno.infra.base.gateway.adapter.dto.ApiResult;
 import com.alinesno.infra.base.gateway.core.util.Constants;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;

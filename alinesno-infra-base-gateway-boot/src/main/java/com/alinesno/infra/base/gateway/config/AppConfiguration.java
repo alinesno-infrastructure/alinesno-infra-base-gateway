@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableAsync
 @ForestScan({
         "com.alinesno.infra.common.web.adapter.base.consumer" ,
-        "com.alinesno.infra.base.gateway.core.consumer"
+        "com.alinesno.infra.base.gateway.adapter.consumer"
 })
 @EnableScheduling
 @Configuration

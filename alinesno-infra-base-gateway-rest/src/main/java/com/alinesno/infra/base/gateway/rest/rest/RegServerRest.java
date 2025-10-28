@@ -6,7 +6,7 @@ import com.alinesno.infra.base.gateway.core.bean.TokenReq;
 import com.alinesno.infra.base.gateway.core.entity.RegServer;
 import com.alinesno.infra.base.gateway.core.service.CustomRestConfigService;
 import com.alinesno.infra.base.gateway.core.service.RegServerService;
-import com.alinesno.infra.base.gateway.core.util.ApiResult;
+import com.alinesno.infra.base.gateway.adapter.dto.ApiResult;
 import com.alinesno.infra.base.gateway.core.util.Constants;
 import com.alinesno.infra.base.gateway.core.util.JwtTokenUtils;
 import com.alinesno.infra.base.gateway.rest.aop.DataFilter;

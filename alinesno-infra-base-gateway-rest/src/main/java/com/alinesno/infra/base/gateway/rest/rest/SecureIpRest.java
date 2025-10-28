@@ -8,7 +8,7 @@ import com.alinesno.infra.base.gateway.core.entity.SecureIp;
 import com.alinesno.infra.base.gateway.core.service.AccountService;
 import com.alinesno.infra.base.gateway.core.service.CustomRestConfigService;
 import com.alinesno.infra.base.gateway.core.service.SecureIpService;
-import com.alinesno.infra.base.gateway.core.util.ApiResult;
+import com.alinesno.infra.base.gateway.adapter.dto.ApiResult;
 import com.alinesno.infra.base.gateway.core.util.RouteConstants;
 import com.alinesno.infra.base.gateway.core.util.UUIDUtils;
 import com.alinesno.infra.base.gateway.rest.aop.DataFilter;

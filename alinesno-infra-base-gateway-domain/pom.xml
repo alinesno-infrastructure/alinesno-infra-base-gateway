@@ -34,6 +34,12 @@
 			<version>${alinesno.infra.common.version}</version>
 		</dependency>
 
-	</dependencies>
+        <dependency>
+            <groupId>com.alinesno.infra.base</groupId>
+            <artifactId>alinesno-infra-base-gateway-adapter</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+    </dependencies>
 
 </project>

@@ -1,9 +1,9 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.service.load;
 
-import com.alinesno.infra.base.gateway.core.entity.GroovyScript;
-import com.alinesno.infra.base.gateway.core.service.GroovyScriptService;
-import com.alinesno.infra.base.gateway.core.util.Constants;
 import com.alinesno.infra.base.gateway.core.util.Md5Utils;
+import com.alinesno.infra.base.gateway.facade.constant.Constants;
+import com.alinesno.infra.base.gateway.facade.entity.GroovyScript;
+import com.alinesno.infra.base.gateway.domain.service.GroovyScriptService;
 import com.alinesno.infra.base.gateway.proxy.gateway.service.DynamicGroovyService;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.Resource;

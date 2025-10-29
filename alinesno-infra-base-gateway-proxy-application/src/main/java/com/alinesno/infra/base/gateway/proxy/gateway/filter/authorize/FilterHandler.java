@@ -1,6 +1,6 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.filter.authorize;
 
-import com.alinesno.infra.base.gateway.core.entity.Route;
+import com.alinesno.infra.base.gateway.facade.entity.Route;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 
 /**

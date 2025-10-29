@@ -28,11 +28,28 @@
 		</dependency>
 		<!-- 引用公共门面服务_end -->
 
+        <!-- 引入核心包_start -->
+        <dependency>
+            <groupId>com.alinesno.infra.base</groupId>
+            <artifactId>alinesno-infra-base-gateway-core</artifactId>
+            <version>${revision}</version>
+        </dependency>
 		<dependency>
 			<groupId>com.alinesno.infra.base</groupId>
-			<artifactId>alinesno-infra-base-gateway-core</artifactId>
+			<artifactId>alinesno-infra-base-gateway-domain</artifactId>
 			<version>${revision}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.alinesno.infra.common</groupId>
+                    <artifactId>alinesno-infra-common-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>cn.dev33</groupId>
+                    <artifactId>sa-token-core</artifactId>
+                </exclusion>
+            </exclusions>
 		</dependency>
+        <!-- 引入核心包_end -->
 
 		<!-- 网关依赖服务 -->
 		<dependency>
@@ -53,12 +70,6 @@
 		<dependency>
 			<groupId>com.github.ben-manes.caffeine</groupId>
 			<artifactId>caffeine</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>cn.hutool</groupId>
-			<artifactId>hutool-all</artifactId>
-			<version>5.7.18</version>
 		</dependency>
 
 		<!-- 高性能Disruptor并发架构（log4j2异步日志使用） -->

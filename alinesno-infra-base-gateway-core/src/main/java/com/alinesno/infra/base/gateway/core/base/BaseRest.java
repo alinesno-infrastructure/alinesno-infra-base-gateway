@@ -1,7 +1,7 @@
 package com.alinesno.infra.base.gateway.core.base;
 
-import com.alinesno.infra.base.gateway.core.entity.BaseEntity;
-import com.alinesno.infra.base.gateway.core.util.Constants;
+import com.alinesno.infra.base.gateway.facade.constant.Constants;
+import com.alinesno.infra.base.gateway.facade.entity.BaseEntity;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ValidationException;
 import jakarta.validation.Validator;

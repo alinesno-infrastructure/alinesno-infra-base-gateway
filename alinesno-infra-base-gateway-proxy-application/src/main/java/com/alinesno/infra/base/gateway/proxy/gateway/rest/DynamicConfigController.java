@@ -1,7 +1,7 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.rest;
 
-import com.alinesno.infra.base.gateway.adapter.dto.ApiResult;
-import com.alinesno.infra.base.gateway.adapter.dto.GatewayConfigDTO;
+import com.alinesno.infra.base.gateway.facade.dto.ApiResult;
+import com.alinesno.infra.base.gateway.facade.dto.GatewayConfigDTO;
 import com.alinesno.infra.base.gateway.proxy.gateway.service.ConfigRefreshService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

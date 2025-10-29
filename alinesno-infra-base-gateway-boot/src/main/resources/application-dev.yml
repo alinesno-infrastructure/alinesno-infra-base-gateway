@@ -37,7 +37,7 @@ spring:
       host: 127.0.0.1
       port: 6379
       database: 1
-      password: aip@local
+#      password: aip@local
   mail:
     username: xxxxxx@qq.com
     password: xxxxxx
@@ -65,10 +65,6 @@ spring:
   devtools:
     restart:
       enabled: true
-
-forest:
-  interceptors:
-    - com.alinesno.infra.base.gateway.config.SaTokenForestInterceptor
 
 # sa-token配置
 sa-token:

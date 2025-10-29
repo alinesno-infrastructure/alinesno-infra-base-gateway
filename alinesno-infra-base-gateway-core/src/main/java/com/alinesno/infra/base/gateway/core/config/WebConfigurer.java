@@ -1,6 +1,6 @@
 package com.alinesno.infra.base.gateway.core.config;
 
-import com.alinesno.infra.base.gateway.core.util.Constants;
+import com.alinesno.infra.base.gateway.facade.constant.Constants;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.Formatter;
 import org.springframework.format.FormatterRegistry;

@@ -37,7 +37,7 @@ spring:
     redis:
       host: 127.0.0.1
       port: 6379
-      password: aip@local
+#      password: aip@local
       database: 1
   cloud:
     loadbalancer:
@@ -62,12 +62,19 @@ spring:
               - PUT
               - DELETE
 
+# sa-token配置
 sa-token:
   token-name: Authorization
-  timeout: 1800  # 30分钟
-  is-print: false  # 关闭控制台日志
-  token-style: uuid  # token生成方式
-  active-timeout: -1  # 不设置空闲超时
+  token-prefix: Bearer
+  host-path: http://alinesno-infra-base-identity-auth-application.beta.base.infra.linesno.com
+  sso:
+    auth-url: ${sa-token.host-path}/login
+    is-http: true
+    check-ticket-url: ${sa-token.host-path}/prod-api/sso/checkTicket
+    slo-url: ${sa-token.host-path}/prod-api/sso/signout
+    get-data-url: ${sa-token.host-path}/prod-api/sso/getData
+  sign:
+    secret-key: kQwIOrYvnXmSDkwEiFngrKidMcdrgKor
 
 alinesno:
   security:

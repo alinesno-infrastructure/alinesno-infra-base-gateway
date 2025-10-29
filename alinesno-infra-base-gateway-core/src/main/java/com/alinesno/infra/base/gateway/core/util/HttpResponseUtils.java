@@ -1,7 +1,8 @@
 package com.alinesno.infra.base.gateway.core.util;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alinesno.infra.base.gateway.adapter.dto.ApiResult;
+import com.alinesno.infra.base.gateway.facade.constant.Constants;
+import com.alinesno.infra.base.gateway.facade.dto.ApiResult;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpResponse;

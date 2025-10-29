@@ -21,11 +21,19 @@
 			<artifactId>alinesno-infra-base-gateway-core</artifactId>
 			<version>${revision}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>com.alinesno.infra.base</groupId>
 			<artifactId>alinesno-infra-base-gateway-adapter</artifactId>
 			<version>${revision}</version>
 		</dependency>
+
+        <dependency>
+            <groupId>com.alinesno.infra.base</groupId>
+            <artifactId>alinesno-infra-base-gateway-domain</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
 		<dependency>
 			<groupId>com.alinesno.infra.base</groupId>
 			<artifactId>alinesno-infra-base-gateway-api</artifactId>
@@ -44,6 +52,6 @@
 			<artifactId>httpclient5</artifactId>
 		</dependency>
 
-	</dependencies>
+    </dependencies>
 
 </project>

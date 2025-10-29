@@ -1,8 +1,8 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.service;
 
-import com.alinesno.infra.base.gateway.core.entity.Route;
-import com.alinesno.infra.base.gateway.core.util.Constants;
 import com.alinesno.infra.base.gateway.core.util.RouteConstants;
+import com.alinesno.infra.base.gateway.facade.constant.Constants;
+import com.alinesno.infra.base.gateway.facade.entity.Route;
 import com.alinesno.infra.base.gateway.proxy.gateway.filter.ClientIdGatewayFilter;
 import com.alinesno.infra.base.gateway.proxy.gateway.filter.IpGatewayFilter;
 import com.alinesno.infra.base.gateway.proxy.gateway.filter.TokenGatewayFilter;

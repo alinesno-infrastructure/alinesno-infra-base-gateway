@@ -1,5 +1,6 @@
 package com.alinesno.infra.base.gateway.core.util;
 
+import com.alinesno.infra.base.gateway.facade.constant.Constants;
 import lombok.Data;
 
 import java.util.List;

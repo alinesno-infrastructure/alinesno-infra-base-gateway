@@ -70,7 +70,7 @@ public class AuthorizeGatewayFilterFactory extends AbstractGatewayFilterFactory<
                 }
                 try {
                     //执行header,ip,parameter,time,cookie验证
-                    headerFilter.handler(request, (com.alinesno.infra.base.gateway.core.entity.Route) obj);
+                    headerFilter.handler(request, (com.alinesno.infra.base.gateway.facade.entity.Route) obj);
                 }catch(Exception e){
                     log.warn("网关转发客户端【{}】路由请求【{}】，执行验证异常：", clientIp, route.getId(), e);
                     return HttpResponseUtils.writeUnauth(exchange.getResponse(), "网关转发客户端【"+clientIp+"】路由请求【"+route.getId()+"】，执行验证异常：" + e.getMessage());

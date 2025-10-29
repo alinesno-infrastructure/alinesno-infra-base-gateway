@@ -1,7 +1,7 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.event;
 
 
-import com.alinesno.infra.base.gateway.core.service.SecureIpService;
+import com.alinesno.infra.base.gateway.domain.service.SecureIpService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;

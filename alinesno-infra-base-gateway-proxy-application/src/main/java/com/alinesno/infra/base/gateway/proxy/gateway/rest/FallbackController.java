@@ -1,8 +1,8 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.rest;
 
-import com.alinesno.infra.base.gateway.adapter.dto.ApiResult;
-import com.alinesno.infra.base.gateway.core.entity.Route;
-import com.alinesno.infra.base.gateway.core.util.Constants;
+import com.alinesno.infra.base.gateway.facade.constant.Constants;
+import com.alinesno.infra.base.gateway.facade.dto.ApiResult;
+import com.alinesno.infra.base.gateway.facade.entity.Route;
 import com.alinesno.infra.base.gateway.proxy.gateway.cache.RouteCache;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

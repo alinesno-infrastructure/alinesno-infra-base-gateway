@@ -97,7 +97,7 @@ public class CustomHystrixGatewayFilterFactory extends AbstractGatewayFilterFact
                 if (config.name.startsWith(RouteConstants.Hystrix.CUSTOM_HYSTRIX_NAME)){
                     Route route = exchange.getRequiredAttribute(GATEWAY_ROUTE_ATTR);
                     //添加自定义熔断器
-                    com.alinesno.infra.base.gateway.core.entity.Route cacheRoute = (com.alinesno.infra.base.gateway.core.entity.Route)RouteCache.get(route.getId());
+                    com.alinesno.infra.base.gateway.facade.entity.Route cacheRoute = (com.alinesno.infra.base.gateway.facade.entity.Route)RouteCache.get(route.getId());
                     //HystrixCommandGroupKey groupKey = HystrixCommandGroupKey.Factory.asKey(config.name);
                     //HystrixCommandKey commandKey = HystrixCommandKey.Factory.asKey(config.name);
                     //启用回调

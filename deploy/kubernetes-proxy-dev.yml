@@ -40,13 +40,21 @@ spec:
           env:
             - name: JAVA_TOOL_OPTIONS
               value: |
-                -Dspring.data.redis.host=${REDIS_HOST}
-                -Dspring.data.redis.password=${REDIS_KEY}
+
+                -Dsa-token.jwt-secret-key=ENC(${SA_TOKEN_JWT_SECRET_KEY})
+                -Dsa-token.sign.secret-key=ENC(${SA_TOKEN_SIGN_SECRET_KEY})
+                -Dsa-token.host-path=ENC(${SA_TOKEN_HOST_PATH})
+
+                -Dspring.data.redis.host=ENC(${REDIS_HOST})
+                -Dspring.data.redis.password=ENC(${REDIS_KEY})
                 
                 -Dspring.datasource.url=jdbc:mysql://${DB_MYSQL_URL}/dev_alinesno_infra_base_gateway_v100?serverTimezone=GMT%2B8&zeroDateTimeBehavior=CONVERT_TO_NULL
-                -Dspring.datasource.username=${DB_MYSQL_USRENAME}
-                -Dspring.datasource.password=${DB_MYSQL_PASSWORD}
+                -Dspring.datasource.username=ENC(${DB_MYSQL_USERNAME})
+                -Dspring.datasource.password=ENC(${DB_MYSQL_PASSWORD})
                 -Dserver.port=8080
+
+            - name: JASYPT_ENCRYPTOR_PASSWORD
+              value: ${JASYPT_ENCRYPTOR_PASSWORD}
           ports:
             - name: http
               containerPort: 8080
@@ -62,6 +70,10 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/proxy-body-size: "100M"
 spec:
+  tls:
+    - hosts:
+        - "${PROJECT_NAME}.${INFRA_DEV_DOMAIN}"
+      secretName: alinesno-tls
   rules:
     - host: "${PROJECT_NAME}.${INFRA_DEV_DOMAIN}"
       http:

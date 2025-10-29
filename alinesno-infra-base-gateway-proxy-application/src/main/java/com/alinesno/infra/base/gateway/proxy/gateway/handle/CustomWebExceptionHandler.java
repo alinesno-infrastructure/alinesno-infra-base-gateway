@@ -1,9 +1,9 @@
 package com.alinesno.infra.base.gateway.proxy.gateway.handle;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alinesno.infra.base.gateway.adapter.dto.ApiResult;
-import com.alinesno.infra.base.gateway.core.util.Constants;
 import com.alinesno.infra.base.gateway.core.util.HttpResponseUtils;
+import com.alinesno.infra.base.gateway.facade.constant.Constants;
+import com.alinesno.infra.base.gateway.facade.dto.ApiResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.NestedExceptionUtils;
 import org.springframework.core.annotation.Order;

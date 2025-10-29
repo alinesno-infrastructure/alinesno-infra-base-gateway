@@ -1,14 +1,14 @@
 package com.alinesno.infra.base.gateway.rest.rest;
 
 import com.alinesno.infra.base.gateway.core.base.BaseRest;
-import com.alinesno.infra.base.gateway.core.bean.RegServerReq;
-import com.alinesno.infra.base.gateway.core.bean.TokenReq;
-import com.alinesno.infra.base.gateway.core.entity.RegServer;
-import com.alinesno.infra.base.gateway.core.service.CustomRestConfigService;
-import com.alinesno.infra.base.gateway.core.service.RegServerService;
-import com.alinesno.infra.base.gateway.adapter.dto.ApiResult;
-import com.alinesno.infra.base.gateway.core.util.Constants;
 import com.alinesno.infra.base.gateway.core.util.JwtTokenUtils;
+import com.alinesno.infra.base.gateway.facade.bean.RegServerReq;
+import com.alinesno.infra.base.gateway.facade.bean.TokenReq;
+import com.alinesno.infra.base.gateway.facade.constant.Constants;
+import com.alinesno.infra.base.gateway.facade.dto.ApiResult;
+import com.alinesno.infra.base.gateway.facade.entity.RegServer;
+import com.alinesno.infra.base.gateway.domain.service.CustomRestConfigService;
+import com.alinesno.infra.base.gateway.domain.service.RegServerService;
 import com.alinesno.infra.base.gateway.rest.aop.DataFilter;
 import jakarta.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;

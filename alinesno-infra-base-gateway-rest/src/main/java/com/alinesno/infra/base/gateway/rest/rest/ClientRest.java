@@ -1,13 +1,13 @@
 package com.alinesno.infra.base.gateway.rest.rest;
 
 import com.alinesno.infra.base.gateway.core.base.BaseRest;
-import com.alinesno.infra.base.gateway.core.bean.ClientReq;
-import com.alinesno.infra.base.gateway.core.entity.Client;
-import com.alinesno.infra.base.gateway.core.service.ClientService;
-import com.alinesno.infra.base.gateway.core.service.CustomRestConfigService;
-import com.alinesno.infra.base.gateway.adapter.dto.ApiResult;
-import com.alinesno.infra.base.gateway.core.util.Constants;
 import com.alinesno.infra.base.gateway.core.util.UUIDUtils;
+import com.alinesno.infra.base.gateway.facade.bean.ClientReq;
+import com.alinesno.infra.base.gateway.facade.constant.Constants;
+import com.alinesno.infra.base.gateway.facade.dto.ApiResult;
+import com.alinesno.infra.base.gateway.facade.entity.Client;
+import com.alinesno.infra.base.gateway.domain.service.ClientService;
+import com.alinesno.infra.base.gateway.domain.service.CustomRestConfigService;
 import com.alinesno.infra.base.gateway.rest.aop.DataFilter;
 import jakarta.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;

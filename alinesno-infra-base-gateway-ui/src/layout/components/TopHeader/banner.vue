@@ -14,44 +14,25 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue'
+import AIPLogo from '@/assets/logo/logo.png'
 
-export default {
-  name: 'TopHeader',
-  components: {
-  },
-  computed: {
-  },
-  data() {
+const saasTitle = ref('AIP智能设施')
+const enableLogo = ref(true)
+const saasUrl = ref('http://alinesno-infra-plat-console-ui.beta.base.infra.linesno.com')
+const saasLogoUrl = ref(AIPLogo)
+const displayUrl = ref('')
+const domainName = ref(null)
 
-    let saasTitle = 'AIP智能设施'
-    let enableLogo = true;
-    let saasUrl = 'http://alinesno-infra-plat-console-ui.beta.base.infra.linesno.com' ; 
-    let saasLogoUrl = 'http://portal.infra.linesno.com/logo.png' ; 
-    let displayUrl = ''; 
+function dashboardHome() {
+  // 在 setup 中使用 ref 时在 JS 里需访问 .value
+  window.location.href = saasUrl.value
+}
 
-
-    return {
-      saasTitle,
-      saasUrl,
-      saasLogoUrl,
-      enableLogo,
-      displayUrl,
-      domainName: null,
-    }
-  },
-  created() {
-  },
-  methods: {
-    dashboardHome() {
-      window.location.href = this.saasUrl
-    },
-    // 进入企业官网
-    enterDomain() {
-      if (this.domainName) { // 跳转进入官网
-        window.open(this.domainName)
-      }
-    }
+function enterDomain() {
+  if (domainName.value) {
+    window.open(domainName.value)
   }
 }
 </script>

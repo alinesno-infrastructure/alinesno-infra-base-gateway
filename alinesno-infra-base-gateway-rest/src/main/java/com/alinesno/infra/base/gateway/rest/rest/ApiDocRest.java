@@ -1,11 +1,11 @@
 package com.alinesno.infra.base.gateway.rest.rest;
 
 import com.alinesno.infra.base.gateway.core.base.BaseRest;
-import com.alinesno.infra.base.gateway.core.entity.ApiDoc;
-import com.alinesno.infra.base.gateway.core.entity.Route;
-import com.alinesno.infra.base.gateway.core.service.ApiDocService;
-import com.alinesno.infra.base.gateway.core.service.RouteService;
-import com.alinesno.infra.base.gateway.adapter.dto.ApiResult;
+import com.alinesno.infra.base.gateway.facade.dto.ApiResult;
+import com.alinesno.infra.base.gateway.facade.entity.ApiDoc;
+import com.alinesno.infra.base.gateway.facade.entity.Route;
+import com.alinesno.infra.base.gateway.domain.service.ApiDocService;
+import com.alinesno.infra.base.gateway.domain.service.RouteService;
 import jakarta.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.Assert;

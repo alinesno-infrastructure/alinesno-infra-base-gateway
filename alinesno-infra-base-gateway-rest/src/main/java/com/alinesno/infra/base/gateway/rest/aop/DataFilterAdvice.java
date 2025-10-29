@@ -1,7 +1,7 @@
 package com.alinesno.infra.base.gateway.rest.aop;
 
-import com.alinesno.infra.base.gateway.core.bean.BaseReq;
-import com.alinesno.infra.base.gateway.core.entity.BaseEntity;
+import com.alinesno.infra.base.gateway.facade.bean.BaseReq;
+import com.alinesno.infra.base.gateway.facade.entity.BaseEntity;
 import com.alinesno.infra.common.web.adapter.base.dto.ManagerAccountDto;
 import com.alinesno.infra.common.web.adapter.login.account.CurrentAccountJwt;
 import jakarta.servlet.http.HttpServletRequest;

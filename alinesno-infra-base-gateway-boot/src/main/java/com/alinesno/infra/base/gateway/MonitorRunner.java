@@ -1,6 +1,6 @@
 package com.alinesno.infra.base.gateway;
  
-import com.alinesno.infra.base.gateway.manage.task.MonitorTaskService;
+import com.alinesno.infra.base.gateway.domain.task.MonitorTaskService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;

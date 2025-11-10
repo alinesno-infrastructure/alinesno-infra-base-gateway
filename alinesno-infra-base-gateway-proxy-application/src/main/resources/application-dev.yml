@@ -65,8 +65,7 @@ spring:
 # sa-token配置
 sa-token:
   token-name: Authorization
-  token-prefix: Bearer
-  host-path: http://alinesno-infra-base-identity-auth-application.beta.base.infra.linesno.com
+  host-path: https://alinesno-infra-base-identity-auth-application.linesno.com
   sso:
     auth-url: ${sa-token.host-path}/login
     is-http: true

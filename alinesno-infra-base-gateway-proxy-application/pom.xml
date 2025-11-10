@@ -79,23 +79,22 @@
 			<version>3.3.7</version>
 		</dependency>
 
-		<!-- sa-token登陆鉴权 -->
+		<!-- sa-token登陆鉴权_start -->
 		<dependency>
 			<groupId>cn.dev33</groupId>
 			<artifactId>sa-token-reactor-spring-boot3-starter</artifactId>
-			<version>1.44.0</version>
+            <version>${satoken.version}</version>
 		</dependency>
-
-		<!-- Sa-Token 整合 Redis （使用 jackson 序列化方式） -->
 		<dependency>
 			<groupId>cn.dev33</groupId>
 			<artifactId>sa-token-redis-jackson</artifactId>
-			<version>1.44.0</version>
+            <version>${satoken.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-pool2</artifactId>
 		</dependency>
+        <!-- sa-token登陆鉴权_end -->
 
 	</dependencies>
 

@@ -81,6 +81,7 @@ alinesno:
     excludes:
       - /sso/**
       - /logout
+      - /v1/embeddings/**
 
 logging:
   level:
